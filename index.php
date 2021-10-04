@@ -7,8 +7,8 @@
 	else {
 		if ((! isset($_SESSION['profil'])) || count($_GET)== 0)	{
 			$controle = "clients";  
-			if(count($_GET)!= 0 && $_GET['action'] == "ajout_u"){
-				$action = "ajout_u";
+			if(count($_GET)!= 0 && $_GET['action'] == "inscrire"){
+				$action = "inscrire";
 			}
 			else $action = "accueilNAbon";
 		}

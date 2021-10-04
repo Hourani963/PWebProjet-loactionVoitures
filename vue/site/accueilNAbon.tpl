@@ -6,8 +6,8 @@
 </head>
 <body>
 	<div class="connectOrinscrit">
-		<a href="index.php?controle=clients&action=ident"><button>Se connecter</button></a>
-		<a href="#"><button>S'inscrire</button></a>
+		<a href="./index.php?controle=clients&action=ident"><button>Se connecter</button></a>
+		<a href="./index.php?controle=clients&action=inscrire"><button>S'inscrire</button></a>
 	</div>
 
 	<div>
