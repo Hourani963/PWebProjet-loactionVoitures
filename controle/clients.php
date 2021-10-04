@@ -9,5 +9,12 @@ function accueilNAbon(){
     
 }
 
+function ident(){
+    require('./vue/site/ident.tpl');
+}
+function inscrire(){
+    require('./vue/site/inscrire.tpl');
+}
+
 
 ?>
