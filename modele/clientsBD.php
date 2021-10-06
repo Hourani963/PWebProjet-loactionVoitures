@@ -1,9 +1,9 @@
 <?php
 
-function verif_bd($pseudo, $email, $mdp, &$profile){
+function verif_bd($pseudo, $mdp, &$profile){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-		$sql="SELECT * FROM `client` WHERE (pseudo=:pseudo OR email=:email) AND mdp=:mdp";
-
+		$sql="SELECT * FROM `client` WHERE (pseudo = :pseudo OR email=:pseudo) AND mdp = :mdp";
+        
 		try {
 			$commande = $pdo->prepare($sql);
 			$commande->bindParam(':pseudo', $pseudo);

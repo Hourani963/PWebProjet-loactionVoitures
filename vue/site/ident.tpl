@@ -18,9 +18,9 @@
                 <label for="pseudo" class="placeholder">Pseudo ou Mail</label>
             </div>
             <div class="input-container ic2">
-                <input name="motDePass" class="input" type="password" placeholder=" " />
+                <input name="mdp" class="input" type="password" placeholder=" " />
                 <div class="cut"></div>
-                <label for="motDePass" class="placeholder">Mot de pass</label>
+                <label for="mdp" class="placeholder">Mot de pass</label>
                 
             </div>
             <div id ="m" > <?php echo $msg; ?> </div>
