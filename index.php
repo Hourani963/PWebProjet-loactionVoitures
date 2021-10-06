@@ -12,6 +12,8 @@
 			}
 			else if(count($_GET)!= 0 && $_GET['action'] == "ident"){
 				$action = "ident";
+			}else if(count($_GET)!= 0 && $_GET['action'] == "admin"){
+				$action = "admin";
 			}
 			else $action = "accueilNAbon";
 		}
