@@ -10,6 +10,9 @@
 			if(count($_GET)!= 0 && $_GET['action'] == "inscrire"){
 				$action = "inscrire";
 			}
+			else if(count($_GET)!= 0 && $_GET['action'] == "ident"){
+				$action = "ident";
+			}
 			else $action = "accueilNAbon";
 		}
 		else {

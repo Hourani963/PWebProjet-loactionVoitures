@@ -21,7 +21,9 @@
                 <input name="motDePass" class="input" type="password" placeholder=" " />
                 <div class="cut"></div>
                 <label for="motDePass" class="placeholder">Mot de pass</label>
+                
             </div>
+            <div id ="m" > <?php echo $msg; ?> </div>
             <div class="input-container ic2">
                 
                 <div class="cut cut-short"></div>
