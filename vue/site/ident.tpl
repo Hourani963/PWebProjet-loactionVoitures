@@ -29,9 +29,10 @@
             </div>
         <a href="./index.php?controle=clients&action=ident"><button type="text" class="submit">submit</button></a>
         
-    </form>
+        </form>
     <a href="./index.php?controle=clients&action=inscrire"><button type="text" class="submit">S'inscire</button></a>
     </div>
+    <a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
 		
 	
 </body>

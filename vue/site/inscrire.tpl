@@ -43,11 +43,10 @@
 				</div>
 				<div class ="msg" > <?php echo $msg; ?> </div>
 				<button type="text" class="submit">submit</button>
-
+				</form>
+				<a href="./index.php?controle=clients&action=ident"><button type="text" class="submit">Se connecter</button></a>
 			</div>
-			
-		</form>
-		
 	</div>
+	<a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
 </body>
 </html>

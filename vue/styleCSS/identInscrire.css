@@ -139,3 +139,9 @@ body {
   .msg{
     color: #eee;
   }
+  .accueil{
+    background-color: red;
+    position: relative;
+    top: 10%;
+    border-radius: 50%;
+  }
