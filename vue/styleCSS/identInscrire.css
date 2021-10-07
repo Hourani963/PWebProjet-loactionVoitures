@@ -11,9 +11,9 @@ body {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: 100px;
     padding: 20px;
-    width: 320px;
+    width: 420px;
   }
   
   .title {
@@ -43,16 +43,16 @@ body {
   }
   
   .ic2 {
-    margin-top: 20px;
+    margin-top: 30px;
   }
   .ic3 {
-    margin-top: 20px;
+    margin-top: 40px;
   }
   .ic4 {
-    margin-top: 20px;
+    margin-top: 50px;
   }
   .ic5 {
-    margin-top: 20px;
+    margin-top: 60px;
   }
   
   .input {
@@ -115,7 +115,6 @@ body {
   }
   
   .submit {
-    
     background-color: #08d;
     border-radius: 12px;
     border: 0;

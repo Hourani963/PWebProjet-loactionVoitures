@@ -8,34 +8,46 @@
 </head>
 <body>
 	<div class="form">
-		<div class="title">Bienvenue</div>
-			<div class="subtitle">Let's create your account!</div>
+		<form action="./index.php?controle=clients&action=inscrire" method="POST">
+			<div class="title">Bienvenue</div>
+				<div class="subtitle">Let's create your account!</div>
+
 				<div class="input-container ic1">
 				<input name="nom" class="input" type="text" placeholder=" " />
 				<div class="cut"></div>
 				<label for="nom" class="placeholder">Nom</label>
-			</div>
-			<div class="input-container ic2">
+				</div>
+
+				<div class="input-container ic2">
 				<input name="prenom" class="input" type="text" placeholder=" " />
 				<div class="cut"></div>
 				<label for="prenom" class="placeholder">Prenom</label>
-			</div>
+				</div>
+
 				<div class="input-container ic3">
 				<input name="pseudo" class="input" type="text" placeholder=" " />
 				<div class="cut cut-short"></div>
-			<label for="pseudo" class="placeholder">Pseudo</>
-			<div class="input-container ic4">
+				<label for="pseudo" class="placeholder">Pseudo</>
+				</div>
+
+				<div class="input-container ic4">
 				<input name="mdp" class="input" type="text" placeholder=" " />
 				<div class="cut"></div>
 				<label for="mdp" class="placeholder">Mot de pass</label>
-			</div>
-			<div class="input-container ic5">
+				</div>
+
+				<div class="input-container ic5">
 				<input name="email" class="input" type="text" placeholder=" " />
 				<div class="cut"></div>
 				<label for="email" class="placeholder">Email</label>
+				</div>
+
+				<button type="text" class="submit">submit</button>
+				
 			</div>
-		</div>
-		<button type="text" class="submit">submit</button>
+			
+		</form>
+		
 	</div>
 </body>
 </html>
