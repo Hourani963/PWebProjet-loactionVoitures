@@ -8,6 +8,11 @@ function accueilNAbon(){
 
     
 }
+function bye(){
+    session_destroy();
+	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
+	header("Location:" .$nexturl);
+}
 
 function accueilAbon(){
     require('./vue/site/accueilAbon.tpl');
@@ -64,7 +69,7 @@ function inscrire(){
         else{
             if(verif_bd($pseudo, $mdp , $profil)){
                 $msg = "il y a déjà un autilisateur de même nom et identifiant";
-                require('./vue/utilisateur/inscription.tpl');
+                require('./vue/site/inscrire.tpl');
             }
             else{
                 $idu = insertClient($nom, $prenom, $pseudo,$mdp , $email);

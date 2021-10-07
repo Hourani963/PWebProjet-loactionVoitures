@@ -11,9 +11,9 @@ body {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 100px;
+    height: 690px;
     padding: 20px;
-    width: 420px;
+    width: 320px;
   }
   
   .title {
@@ -136,3 +136,6 @@ body {
     background-color: #06b;
   }
   
+  .msg{
+    color: #eee;
+  }
