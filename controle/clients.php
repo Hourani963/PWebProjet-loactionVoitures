@@ -23,6 +23,8 @@ function ident(){
 
     if($pseudo=='admin' && $mdp=='admin'){
         header("Location: index.php?controle=clients&action=admin");
+        $_SESSION['profil']['nom'] = $psuedo;
+        $_SESSION['profil']['mdp'] = $mdp;
     }else{
         if (count($_POST)==0) require("vue/site/ident.tpl");
     else {
@@ -31,7 +33,7 @@ function ident(){
         
         if (verif_bd($pseudo, $mdp, $profil)) {
             $_SESSION['profil'] = $profil;
-            $nexturl = "index.php?controle=clients&action=accueilAbon";
+                $nexturl = "index.php?controle=clients&action=accueilAbon";
             header ("Location:" . $nexturl);
         }
         else {
