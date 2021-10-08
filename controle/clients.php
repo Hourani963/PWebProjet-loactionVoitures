@@ -1,6 +1,10 @@
 <?php
 
-
+function touteVoiture(){
+    require('./modele/voitureBD.php');
+    $listV = getVoitures();
+    require('./vue/site/touteV.tpl');
+}
 
 function accueilNAbon(){
 
