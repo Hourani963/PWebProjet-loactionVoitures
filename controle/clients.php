@@ -87,4 +87,8 @@ function inscrire(){
 }
 
 
+function addFacture(){
+    require('/vue/site/accueilAbon.tpl');
+}
+
 ?>
