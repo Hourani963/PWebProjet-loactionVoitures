@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link href="./vue/styleCSS/accueilAbon.css" rel="stylesheet">
 	<title></title>
 </head>
 <body>
