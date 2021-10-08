@@ -27,7 +27,7 @@ function ident(){
     $msg="";
 
     if($pseudo=='admin' && $mdp=='admin'){
-        $_SESSION['profil']['pseudo'] = $psuedo;
+        $_SESSION['profil']['pseudo'] = $pseudo;
         $_SESSION['profil']['mdp'] = $mdp;
         header("Location: index.php?controle=clients&action=admin");
         
