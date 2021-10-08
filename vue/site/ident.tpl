@@ -7,7 +7,6 @@
 	<title></title>
 </head>
 <body>
-
     <div class="form">
     <form action="./index.php?controle=clients&action=ident" method="POST">
         <div class="title">Bienvenue</div>
@@ -30,9 +29,10 @@
             </div>
         <a href="./index.php?controle=clients&action=ident"><button type="text" class="submit">submit</button></a>
         
-    </form>
+        </form>
     <a href="./index.php?controle=clients&action=inscrire"><button type="text" class="submit">S'inscire</button></a>
     </div>
+    <a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
 		
 	
 </body>

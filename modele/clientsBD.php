@@ -33,4 +33,28 @@ function verif_bd($pseudo, $mdp, &$resultat){
 		}
 }
 
+function insertClient	($nom, $prenom, $pseudo, $mdp,$email){
+	require('./modele/connectBD.php');
+
+	$sql = "INSERT INTO client (nom,prenom,pseudo,mdp,email)
+			VALUES (:nom,:prenom, :pseudo, :mdp, :email)";
+
+
+	try{
+		$insert = $pdo->prepare($sql);
+		$insert->bindParam(':nom', $nom, PDO::PARAM_STR);
+		$insert->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+		$insert->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+		$insert->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+		$insert->bindParam(':email', $email, PDO::PARAM_STR);
+		$insert->execute();
+
+		return $pdo->lastInsertID(); //récupérer le id de dernère ligne insérer
+	}
+	catch(PDOException $e){
+		echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+		die(); // On arrête tout.
+	}
+}
+
 ?>

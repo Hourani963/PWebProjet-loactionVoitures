@@ -1,6 +1,10 @@
 <?php
 
-
+function touteVoiture(){
+    require('./modele/voitureBD.php');
+    $listV = getVoitures();
+    require('./vue/site/touteV.tpl');
+}
 
 function accueilNAbon(){
 
@@ -8,9 +12,14 @@ function accueilNAbon(){
 
     
 }
+function bye(){
+    session_destroy();
+	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
+	header("Location:" .$nexturl);
+}
 
 function accueilAbon(){
-    require('/vue/site/accueilNAbon.tpl');
+    require('./vue/site/accueilAbon.tpl');
 }
 function admin(){
     require("./vue/site/menuAdmin.tpl");
@@ -46,7 +55,39 @@ function ident(){
     
 }
 function inscrire(){
-    require('./vue/site/inscrire.tpl');
+    $nom=  isset($_POST['nom'])?($_POST['nom']):'';
+    $prenom=  isset($_POST['prenom'])?($_POST['prenom']):'';
+    $pseudo=  isset($_POST['pseudo'])?($_POST['pseudo']):'';
+    $mdp=  isset($_POST['mdp'])?($_POST['mdp']):'';
+    $email=  isset($_POST['email'])?($_POST['email']):'';
+    $msg='';
+
+    require('./modele/clientsBD.php');
+    
+    if(count($_POST)== 0) require("./vue/site/inscrire.tpl");
+    else{
+        if($pseudo=='' || $mdp==''){
+            $msg = 'Merci de remplir les champs nom et identifiant';
+            require('./vue/site/inscire.tpl');
+        }
+        else{
+            if(verif_bd($pseudo, $mdp , $profil)){
+                $msg = "il y a déjà un autilisateur de même nom et identifiant";
+                require('./vue/site/inscrire.tpl');
+            }
+            else{
+                $idu = insertClient($nom, $prenom, $pseudo,$mdp , $email);
+                $_SESSION['profil']['id_cli'] = $idu;
+                $_SESSION['profil']['nom'] = $nom;
+                $_SESSION['profil']['prenom'] = $prenom;
+                $_SESSION['profil']['pseudo'] = $pseudo;
+                $_SESSION['profil']['mdp'] = $mdp;
+                $_SESSION['profil']['email'] = $email;
+                $nexturl = "index.php?controle=clients&action=accueilAbon";
+                header("Location:" .$nexturl);
+            }
+        }
+    }
 }
 
 
