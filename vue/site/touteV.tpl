@@ -6,6 +6,7 @@
 	<title></title>
 </head>
 <body>
+<?php require("./vue/site/menuAdmin.tpl");?>
 <div class ="tout">
 
 <?php
@@ -24,12 +25,6 @@ foreach ($listV as $l){
             echo("</div>");
     echo("</div>");
 }
-?>
-
-
-
-
-    
-    
+?>  
 </div>
 </body>
