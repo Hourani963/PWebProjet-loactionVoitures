@@ -9,8 +9,14 @@ function accueilNAbon(){
     
 }
 
+function touteVoiture(){
+    require("./modele/voitureBD.php");
+    $listV = getVoitures();
+    require('./vue/site/touteV.tpl');
+}
+
 function accueilAbon(){
-    require('/vue/site/accueilNAbon.tpl');
+    require('./vue/site/accueilNAbon.tpl');
 }
 function admin(){
     require("./vue/site/menuAdmin.tpl");
@@ -23,7 +29,7 @@ function ident(){
 
     if($pseudo=='admin' && $mdp=='admin'){
         header("Location: index.php?controle=clients&action=admin");
-        $_SESSION['profil']['nom'] = $psuedo;
+        $_SESSION['profil']['pseudo'] = $psuedo;
         $_SESSION['profil']['mdp'] = $mdp;
     }else{
         if (count($_POST)==0) require("vue/site/ident.tpl");

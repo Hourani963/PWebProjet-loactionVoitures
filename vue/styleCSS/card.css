@@ -1,0 +1,39 @@
+.tout{
+    display:flex !important;
+}
+.corps{
+    background-color: #15172b;
+    width: 100px;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 200px;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100% !important;
+}
+div .img{
+    background-color: red;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+div .desc{
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+}

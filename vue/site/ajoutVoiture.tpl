@@ -7,25 +7,35 @@
 	<title></title>
 </head>
 <body>
-	<div class="form">
+	<form  action="index.php?controle=vehicule&action=ajoutvoiture" method="POST" class="form" enctype="multipart/form-data">
 		<div class="title">Ajout voiture</div>
 			<div class="subtitle">voiture</div>
 				<div class="input-container ic1">
-				<input name="type" class="input" type="text" placeholder=" " />
+				<input name="marque" class="input" type="text" placeholder=" " />
 				<div class="cut"></div>
-				<label for="type" class="placeholder">TYPE</label>
+				<label for="marque" class="placeholder">Marque</label>
 			</div>
 			<div class="input-container ic2">
-				<input name="quantité" class="input" type="text" placeholder=" " />
+				<input name="modele" class="input" type="text" placeholder=" " />
 				<div class="cut"></div>
-				<label for="quantité" class="placeholder">quantité</label>
+				<label for="modele" class="placeholder">Modele</label>
+			</div>
+			<div class="input-container ic2">
+				<input name="etatL" class="input" type="text" placeholder=" " />
+				<div class="cut"></div>
+				<label for="etatL" class="placeholder">Etat</label>
 			</div>
 				<div class="input-container ic3">
 				<input name="caract" class="input" type="text" placeholder=" " />
 				<div class="cut cut-short"></div>
 			<label for="caract" class="placeholder">caracteristique</>
-		</div>
+			</div>
+			<div class="input-container ic2">
+					<input name="img" class="input" type="file" placeholder=" " />
+					<div class="cut"></div>
+					<label for="file" class="placeholder">Image</label>
+			</div>
 		<button type="text" class="submit">submit</button>
-	</div>
+	</form>
 </body>
 </html>
