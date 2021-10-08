@@ -4,7 +4,7 @@ body {
     background-color: #000;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 90vh;
   }
   
   .form {
@@ -21,7 +21,7 @@ body {
     font-family: sans-serif;
     font-size: 36px;
     font-weight: 600;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   
   .subtitle {
@@ -36,9 +36,10 @@ body {
     height: 50px;
     position: relative;
     width: 100%;
+    margin-top: 30px;
   }
   
-  .ic1 {
+/*  .ic1 {
     margin-top: 20px;
   }
   
@@ -52,8 +53,13 @@ body {
     margin-top: 20px;
   }
   .ic5 {
+<<<<<<< Updated upstream
     margin-top: 20px;
   }
+=======
+    margin-top: 60px;
+  }*/
+>>>>>>> Stashed changes
   
   .input {
     background-color: #303245;
@@ -115,7 +121,11 @@ body {
   }
   
   .submit {
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     background-color: #08d;
     border-radius: 12px;
     border: 0;
@@ -124,7 +134,7 @@ body {
     cursor: pointer;
     font-size: 18px;
     height: 50px;
-    margin-top: 5;
+    margin-top: 30px;
     outline: 0;
     text-align: center;
     width: 100%;
