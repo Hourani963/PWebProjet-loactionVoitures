@@ -28,7 +28,7 @@
 
 		<div class="mySlides fade">
 			<div class="numbertext">3 / 3</div>
-			<img src="img3.jpg" style="width:100%">
+			<img src="./vue/images/voitures/voiture3.jpg" style="width:100%">
 			<div class="text">Caption Three</div>
 		</div>
 
