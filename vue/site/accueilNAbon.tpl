@@ -16,20 +16,20 @@
 		<!-- Full-width images with number and caption text -->
 		<div class="mySlides fade">
 			<div class="numbertext">1 / 3</div>
-			<img src="./vue/images/voitures/metso.jpg" style="width:100%">
-			<div class="text">Caption Text</div>
+			<img src="./vue/images/voitures/car1.jpg" style="width:100%">
+			<div class="text">Louer une voiture</div>
 		</div>
 
 		<div class="mySlides fade">
 			<div class="numbertext">2 / 3</div>
-			<img src="./vue/images/voitures/voiture4.avif" style="width:100%">
-			<div class="text">Caption Two</div>
+			<img src="./vue/images/voitures/car2.jpg" style="width:100%">
+			<div class="text">choisissez votre voitire</div>
 		</div>
 
 		<div class="mySlides fade">
 			<div class="numbertext">3 / 3</div>
-			<img src="./vue/images/voitures/voiture3.jpg" style="width:100%">
-			<div class="text">Caption Three</div>
+			<img src="./vue/images/voitures/car3.jpg" style="width:100%">
+			<div class="text">Meuilleur prix</div>
 		</div>
 
 		<!-- Next and previous buttons 
@@ -41,9 +41,7 @@
 
 		<!-- The dots/circles -->
 		<div style="text-align:center">
-		<span class="dot" onclick="currentSlide(1)"></span>
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
+
 		
 	</div>
 	<script src="./vue/JS/accueil.js"></script>
