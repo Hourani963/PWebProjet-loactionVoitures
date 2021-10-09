@@ -1,7 +1,14 @@
 
 body {
     align-items: center;
-    background-color: white;
+    background: -webkit-gradient(linear, left top, left bottom,
+     color-stop(0%, rgba(26, 49, 95, 1)),
+      color-stop(10%, rgba(26, 49, 95, 1)), 
+      color-stop(24%, rgba(29, 108, 141, 1)),
+       color-stop(37%, rgba(41, 136, 151, 1)), 
+       color-stop(77%, rgba(39, 45, 100, 1)),
+        color-stop(90%, rgba(26, 49, 95, 1)),
+         color-stop(100%, rgba(26, 49, 95, 1)));
     display: flex;
     justify-content: center;
     height: 90vh;
@@ -14,7 +21,18 @@ body {
     height: 690px;
     width: 450px;
   }
+  .ident{
+    height: 50vh !important;
+  }
   
+  
+  .form ident {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 690px;
+    width: 450px;
+  }
   .title {
     text-align: center;
     color: #eee;
@@ -40,24 +58,7 @@ body {
     width: 80%;
     margin-top: 30px;
   }
-  
-/*  .ic1 {
-    margin-top: 20px;
-  }
-  
-  .ic2 {
-    margin-top: 30px;
-  }
-  .ic3 {
-    margin-top: 40px;
-  }
-  .ic4 {
-    margin-top: 50px;
-  }
-  .ic5 {
-    margin-top: 60px;
-  }*/
-  
+
   .input {
     background-color: #303245;
     border-radius: 12px;
@@ -132,6 +133,11 @@ body {
     text-align: center;
     width: 80%;
   }
+  .ident .submit {
+    
+    margin-top: 10%;
+  }
+  
   .submit:hover{
     background-color: rgb(0, 221, 92);
   }
@@ -144,16 +150,27 @@ body {
     color: #eee;
   }
   .accueil{
-    background-color: red;
+    margin-top: auto;
+    background-color: rgb(37, 26, 26);
     position: relative;
     top: 10%;
-    border-radius: 50%;
+    border-radius: 12px;
   }
 .returnIdent {
   margin-top: 50px;
   color: white;
   margin-left: 28%;
 }
+.returnInscrire {
+  margin-top: 50px;
+  color: white;
+  margin-left: 28%;
+}
+.returnInscrire a {
+  font-size: 1rem;
+  color: white;
+}
+
 .returnIdent a {
     font-size: 1rem;
     color: white;
@@ -161,4 +178,14 @@ body {
 
 .returnIdent a:hover{
   color: #0088dd;
+}
+
+.returnInscrire a:hover{
+  color: #0088dd;
+}
+
+.msg{
+  padding-top: 10px;
+  text-align: center;
+  color: #dc2f55;
 }
