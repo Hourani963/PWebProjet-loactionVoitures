@@ -7,6 +7,7 @@
 	<title></title>
 </head>
 <body>
+
 	<div class="form">
 		<form action="./index.php?controle=clients&action=inscrire" method="POST">
 			<div class="title">Bienvenue</div>

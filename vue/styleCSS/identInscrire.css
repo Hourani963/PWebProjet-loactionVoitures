@@ -1,7 +1,14 @@
 
 body {
     align-items: center;
-    background-color: white;
+    background: -webkit-gradient(linear, left top, left bottom,
+     color-stop(0%, rgba(26, 49, 95, 1)),
+      color-stop(10%, rgba(26, 49, 95, 1)), 
+      color-stop(24%, rgba(29, 108, 141, 1)),
+       color-stop(37%, rgba(41, 136, 151, 1)), 
+       color-stop(77%, rgba(39, 45, 100, 1)),
+        color-stop(90%, rgba(26, 49, 95, 1)),
+         color-stop(100%, rgba(26, 49, 95, 1)));
     display: flex;
     justify-content: center;
     height: 90vh;
@@ -48,24 +55,7 @@ body {
     width: 80%;
     margin-top: 30px;
   }
-  
-/*  .ic1 {
-    margin-top: 20px;
-  }
-  
-  .ic2 {
-    margin-top: 30px;
-  }
-  .ic3 {
-    margin-top: 40px;
-  }
-  .ic4 {
-    margin-top: 50px;
-  }
-  .ic5 {
-    margin-top: 60px;
-  }*/
-  
+
   .input {
     background-color: #303245;
     border-radius: 12px;
@@ -178,5 +168,9 @@ body {
   }
 
 .returnIdent a:hover{
+  color: #0088dd;
+}
+
+.returnInscrire a:hover{
   color: #0088dd;
 }

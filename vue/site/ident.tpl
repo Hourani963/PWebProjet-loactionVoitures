@@ -7,6 +7,7 @@
 	<title></title>
 </head>
 <body>
+
     <div class="form ident">
     <form action="./index.php?controle=clients&action=ident" method="POST">
         <div class="title">Bienvenue</div>
