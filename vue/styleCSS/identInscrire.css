@@ -21,15 +21,18 @@ body {
     height: 690px;
     width: 450px;
   }
-
-  .form ident{
+  .ident{
+    height: 50vh !important;
+  }
+  
+  
+  .form ident {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 590px;
+    height: 690px;
     width: 450px;
   }
-  
   .title {
     text-align: center;
     color: #eee;
@@ -130,6 +133,11 @@ body {
     text-align: center;
     width: 80%;
   }
+  .ident .submit {
+    
+    margin-top: 10%;
+  }
+  
   .submit:hover{
     background-color: rgb(0, 221, 92);
   }
@@ -142,10 +150,11 @@ body {
     color: #eee;
   }
   .accueil{
-    background-color: red;
+    margin-top: auto;
+    background-color: rgb(37, 26, 26);
     position: relative;
     top: 10%;
-    border-radius: 50%;
+    border-radius: 12px;
   }
 .returnIdent {
   margin-top: 50px;
@@ -173,4 +182,10 @@ body {
 
 .returnInscrire a:hover{
   color: #0088dd;
+}
+
+.msg{
+  padding-top: 10px;
+  text-align: center;
+  color: #dc2f55;
 }

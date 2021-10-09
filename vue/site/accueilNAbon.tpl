@@ -8,12 +8,6 @@
 <body>
 	<div><?php include "./vue/site/components/Menu.tpl" ?></div>
 
-	
-	<div class="connectOrinscrit">
-		<a href="./index.php?controle=clients&action=ident"><button>Se connecter</button></a>
-		<a href="./index.php?controle=clients&action=inscrire"><button>S'inscrire</button></a>
-	</div>
-
 	<div class="slideshow-container">
 
 		<!-- Full-width images with number and caption text -->

@@ -7,7 +7,7 @@ function verif_bd($pseudo, $mdp, &$resultat){
 		try {
 			$commande = $pdo->prepare($sql);
 			$commande->bindParam(':pseudo', $pseudo);
-			$commande->bindParam(':email', $email);
+			$commande->bindParam(':email', $pseudo);
             $commande->bindParam(':mdp', $mdp);
 			$bool = $commande->execute();
 			if ($bool) {
