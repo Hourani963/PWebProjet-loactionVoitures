@@ -1,5 +1,29 @@
 <?php
 
+function unique_bd($pseudo, $email){ // unique pseudo ou email dans la base de donnée
+	require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+		$sql="SELECT * FROM `client` WHERE (pseudo = :pseudo OR email= :email)";
+		try {
+			$commande = $pdo->prepare($sql);
+			$commande->bindParam(':pseudo', $pseudo);
+			$commande->bindParam(':email', $email);
+			$bool = $commande->execute();
+			if ($bool) {
+				$resultat = $commande->fetchAll(PDO::FETCH_ASSOC); 
+			}
+		}
+		catch (PDOException $e) {
+			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+			die();
+		}
+		if (count($resultat) == 0) {
+			return false; 
+		}
+		else {
+			return true;
+		}
+}
+
 function verif_bd($pseudo, $mdp, &$profil){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 		$sql="SELECT * FROM `client` WHERE (pseudo = :pseudo OR email=:pseudo) AND mdp = :mdp";

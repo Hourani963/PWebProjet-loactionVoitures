@@ -67,8 +67,8 @@ function inscrire(){
     
     if(count($_POST)== 0) require("./vue/site/inscrire.tpl");
     else{
-        if(verif_bd($pseudo, $mdp , $profil)){
-            $msg = "il y a déjà un autilisateur pseudo";
+        if(unique_bd($pseudo, $email)){
+            $msg = "il y a déjà un autilisateur de même pseudo ou email";
             require('./vue/site/inscrire.tpl');
         }
         else{
