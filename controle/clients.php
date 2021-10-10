@@ -41,8 +41,10 @@ function ident(){
         
         require ("./modele/clientsBD.php");
         
-        if (verif_bd($pseudo, $mdp, $profil)) {
+        if (verif_bd($pseudo, $mdp ,$profil)) {
+            //var_dump($profil); die("ok");
             $_SESSION['profil'] = $profil;
+            //var_dump($_SESSION['profil']); die("ok");
                 $nexturl = "index.php?controle=clients&action=accueilAbon";
             header ("Location:" . $nexturl);
         }
@@ -92,17 +94,17 @@ function inscrire(){
 
 
 function addFacture(){
-
-
+    //var_dump($_SESSION['profil']); die("ok");
+    $id = $_SESSION['profil']['id_cli'];
+    echo $id;
+    $id_vec = isset($_POST['Modele'])?($_POST['Modele']):'';
+    $start_Date = isset($_POST['StartDate'])?($_POST['StartDate']):'';
+    $end_Date = isset($_POST['EndDate'])?($_POST['EndDate']):'';
+    $val = isset($_POST['valeur'])?($_POST['valeur']):'';
+    $state = isset($_POST['Etat'])?($_POST['Etat']):'';
     if (count($_POST) == 0) require('./vue/site/FormAjoutFacture.tpl') ;
     else {
-        require("./modele/voituresBD.php");
-        $id = isset($_SESSION['profil']['id_cli'])?($_SESSION['profil']['id_cli']):'';
-        $id_vec = isset($_POST['Modele'])?($_POST['Modele']):'';
-        $start_Date = isset($_POST['StartDate'])?($_POST['StartDate']):'';
-        $end_Date = isset($_POST['EndDate'])?($_POST['EndDate']):'';
-        $val = isset($_POST['valeur'])?($_POST['valeur']):'';
-        $state = isset($_POST['Etat'])?($_POST['Etat']):'';
+        require("./modele/voitureBD.php");
         insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
         $nexturl = "index.php?controle=clients&action=accueilAbon";
         header("Location:" .$nexturl);

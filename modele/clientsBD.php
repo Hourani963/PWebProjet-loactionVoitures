@@ -1,6 +1,6 @@
 <?php
 
-function verif_bd($pseudo, $mdp, &$resultat){
+function verif_bd($pseudo, $mdp, &$profil){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 		$sql="SELECT * FROM `client` WHERE (pseudo = :pseudo OR email=:pseudo) AND mdp = :mdp";
         
@@ -12,7 +12,7 @@ function verif_bd($pseudo, $mdp, &$resultat){
 			$bool = $commande->execute();
 			if ($bool) {
 				$resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-				 
+                //var_dump($resultat); die("ok");
 				/*while ($ligne = $commande->fetch()) { // ligne par ligne
 					print_r($ligne);
 				}*/
@@ -28,7 +28,7 @@ function verif_bd($pseudo, $mdp, &$resultat){
 		}
 		else {
 			$profil = $resultat[0];
-			//var_dump($profil);
+			//var_dump($profil); die("ok");
 			return true;
 		}
 }
