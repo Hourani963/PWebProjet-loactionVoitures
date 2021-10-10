@@ -13,17 +13,17 @@
 		<!-- Full-width images with number and caption text -->
 		<div class="mySlides fade">
 			<img src="./vue/images/voitures/car1.jpg" style="width:100%">
-			<div class="text">Louer une voiture</div>
+			<div class="text c1">Louer une voiture</div>
 		</div>
 
 		<div class="mySlides fade">
 			<img src="./vue/images/voitures/car2.jpg" style="width:100%">
-			<div class="text">choisissez votre voiture</div>
+			<div class="text c2">choisissez votre voiture</div>
 		</div>
 
 		<div class="mySlides fade">
 			<img src="./vue/images/voitures/car3.jpg" style="width:100%">
-			<div class="text">Meuilleur prix</div>
+			<div class="text c3">Meuilleur prix</div>
 		</div>
 
 		<br>

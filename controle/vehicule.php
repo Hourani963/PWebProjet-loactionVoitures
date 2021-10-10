@@ -1,7 +1,9 @@
 <?php
 
 
-
+function louerVoitureNAbon(){
+    require('./vue/site/vehicule/louerVoitureNAbon.tpl');
+}
 
 function erreurAjout(){
     require("./vue/site/messageError.tpl");
