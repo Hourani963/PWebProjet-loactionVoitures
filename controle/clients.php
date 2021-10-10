@@ -37,20 +37,21 @@ function ident(){
         
     }else{
         if (count($_POST)==0) require("vue/site/ident.tpl");
-    else {
-        
-        require ("./modele/clientsBD.php");
-        
-        if (verif_bd($pseudo, $mdp, $profil)) {
-            $_SESSION['profil'] = $profil;
-                $nexturl = "index.php?controle=clients&action=accueilAbon";
-            header ("Location:" . $nexturl);
-        }
         else {
-            $msg = "Utilisateur inconnu !";
-            require("vue/site/ident.tpl");
+            
+            require ("./modele/clientsBD.php");
+            
+            if (verif_bd($pseudo, $mdp, $profil)) {
+                
+                $_SESSION['profil'] = $profil;
+                $nexturl = "index.php?controle=clients&action=accueilAbon";
+                header ("Location:" . $nexturl);
+            }
+            else {
+                $msg = "Utilisateur inconnu !";
+                require("vue/site/ident.tpl");
+            }
         }
-    }
     }
     
 }
