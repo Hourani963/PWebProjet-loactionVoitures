@@ -28,7 +28,7 @@ function ajoutV($marque,$modele,$caract,$path, $etatL){
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT * FROM vehicule";
+    $sql="SELECT id_vehi, modele FROM vehicule";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();

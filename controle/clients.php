@@ -96,13 +96,16 @@ function inscrire(){
 function addFacture(){
     //var_dump($_SESSION['profil']); die("ok");
     $id = $_SESSION['profil']['id_cli'];
-    echo $id;
     $id_vec = isset($_POST['Modele'])?($_POST['Modele']):'';
     $start_Date = isset($_POST['StartDate'])?($_POST['StartDate']):'';
     $end_Date = isset($_POST['EndDate'])?($_POST['EndDate']):'';
     $val = isset($_POST['valeur'])?($_POST['valeur']):'';
     $state = isset($_POST['Etat'])?($_POST['Etat']):'';
-    if (count($_POST) == 0) require('./vue/site/FormAjoutFacture.tpl') ;
+    if (count($_POST) == 0) {
+        require("./modele/voitureBD.php");
+        $Voiture = getVoitures();
+        require('./vue/site/FormAjoutFacture.tpl') ;
+    }
     else {
         require("./modele/voitureBD.php");
         insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
