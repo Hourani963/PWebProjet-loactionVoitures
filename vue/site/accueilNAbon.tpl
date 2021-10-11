@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-	<div><?php include "./vue/site/components/Menu.tpl" ?></div>
+	<div><?php include "./vue/site/components/MenuNAbon.tpl" ?></div>
 
 	<div class="slideshow-container">
 

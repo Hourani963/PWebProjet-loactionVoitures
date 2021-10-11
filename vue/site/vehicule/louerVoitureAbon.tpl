@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-	<div><?php include "./vue/site/components/MenuNAbon.tpl" ?></div>
+	<div><?php include "./vue/site/components/MenuAbon.tpl" ?></div>
 
 </body>
 </html>

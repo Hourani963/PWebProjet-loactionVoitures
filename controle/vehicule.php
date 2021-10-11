@@ -4,7 +4,9 @@
 function louerVoitureNAbon(){
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
-
+function louerVoitureAbon(){
+    require('./vue/site/vehicule/louerVoitureAbon.tpl');
+}
 function erreurAjout(){
     require("./vue/site/messageError.tpl");
 }
