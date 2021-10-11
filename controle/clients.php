@@ -3,7 +3,17 @@
 function touteVoiture(){
     require('./modele/voitureBD.php');
     $listV = getVoitures();
-    require('./vue/site/touteV.tpl');
+
+    if($_SESSION['profil']['pseudo']== 'admin' && $_SESSION['profil']['mdp']== 'admin'){ // afficher les voitures pour le admon
+        require('./vue/site/touteV.tpl');
+    }
+    else if(! isset($_SESSION['profil'])){ // afficher les voitures pour les personnes non connecté
+        require('./vue/site/louerVoitureNAbon.tpl');
+    }
+    else{ // afficher les voitures pour les personnes connecté
+        require('./vue/site/louerVoitureAbon.tpl');
+    }
+    
 }
 
 function accueilNAbon(){
