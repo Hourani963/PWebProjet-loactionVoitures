@@ -1,9 +1,25 @@
 <?php
-
 function touteVoiture(){
+    
     require('./modele/voitureBD.php');
     $listV = getVoitures();
     require('./vue/site/touteV.tpl');
+}
+function ajoutPanier(){
+    require("./modele/voitureBD.php");
+    $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
+    $voiture = getVoiture($id_v);
+    $nbV = $_SESSION['nbV'];
+    $_SESSION['panier'][$nbV] = $voiture;
+    $_SESSION['nbV']=$_SESSION['nbV']+1;
+    $listV = getVoitures();
+    require('./vue/site/touteV.tpl');
+    
+}
+
+function voirPanier(){
+    $panier = $_SESSION['panier'];
+    require('./vue/site/panier.tpl');
 }
 
 function accueilNAbon(){
@@ -23,9 +39,11 @@ function accueilAbon(){
 }
 function admin(){
     require("./vue/site/menuAdmin.tpl");
+    
 }
 function ident(){
-    
+    $_SESSION['nbV']=0;
+    $_SESSION['panier']=array();
     $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
     $mdp=isset($_POST['mdp'])?trim($_POST['mdp']):'';
     $msg="";

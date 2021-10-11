@@ -3,7 +3,7 @@
 }
 .corps{
     background-color: #15172b;
-    width: 120px;
+    width: 100px;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
@@ -22,10 +22,14 @@ div .img{
     font-size: 18px;
     height: 100%;
     outline: 0;
-    padding: 4px 20px 0;
     width: 100%;
 }
+img{
+    border-radius: 12px;
+
+}
 div .desc{
+    margin-top: 5;
     background-color: #303245;
     border-radius: 12px;
     border: 0;
