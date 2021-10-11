@@ -1,6 +1,5 @@
 <?php 
 	session_start ();
-	
 	if ((count($_GET)!=0) && !(isset($_GET['controle']) && isset ($_GET['action'])))
 	require ('./vue/erreur404.tpl'); 
 	

@@ -7,6 +7,9 @@ function touteVoiture(){
 }
 function ajoutPanier(){
     require("./modele/voitureBD.php");
+    if(isset($_COOKIE['panier_']) && $_COOKIE['panier_'] != "pas de panier"){
+        $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
+    }
     $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
     $voiture = getVoiture($id_v);
     $nbV = $_SESSION['nbV'];
@@ -18,6 +21,7 @@ function ajoutPanier(){
 }
 
 function voirPanier(){
+    var_dump($_COOKIE['panier_']);
     $panier = $_SESSION['panier'];
     require('./vue/site/panier.tpl');
 }
@@ -29,6 +33,8 @@ function accueilNAbon(){
     
 }
 function bye(){
+
+    setcookie('panier_', json_encode($_SESSION['panier']), time()+3600*24, '/', '', false, false);
     session_destroy();
 	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
 	header("Location:" .$nexturl);
