@@ -13,6 +13,18 @@
     outline: 0;
     padding: 4px 20px 0;
 }
+.corpsPanier{
+    background-color: #15172b;
+    border-radius: 12px;
+    width: 600px !important;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+}
 div .img{
     background-color: red;
     border-radius: 12px;
@@ -29,14 +41,52 @@ img{
 
 }
 div .desc{
+    font-family: arial;
     margin-top: 5;
     background-color: #303245;
-    border-radius: 12px;
     border: 0;
     box-sizing: border-box;
     color: #eee;
     font-size: 18px;
     height: 100%;
     outline: 0;
-    padding: 10%;
+    padding: 10px;
+    border-radius: 12px;
+
+
+}
+div .descPanier{
+    font-family: arial;
+    margin-top: 5;
+    background-color: #303245;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 10px;
+    border-radius: 12px;
+    display : flex;
+    width: 100%;
+    
+
+
+}
+li{
+    list-style: none;
+    padding-left: 20px;
+}
+ul{
+    display: flex;
+}
+p{
+    background-color: #5e6281;
+    border-radius: 12px;
+    padding : 3%;
+    border:5px;
+    padding-bottom: 10px;
+    margin-top : 0;
+
+
 }

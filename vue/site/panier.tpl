@@ -10,19 +10,26 @@
 <div class ="tout">
 
 <?php
-foreach ($panier as $p){
-    echo("<div class = 'corps' style='width:260px; padding:5; margin:5'>");
-        echo("<div class='img'>");
-             echo("<img src=" . $p[0]['path_photo'] . " width='250'>");
-        echo("</div>");
-            echo("<div class='desc'>");
-                echo("<p>Marque : " . $p[0]['marque'] . "</p>");
-                echo("<p>Modele : " . $p[0]['modele']. "</p>");
-                echo("<p>Caracteristique : " . $p[0]['caract'] . "</p>");
-                echo("<label for='qte'>quantité :</label>");
+
+    echo("<div class = 'corpsPanier' style='width:260px; padding:5; margin:5'>");
+    echo("<ul>");
+    echo("<li>Marque : </li>");
+    echo("<li>Modele : </li>");
+    echo("<li>Caracteristique : </li>");
+    echo("<li>Quantité : </li>");
+    echo("</ul>");
+    foreach ($panier as $p){
+        echo("<ul>");
+            echo("<div class='descPanier'>");
+                echo("<li>" . $p[0]['marque'] . "</li>");
+                echo("<li>" . $p[0]['modele'] . "</li>");
+                echo("<li>" . $p[0]['caract'] . "</li>");
+                echo("<li>qte</li>");
             echo("</div>");
+        echo("</ul>");
+    }
     echo("</div>");
-}
+
 ?>  
 </div>
 </body>
