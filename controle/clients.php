@@ -3,7 +3,17 @@
 function touteVoiture(){
     require('./modele/voitureBD.php');
     $listV = getVoitures();
-    require('./vue/site/touteV.tpl');
+
+    if($_SESSION['profil']['pseudo']== 'admin' && $_SESSION['profil']['mdp']== 'admin'){ // afficher les voitures pour le admon
+        require('./vue/site/touteV.tpl');
+    }
+    else if(! isset($_SESSION['profil'])){ // afficher les voitures pour les personnes non connecté
+        require('./vue/site/louerVoitureNAbon.tpl');
+    }
+    else{ // afficher les voitures pour les personnes connecté
+        require('./vue/site/louerVoitureAbon.tpl');
+    }
+    
 }
 
 function accueilNAbon(){
@@ -37,20 +47,21 @@ function ident(){
         
     }else{
         if (count($_POST)==0) require("vue/site/ident.tpl");
-    else {
-        
-        require ("./modele/clientsBD.php");
-        
-        if (verif_bd($pseudo, $mdp, $profil)) {
-            $_SESSION['profil'] = $profil;
-                $nexturl = "index.php?controle=clients&action=accueilAbon";
-            header ("Location:" . $nexturl);
-        }
         else {
-            $msg = "Utilisateur inconnu !";
-            require("vue/site/ident.tpl");
+            
+            require ("./modele/clientsBD.php");
+            
+            if (verif_bd($pseudo, $mdp, $profil)) {
+                
+                $_SESSION['profil'] = $profil;
+                $nexturl = "index.php?controle=clients&action=accueilAbon";
+                header ("Location:" . $nexturl);
+            }
+            else {
+                $msg = "Utilisateur inconnu !";
+                require("vue/site/ident.tpl");
+            }
         }
-    }
     }
     
 }
@@ -66,8 +77,8 @@ function inscrire(){
     
     if(count($_POST)== 0) require("./vue/site/inscrire.tpl");
     else{
-        if(verif_bd($pseudo, $mdp , $profil)){
-            $msg = "il y a déjà un autilisateur pseudo";
+        if(unique_bd($pseudo, $email)){
+            $msg = "il y a déjà un autilisateur de même pseudo ou email";
             require('./vue/site/inscrire.tpl');
         }
         else{

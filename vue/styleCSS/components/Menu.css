@@ -90,12 +90,12 @@ width:190px;
 font-family: 'Titillium Web', sans-serif;
 }
 
-.main-menu>ul.logout {
-position:absolute;
-left:0;
-bottom:0;
-}
 
+.logout{
+  position:absolute;
+  left:0;
+  bottom:0;
+}
 .no-touch .scrollable.hover {
 overflow-y:hidden;
 }

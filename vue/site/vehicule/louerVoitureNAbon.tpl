@@ -6,10 +6,7 @@
 	<title></title>
 </head>
 <body>
-	<div><?php include "./vue/site/components/MenuAdmin.tpl" ?></div>
-	
-	<h2> Administrateur </h2>
+	<div><?php include "./vue/site/components/MenuNAbon.tpl" ?></div>
+
 </body>
-</html>	
-	
-	
+</html>
