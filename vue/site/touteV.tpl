@@ -5,8 +5,9 @@
 	<link href="./vue/styleCSS/card.css" rel="stylesheet">
 	
 </head>
+
 <body>
-<div><?php require("./vue/site/menuAdmin.tpl");?></div>
+<div class="menu"><?php require("./vue/site/menuAdmin.tpl");?></div>
 
 <div class ="tout">
 
