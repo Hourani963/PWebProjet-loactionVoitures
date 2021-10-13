@@ -7,32 +7,31 @@
 	<title></title>
 </head>
 <body>
-    <div class="form">
-    <form action="./index.php?controle=clients&action=ident" method="POST">
-        <div class="title">Bienvenue</div>
-            <div class="subtitle">Se connecter pour voir les meuilleur voitures!</div>
-            <div class="input-container ic1">
-                <input name="pseudo" class="input" type="text" placeholder=" " />
-                <div class="cut"></div>
-                <label for="pseudo" class="placeholder">Pseudo ou Mail</label>
-            </div>
-            <div class="input-container ic2">
-                <input name="mdp" class="input" type="password" placeholder=" " />
-                <div class="cut"></div>
-                <label for="mdp" class="placeholder">Mot de pass</label>
+
+    <div class="form ident">
+        <form action="./index.php?controle=clients&action=ident" method="POST">
+           
+            <div class="title">Bienvenue</div>
+                <div class="subtitle">Se connecter pour voir les meuilleur voitures!</div>
+                <div class="msg"> <?php echo $msg; ?> </div> 
+                <div class="input-container ic1">
+                    <input name="pseudo" class="input" type="text" placeholder=" " required/>
+                    <div class="cut"></div>
+                    <label for="pseudo" class="placeholder">Pseudo ou Mail</label>
+                </div>
+                <div class="input-container ic2">
+                    <input name="mdp" class="input" type="password" placeholder=" " required/>
+                    <div class="cut"></div>
+                    <label for="mdp" class="placeholder">Mot de pass</label>
+                </div>
                 
-            </div>
-            <div id ="m" > <?php echo $msg; ?> </div>
-            <div class="input-container ic2">
-                
-                <div class="cut cut-short"></div>
-            </div>
-        <a href="./index.php?controle=clients&action=ident"><button type="text" class="submit">submit</button></a>
-        
+            <a href="./index.php?controle=clients&action=ident"><button type="text" class="submit">submit</button></a>
+            
         </form>
-    <a href="./index.php?controle=clients&action=inscrire"><button type="text" class="submit">S'inscire</button></a>
+        <span class="returnInscrire">Vous n'êtez pas inscrit ?<a href="./index.php?controle=clients&action=inscrire">Inscrivez-vous</a></span>
+        <a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
     </div>
-    <a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
+    
 		
 	
 </body>

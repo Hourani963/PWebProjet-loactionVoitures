@@ -26,6 +26,31 @@ function ajoutV($marque,$modele,$caract,$path, $etatL){
 
 }
 
+
+
+function getVoiture($id){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    $sql="SELECT * FROM vehicule WHERE id_vehi=:id_vehi";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':id_vehi', $id);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    return $resultat;
+    
+
+
+}
+
+
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     $sql="SELECT id_vehi, modele FROM vehicule";
