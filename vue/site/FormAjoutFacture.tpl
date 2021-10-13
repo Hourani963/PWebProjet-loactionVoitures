@@ -9,6 +9,17 @@
     <form action="./index.php?controle=clients&action=addFacture" method="post">
         <div class="title">Bienvenue</div>
         <div class="input-container">
+            <label for="id_cli" class="placeholder">Client : </label>
+            <select id="id_cli" name="id_cli" class="input" required>
+                <option value="" selected="selected">Choissisez un client</option>
+                <?php
+                 foreach($Client as $c){
+                        echo '<option value="'. $c['id_cli'] .'" ' . ' >'. $c['nom'] . " " . $c['prenom'] .'</option>';
+                }
+                ?>
+            </select>
+        </div>
+        <div class="input-container">
             <label for="Modele" class="placeholder">Modèle de voiture : </label>
             <select id="Modele" name="Modele" class="input" required>
                 <option value="" selected="selected">Choissisez un modèle</option>

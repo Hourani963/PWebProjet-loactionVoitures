@@ -104,6 +104,8 @@ function addFacture(){
     if (count($_POST) == 0) {
         require("./modele/voitureBD.php");
         $Voiture = getVoitures();
+        require("./modele/clientsBD.php");
+        $Client = getId_cli();
         require('./vue/site/FormAjoutFacture.tpl') ;
     }
     else {
