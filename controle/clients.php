@@ -4,7 +4,7 @@ function touteVoiture(){
     require('./modele/voitureBD.php');
     $listV = getVoitures();
 
-    if($_SESSION['profil']['pseudo']== 'admin' && $_SESSION['profil']['mdp']== 'admin'){ // afficher les voitures pour le admon
+    if($_SESSION['profil']['pseudo'] == 'admin' && $_SESSION['profil']['mdp']== 'admin'){ // afficher les voitures pour le admon
         require('./vue/site/touteV.tpl');
     }
     else if(! isset($_SESSION['profil'])){ // afficher les voitures pour les personnes non connecté

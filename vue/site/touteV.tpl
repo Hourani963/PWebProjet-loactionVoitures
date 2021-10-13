@@ -3,10 +3,12 @@
 	<meta charset="utf-8">
 	<title>S'inscrire</title>
 	<link href="./vue/styleCSS/card.css" rel="stylesheet">
-	<title></title>
+	
 </head>
+
 <body>
-<?php require("./vue/site/menuAdmin.tpl");?>
+<div class="menu"><?php require("./vue/site/menuAdmin.tpl");?></div>
+
 <div class ="tout">
 
 <?php
@@ -22,7 +24,7 @@ foreach ($listV as $l){
                 echo("<label for='qte'>quantité :</label>");
                 echo("<input type='number' id='qte' name='qte' min='0' max='100' placeholder='0'>");
                 echo("<a href='index.php?controle=clients&action=ajoutPanier&vtr=" . $l['id_vehi'] . "'><input type='submit' value='Ajout panier'></a>");
-            echo("</div>");
+        echo("</div>");
     echo("</div>");
 }
 ?>  

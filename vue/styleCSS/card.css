@@ -1,5 +1,7 @@
+
 .tout{
-    display:flex !important;
+    
+    display: flex;
 }
 .corps{
     background-color: #15172b;
@@ -73,11 +75,11 @@ div .descPanier{
 
 
 }
-li{
+.tout .li{
     list-style: none;
     padding-left: 20px;
 }
-ul{
+.tout ul{
     display: flex;
 }
 p{
@@ -87,6 +89,4 @@ p{
     border:5px;
     padding-bottom: 10px;
     margin-top : 0;
-
-
 }
