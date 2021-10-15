@@ -6,23 +6,23 @@
 	<title></title>
 </head>
 <body>
-	<div><?php include "./vue/site/components/MenuNAbon.tpl" ?></div>
+	<div><?php include "vue/site/components/MenuNAbon.tpl" ?></div>
 
 	<div class="slideshow-container">
 
 		<!-- Full-width images with number and caption text -->
 		<div class="mySlides fade">
-			<img src="./vue/images/voitures/car1.jpg" style="width:100%">
+			<img src="vue/images/voitures/car1.jpg" style="width:100%">
 			<div class="text c1">Louer une voiture</div>
 		</div>
 
 		<div class="mySlides fade">
-			<img src="./vue/images/voitures/car2.jpg" style="width:100%">
+			<img src="vue/images/voitures/car2.jpg" style="width:100%">
 			<div class="text c2">choisissez votre voiture</div>
 		</div>
 
 		<div class="mySlides fade">
-			<img src="./vue/images/voitures/car3.jpg" style="width:100%">
+			<img src="vue/images/voitures/car3.jpg" style="width:100%">
 			<div class="text c3">Meuilleur prix</div>
 		</div>
 
@@ -33,7 +33,7 @@
 
 		
 	</div>
-	<script src="./vue/JS/accueil.js"></script>
+	<script src="vue/JS/accueil.js"></script>
 
 </body>
 	<div><?php require('./vue/site/components/Footer.tpl'); ?></div>
