@@ -55,10 +55,10 @@ function ident(){
     $_SESSION['nbV']=0;
     $_SESSION['panier']=array();
     $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
-    $mdp=isset($_POST['mdp'])?trim($_POST['mdp']):'';
+    $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
     $msg="";
-
-    if($pseudo=='admin' && $mdp=='admin'){
+    $mdp = md5($mdpNC);
+    if($pseudo=='admin' && $mdp== md5('admin')){
         $_SESSION['profil']['pseudo'] = $pseudo;
         $_SESSION['profil']['mdp'] = $mdp;
         header("Location: index.php?controle=clients&action=admin");
@@ -87,10 +87,10 @@ function inscrire(){
     $nom=  isset($_POST['nom'])?($_POST['nom']):'';
     $prenom=  isset($_POST['prenom'])?($_POST['prenom']):'';
     $pseudo=  isset($_POST['pseudo'])?($_POST['pseudo']):'';
-    $mdp=  isset($_POST['mdp'])?($_POST['mdp']):'';
+    $mdpNC=  isset($_POST['mdp'])?($_POST['mdp']):'';
     $email=  isset($_POST['email'])?($_POST['email']):'';
     $msg='';
-
+    $mdp = md5($mdpNC);
     require('./modele/clientsBD.php');
     
     if(count($_POST)== 0) require("./vue/site/inscrire.tpl");
