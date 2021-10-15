@@ -132,7 +132,28 @@ function inscrire(){
 
 
 function addFacture(){
-    require('/vue/site/accueilAbon.tpl');
+    //var_dump($_SESSION['profil']); die("ok");
+    //require('/vue/site/accueilAbon.tpl');
+    $id = isset($_POST['id_cli'])?($_POST['id_cli']):'';
+    $id_vec = isset($_POST['Modele'])?($_POST['Modele']):'';
+    $start_Date = isset($_POST['StartDate'])?($_POST['StartDate']):'';
+    $end_Date = isset($_POST['EndDate'])?($_POST['EndDate']):'';
+    $val = isset($_POST['valeur'])?($_POST['valeur']):'';
+    $state = isset($_POST['Etat'])?($_POST['Etat']):'';
+
+    if (count($_POST) == 0) {
+        require("./modele/voitureBD.php");
+        $Voiture = getVoitures();
+        require("./modele/clientsBD.php");
+        $Client = getId_cli();
+        require('./vue/site/FormAjoutFacture.tpl') ;
+    }
+    else {
+        require("./modele/voitureBD.php");
+        insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
+        $nexturl = "index.php?controle=clients&action=accueilAbon";
+        header("Location:" .$nexturl);
+    }
 }
 
 ?>
