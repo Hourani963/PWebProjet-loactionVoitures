@@ -7,22 +7,20 @@ function touteVoiture(){
 }
 function ajoutPanier(){
     require("./modele/voitureBD.php");
-    if(isset($_COOKIE['panier_']) && $_COOKIE['panier_'] != "pas de panier"){
-        $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
-    }
     $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
     $voiture = getVoiture($id_v);
     $nbV = $_SESSION['nbV'];
     $_SESSION['panier'][$nbV] = $voiture;
     $_SESSION['nbV']=$_SESSION['nbV']+1;
     $listV = getVoitures();
-    require('./vue/site/touteV.tpl');
-    
+    var_dump($_SESSION['panier']);
+    require('./vue/site/touteV.tpl');   
 }
 
 function voirPanier(){
-    var_dump($_COOKIE['panier_']);
+    
     $panier = $_SESSION['panier'];
+    var_dump($panier);
     require('./vue/site/panier.tpl');
 }
 
@@ -35,6 +33,8 @@ function accueilNAbon(){
 function bye(){
 
     setcookie('panier_', json_encode($_SESSION['panier']), time()+3600*24, '/', '', false, false);
+    setcookie('nb', json_encode($_SESSION['nbV']), time()+3600*24, '/', '', false, false);
+
     session_destroy();
 	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
 	header("Location:" .$nexturl);
@@ -57,7 +57,16 @@ function ident(){
     if($pseudo=='admin' && $mdp=='admin'){
         $_SESSION['profil']['pseudo'] = $pseudo;
         $_SESSION['profil']['mdp'] = $mdp;
+        
+	//cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
+        if(isset($_SESSION['panier'])){
+            
+            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
+            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
+    
+        }
         header("Location: index.php?controle=clients&action=admin");
+        
         
     }else{
         if (count($_POST)==0) require("vue/site/ident.tpl");
@@ -67,7 +76,14 @@ function ident(){
         
         if (verif_bd($pseudo, $mdp, $profil)) {
             $_SESSION['profil'] = $profil;
-                $nexturl = "index.php?controle=clients&action=accueilAbon";
+            $nexturl = "index.php?controle=clients&action=accueilAbon";
+            //cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
+        if(isset($_SESSION['panier'])){
+            
+            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
+            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
+    
+        }
             header ("Location:" . $nexturl);
         }
         else {
