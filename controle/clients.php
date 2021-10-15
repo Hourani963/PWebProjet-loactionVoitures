@@ -94,7 +94,11 @@ function inscrire(){
 
 
 function addFacture(){
+<<<<<<< Updated upstream
     //var_dump($_SESSION['profil']); die("ok");
+=======
+    //require('/vue/site/accueilAbon.tpl');
+>>>>>>> Stashed changes
     $id = isset($_POST['id_cli'])?($_POST['id_cli']):'';
     $id_vec = isset($_POST['Modele'])?($_POST['Modele']):'';
     $start_Date = isset($_POST['StartDate'])?($_POST['StartDate']):'';
