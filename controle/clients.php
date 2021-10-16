@@ -13,14 +13,14 @@ function ajoutPanier(){
     $_SESSION['panier'][$nbV] = $voiture;
     $_SESSION['nbV']=$_SESSION['nbV']+1;
     $listV = getVoitures();
-    var_dump($_SESSION['panier']);
-    require('./vue/site/touteV.tpl');   
+    //var_dump($_SESSION['panier']);
+    require('./vue/site/touteV.tpl');
 }
 
 function voirPanier(){
     
     $panier = $_SESSION['panier'];
-    var_dump($panier);
+    //var_dump($panier);
     require('./vue/site/panier.tpl');
 }
 
