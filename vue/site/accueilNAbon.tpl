@@ -26,11 +26,6 @@
 			<div class="text c3">Meuilleur prix</div>
 		</div>
 
-		<br>
-
-		<!-- The dots/circles -->
-		<div style="text-align:center">
-
 		
 	</div>
 	
