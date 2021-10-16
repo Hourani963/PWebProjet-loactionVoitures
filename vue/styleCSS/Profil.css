@@ -1,0 +1,26 @@
+.Info-User{
+    width: 700px;
+    height: 600px;
+    background-color: #014579;
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.Title {
+    display: inline;
+    margin-bottom: 50px;
+    color: white;
+    border-bottom: 3px solid white;
+    position: relative;
+    top: 50px;
+    font-size: 3rem;
+}
+.txt{
+    color: white;
+    margin-top: 100px;
+}
+.buttpn {
+    display: inline;
+}

@@ -156,4 +156,58 @@ function addFacture(){
     }
 }
 
+
+function profilClient(){
+    $nom = $_SESSION['profil']['nom'];
+    $prenom = $_SESSION['profil']['prenom'];
+    $mail = $_SESSION['profil']['email'];
+    $pseudo = $_SESSION['profil']['pseudo'];
+    require('./vue/site/profilUser.tpl');
+}
+function switchPseudo(){
+    if (count($_POST) == 0) {
+        $msg = "";
+        require('./vue/site/components/ChangePseudo.tpl');
+    }
+    else {
+        require("./modele/clientsBD.php");
+        if(verif_Pseudo($_POST['NewPseudo'])){
+            sPSeudo($_POST['NewPseudo'],$_SESSION['profil']['id_cli']);
+            $nexturl = "index.php?controle=clients&action=accueilAbon";
+            header("Location:" .$nexturl);
+        } else{
+            $msg = "Pseudo déja utilisé";
+            require('./vue/site/components/ChangePseudo.tpl');
+        }
+    }
+}
+function switchPSW(){
+    if (count($_POST) == 0) {
+        $msg = "";
+        require('./vue/site/components/ChangeMDP.tpl');
+    }
+    else {
+        require("./modele/clientsBD.php");
+        //echo md5($_POST['AncienPSW']) . " " . $_SESSION['profil']['mdp'];
+        if(md5($_POST['AncienPSW']) == $_SESSION['profil']['mdp']){
+            //echo "c passer" ;
+            if($_POST['NewPSW'] == $_POST['NewPSW2']){
+                //echo "c passer" ; die();
+                switchMdp(md5($_POST['NewPSW']), $_SESSION['profil']['id_cli']);
+                $nexturl = "index.php?controle=clients&action=accueilAbon";
+                header("Location:" .$nexturl);
+            } else {
+                $msg = "Nouveau mot de passe Incorrect";
+                require('./vue/site/components/ChangeMDP.tpl');
+                //echo "Nouveau mot de passe Incorrect"; die();
+            }
+        } else{
+            //echo "Ancier mot de passe Incorrect"; die();
+            $msg = "Ancien mot de passe Incorrect";
+            require('./vue/site/components/ChangeMDP.tpl');
+        }
+
+    }
+
+}
 ?>
