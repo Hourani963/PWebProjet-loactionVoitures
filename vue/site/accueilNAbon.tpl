@@ -33,8 +33,9 @@
 
 		
 	</div>
+	
 	<script src="vue/JS/accueil.js"></script>
 
 </body>
-	<div><?php require('./vue/site/components/Footer.tpl'); ?></div>
+<footer><?php require('vue/site/components/Footer.tpl');?></footer>
 </html>

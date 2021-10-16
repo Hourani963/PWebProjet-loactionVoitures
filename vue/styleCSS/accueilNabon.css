@@ -39,7 +39,7 @@ body{
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
   font-style: italic;
-  margin-bottom: 75px;
+  margin-bottom: 30%;
   font-weight: bolder;
 }
 .slideshow-container .c2{
@@ -48,14 +48,7 @@ body{
 .slideshow-container .c1{
   -webkit-text-fill-color: silver;
 }
-/* Number text (1/3 etc) */
-.slideshow-container .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+
 
 /* Fading animation */
 .slideshow-container .fade {
