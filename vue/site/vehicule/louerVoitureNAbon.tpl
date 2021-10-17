@@ -18,7 +18,7 @@
 					<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
 						<div class="book-container">
 							<div class="content">
-								<button class="btn">Réserver</button>
+								<a href="index.php?controle=clients&action=ident"><button class="btn">Réserver</button></a>
 							</div>
 						</div>
 
