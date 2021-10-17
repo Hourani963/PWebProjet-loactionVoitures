@@ -14,7 +14,7 @@
                     <input type="text" name="NewPseudo" id="NewPseudo" class="input" placeholder="Nouveau pseudo" required>
                 </div>
                 <input type="submit" value="Submit" class="submit">
-                <a href="./index.php?controle=clients&action=accueilAbon" class="retourAcceuil">Retour</a>
+                <a href="./index.php?controle=clients&action=profilClient" class="retourAcceuil">Retour</a>
             </div>
         </form>
     </body>

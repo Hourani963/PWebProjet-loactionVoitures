@@ -27,7 +27,7 @@
                     <label for="s2" id="lblSwitch">Afficher les mots de Passe</label>
                 </div>
                 <input type="submit" value="Changer le mot de passe" class="submit">
-                <a href="./index.php?controle=clients&action=accueilAbon" class="retourAcceuil">Retour</a>
+                <a href="./index.php?controle=clients&action=profilClient" class="retourAcceuil">Retour</a>
             </div>
         </form>
         <script>

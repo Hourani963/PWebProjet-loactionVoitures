@@ -61,18 +61,6 @@ form {
     padding: 4px 20px 0;
     width: 100%;
 }
-.input {
-    background-color: #303245;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #eee;
-    font-size: 18px;
-    height: 100%;
-    outline: 0;
-    padding: 4px 20px 0;
-    width: 100%;
-}
 .submit {
     margin-left: 10%;
     margin-top: 3%;
@@ -87,6 +75,14 @@ form {
     height: 50px;
     text-align: center;
     width: 80%;
+}
+
+.submit:hover{
+    background-color: rgb(0, 221, 92);
+}
+
+.submit:active {
+    background-color: #06b;
 }
 
 .retourAcceuil {
