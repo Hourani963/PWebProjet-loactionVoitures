@@ -2,6 +2,8 @@
 
 
 function louerVoitureNAbon(){
+    require('./modele/voitureBD.php');
+    $listV = getVoitures();
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
 function louerVoitureAbon(){
