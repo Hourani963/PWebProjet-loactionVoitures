@@ -22,7 +22,7 @@ body {
     width: 450px;
   }
   .ident{
-    height: 55vh !important;
+    height: 50vh !important;
   }
   
   
@@ -164,7 +164,7 @@ body {
 .returnInscrire {
   margin-top: 50px;
   color: white;
-  margin-left: 28%;
+  margin-left: 22%;
 }
 .returnInscrire a {
   font-size: 1rem;
