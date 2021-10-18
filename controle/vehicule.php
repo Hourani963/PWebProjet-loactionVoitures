@@ -13,6 +13,12 @@ function erreurAjout(){
     require("./vue/site/messageError.tpl");
 }
 function ajoutvoiture(){
+    require("modele/voitureBD.php");
+    $listeVBD = getAllModels();
+    
+    var_dump($listeMarque); die();
+    $msgWrong="";
+    $msgDone="";
     $marque=strtoupper(isset($_POST['marque'])?($_POST['marque']):''); // trim pour enlever les espaces avant et apres
     $modele=strtoupper(isset($_POST['modele'])?($_POST['modele']):'');
     $caract=isset($_POST['caract'])?($_POST['caract']):'';
@@ -26,20 +32,22 @@ function ajoutvoiture(){
         $path = './upload/'.$name;
         move_uploaded_file($tmpName, './upload/'.$name);
     }
-    require("./modele/modelesBD.php");
-    require("./modele/voitureBD.php");
-
-    if(isset($_POST['marque'])){
-        if(verif_base($marque,$modele)){
+    
+    if(count($_POST) == 0)require("vue/site/ajoutVoiture.tpl");
+    else{
+        if(verif_base($marque)){
             if(ajoutV($marque,$modele,$caract,$path, $etatL)){
-                echo 'AJOUT CONCLU';
+                $msgDone = "Voiture Bien Ajouté";
+                require("vue/site/ajoutVoiture.tpl");
             }
         }else{
-            header("Location: index.php?controle=vehicule&action=erreurAjout");
+            $msgWrong = "Erreur d'ajouter la voiture";
+            require("vue/site/ajoutVoiture.tpl");
         }
+        
     }
-    
-    
-    require("./vue/site/ajoutVoiture.tpl");
+
 }
+
+
 ?>
