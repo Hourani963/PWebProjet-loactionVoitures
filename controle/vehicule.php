@@ -43,9 +43,7 @@ function ajoutvoiture(){
             $msgWrong = "Erreur d'ajouter la voiture";
             require("vue/site/ajoutVoiture.tpl");
         }
-        
     }
-
 }
 
 

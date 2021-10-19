@@ -18,10 +18,13 @@ function ajoutPanier(){
 }
 
 function voirPanier(){
+    if(isset($_SESSION['panier'])){
+        $panier = $_SESSION['panier'];
+        require('vue/site/panier.tpl');
+    }else{
+        require('vue/site/panierVide.tpl');
+    }
     
-    $panier = $_SESSION['panier'];
-    //var_dump($panier);
-    require('vue/site/panier.tpl');
 }
 
 function accueilNAbon(){
@@ -32,8 +35,7 @@ function accueilNAbon(){
 }
 function bye(){
 
-    setcookie('panier_', json_encode($_SESSION['panier']), time()+3600*24, '/', '', false, false);
-    setcookie('nb', json_encode($_SESSION['nbV']), time()+3600*24, '/', '', false, false);
+    setcookie('session', json_encode($_SESSION), time()+3600*24, '/', '', false, false);
 
     session_destroy();
 	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
@@ -48,24 +50,31 @@ function admin(){
     
 }
 function ident(){
-    $_SESSION['nbV']=0;
-    $_SESSION['panier']=array();
     $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
     $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
     $msg="";
     $mdp = md5($mdpNC);
     if($pseudo=='admin' && $mdp== md5('admin')){
-        $_SESSION['profil']['pseudo'] = $pseudo;
-        $_SESSION['profil']['mdp'] = $mdp;
-        
-	//cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
-        if(isset($_SESSION['panier'])){
+        if(isset($_COOKIE['session'])){
+            $test=json_decode($_COOKIE['session'],1);
+            if($test['profil']['pseudo']==$pseudo){
+                $_SESSION=json_decode($_COOKIE['session'],1);
+                var_dump($_SESSION);
+                
+            }else{
+                $_SESSION['profil']['pseudo'] = $pseudo;
+                $_SESSION['profil']['mdp'] = $mdp;
+            }
             
-            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
-            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
-    
+        }else{
+            
+            $_SESSION['profil']['pseudo'] = $pseudo;
+            $_SESSION['profil']['mdp'] = $mdp;
+            
         }
+        var_dump($_SESSION);
         header("Location: index.php?controle=clients&action=admin");
+    
         
         
     }else{
@@ -75,15 +84,21 @@ function ident(){
         require ("./modele/clientsBD.php");
         
         if (verif_bd($pseudo, $mdp, $profil)) {
-            $_SESSION['profil'] = $profil;
+           
             $nexturl = "index.php?controle=clients&action=accueilAbon";
             //cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
-        if(isset($_SESSION['panier'])){
-            
-            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
-            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
-    
-        }
+            if(isset($_COOKIE['session'])){
+                $test=json_decode($_COOKIE['session'],1);
+                if($test['profil']['pseudo']==$pseudo){
+                    $_SESSION=json_decode($_COOKIE['session'],1);
+                    var_dump($_SESSION);
+                    
+                }else{
+                    $_SESSION['profil'] = $profil;
+                }
+            }else{
+                $_SESSION['profil'] = $profil;
+            }
             header ("Location:" . $nexturl);
         }
         else {

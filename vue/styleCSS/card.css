@@ -77,7 +77,7 @@ div .descPanier{
     border-radius: 12px;
     display : flex;
     width: 100%;
-    
+
 
 
 }
@@ -87,6 +87,13 @@ div .descPanier{
 }
 .tout ul{
     display: flex;
+}
+.descPanier ul{
+    list-style: none;
+}
+.descPanier li{
+    margin-left: 15px;
+    list-style-type: none;
 }
 p{
     background-color: #5e6281;

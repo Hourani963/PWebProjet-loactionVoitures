@@ -11,7 +11,7 @@
 
     <?php
 
-        echo("<div class = 'corpsPanier' style='width:260px; padding:5; margin:5'>");
+        echo("<div class = 'corpsPanier' style='width:260px; padding:5; margin-left:60'>");
         echo("<ul>");
         echo("<li>Marque : </li>");
         echo("<li>Modele : </li>");
@@ -31,5 +31,6 @@
         echo("</div>");
 
     ?>  
+    <button>Valider panier</button>
 </div>
 </body>
