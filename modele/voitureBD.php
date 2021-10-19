@@ -53,7 +53,7 @@ function getVoiture($id){
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT id_vehi, modele FROM vehicule";
+    $sql="SELECT *  FROM vehicule";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
