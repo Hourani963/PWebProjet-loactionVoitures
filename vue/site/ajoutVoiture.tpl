@@ -7,6 +7,7 @@
 	<title></title>
 </head>
 <body>
+	<script src="vue/JS/ajoutVoiture.js"></script>
 	<div><?php require('./vue/site/components/menuAdmin.tpl'); ?></div>
 
 	<form  action="index.php?controle=vehicule&action=ajoutvoiture" method="POST" class="form" enctype="multipart/form-data">
@@ -20,18 +21,19 @@
 					<input name="marque" list="voitures" class="input" type="text" placeholder=" " />
 					<div class="cut"></div>
 					<label for="modele" class="placeholder">Marque</label>
-							<datalist id="voitures">
+							<datalist id="voitures" >
 								<?php foreach($listeVBD as $l){
-									echo ("<option value=" . $l['marque'] . " ></option>");
+									echo ("<option value='" .$l['marque'] . "' ></option>");
 									
 								} ?>
 							</datalist>
 
 				</div>
 				<div class="input-container ic2">
-					<input name="modele" class="input" type="text" placeholder=" " />
+					<input name="modele" class="input" type="text" placeholder=" " disabled />
 					<div class="cut"></div>
 					<label for="modele" class="placeholder">Modele</label>
+					
 				</div>
 				<div class="input-container ic2">
 					<select name="etatL" class="input" type="text" placeholder=" " >

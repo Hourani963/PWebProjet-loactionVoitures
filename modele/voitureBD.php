@@ -121,7 +121,7 @@ function verif_base($marque,$modele){
 function getAllModels(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
-    $sql = "SELECT DISTINCT marque, modele FROM modeles";
+    $sql = "SELECT DISTINCT marque FROM modeles";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
