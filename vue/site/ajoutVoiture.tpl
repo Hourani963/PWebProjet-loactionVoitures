@@ -18,19 +18,18 @@
 					<p2><?php echo $msgDone; ?></p2>
 				</div> 
 				<div class="input-container ic1">
-					<input name="marque" list="voitures" class="input" type="text" placeholder=" " />
+					<input name="marque" list="voitures" class="input" type="text" placeholder=" " id="modele"/>
 					<div class="cut"></div>
 					<label for="modele" class="placeholder">Marque</label>
 							<datalist id="voitures" >
 								<?php foreach($listeVBD as $l){
 									echo ("<option value='" .$l['marque'] . "' ></option>");
-									
 								} ?>
 							</datalist>
 
 				</div>
 				<div class="input-container ic2">
-					<input name="modele" class="input" type="text" placeholder=" " disabled />
+					<input name="modele" class="input" type="text" placeholder=" " id="marque" disabled />
 					<div class="cut"></div>
 					<label for="modele" class="placeholder">Modele</label>
 					
