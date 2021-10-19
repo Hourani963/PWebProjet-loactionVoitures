@@ -16,7 +16,6 @@ function ajoutvoiture(){
     require("modele/voitureBD.php");
     $listeVBD = getAllModels();
     
-    var_dump($listeMarque); die();
     $msgWrong="";
     $msgDone="";
     $marque=strtoupper(isset($_POST['marque'])?($_POST['marque']):''); // trim pour enlever les espaces avant et apres
@@ -35,7 +34,7 @@ function ajoutvoiture(){
     
     if(count($_POST) == 0)require("vue/site/ajoutVoiture.tpl");
     else{
-        if(verif_base($marque)){
+        if(verif_base($marque, $modele)){
             if(ajoutV($marque,$modele,$caract,$path, $etatL)){
                 $msgDone = "Voiture Bien Ajouté";
                 require("vue/site/ajoutVoiture.tpl");

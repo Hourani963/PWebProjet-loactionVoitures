@@ -17,13 +17,16 @@
 					<p2><?php echo $msgDone; ?></p2>
 				</div> 
 				<div class="input-container ic1">
-					<select name="marque" class="input" type="text" placeholder=" " required>
-					
-					<?php foreach($listeVBD as $l){ ?>
-						<option><? php echo $l['marque'] ?></option>
+					<input name="marque" list="voitures" class="input" type="text" placeholder=" " />
 					<div class="cut"></div>
-					<?php } ?>
-					</select>
+					<label for="modele" class="placeholder">Marque</label>
+							<datalist id="voitures">
+								<?php foreach($listeVBD as $l){
+									echo ("<option value=" . $l['marque'] . " ></option>");
+									
+								} ?>
+							</datalist>
+
 				</div>
 				<div class="input-container ic2">
 					<input name="modele" class="input" type="text" placeholder=" " />
