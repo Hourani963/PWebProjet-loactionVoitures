@@ -21,7 +21,7 @@ function voirPanier(){
     
     $panier = $_SESSION['panier'];
     //var_dump($panier);
-    require('./vue/site/panier.tpl');
+    require('vue/site/panier.tpl');
 }
 
 function accueilNAbon(){
@@ -44,7 +44,7 @@ function accueilAbon(){
     require('./vue/site/accueilAbon.tpl');
 }
 function admin(){
-    require("./vue/site/menuAdmin.tpl");
+    require("./vue/site/accueilAdmin.tpl");
     
 }
 function ident(){
