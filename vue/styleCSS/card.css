@@ -6,8 +6,10 @@ body{
 }
 
 .tout{
+    flex-direction: column;
     float: right;
     display: flex;
+    margin-left:70px;
 }
 .corps{
     background-color: #15172b;
@@ -31,8 +33,24 @@ body{
     font-size: 18px;
     height: 100%;
     outline: 0;
-    padding: 4px 20px 0;
+    padding: 4px 0 0;
 }
+button{
+    margin-left: 10%;
+    margin-bottom: 5%;
+    border: 0;
+    background-color: #08d;
+    border-radius: 12px;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 10%;
+    text-align: center;
+    width: 80%;
+}
+
 div .img{
     background-color: red;
     border-radius: 12px;

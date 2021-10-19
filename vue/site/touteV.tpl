@@ -12,7 +12,9 @@
             <?php require("vue/site/components/menuAdmin.tpl");?></div>
         
         <?php 
-        foreach($listV as $l){ ?>
+        foreach($listV as $l){ 
+            if($l['etatL']==0){
+                ?>
             <div class="allVoitures">
                 <ul>
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
@@ -55,6 +57,6 @@
                     </li>
                 </ul>
             </div>
-        <?php } ?>
+        <?php }} ?>
 
 </body>
