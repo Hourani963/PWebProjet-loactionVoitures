@@ -41,7 +41,11 @@ function bye(){
 	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
 	header("Location:" .$nexturl);
 }
-
+function gestion(){
+    require('./modele/clientsBD.php');
+    $res = getDevisAV();
+    require('./vue/site/gestion.tpl');
+}
 function accueilAbon(){
     require('./vue/site/accueilAbon.tpl');
 }

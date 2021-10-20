@@ -99,4 +99,23 @@ function getId_cli(){
     return $resultat;
 }
 
+function getDevisAV(){
+	require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    $sql="SELECT c.nom,v.marque,v.modele,f.dateD,f.dateF  FROM facture f,client c, vehicule v where etatR=0 and (f.id_cli=c.id_cli and f.id_vehi=v.id_vehi)";
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            // var_dump($resultat); die("Ok");
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    return $resultat;
+
+}
+
 ?>
