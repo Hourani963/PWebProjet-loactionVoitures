@@ -158,4 +158,23 @@ function switchMdp($NewMotDePasse , $id){
     }
 }
 
+function getFacture($id){
+    require('./modele/connectBD.php');
+    $sql = "SELECT * FROM facture WHERE id_cli = :id;";
+    try {
+        $fact = $pdo->prepare($sql);
+        $fact->bindParam(':id', $id, PDO::PARAM_INT);
+        $bool = $fact->execute();
+        if ($bool) {
+            $resultat = $fact->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            //var_dump($resultat); //die("Ok");
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    return $resultat;
+}
+
 ?>

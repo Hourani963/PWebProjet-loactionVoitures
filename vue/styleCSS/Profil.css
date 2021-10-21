@@ -12,15 +12,13 @@ body {
     justify-content: center;
     height: 90vh;
 }
-
 .Info-User{
-    width: 700px;
-    height: 600px;
-    background-color: #014579;
-    margin: auto;
-    margin-top: 5%;
     text-align: center;
-    border-radius: 50%;
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 600px;
+    width: 450px;
 }
 
 .Title {
@@ -36,6 +34,34 @@ body {
     color: white;
     margin-top: 100px;
 }
-.buttpn {
-    display: inline;
+.btn-1, .btn-2 {
+    margin-top: 3%;
+    width: 100%;
+    display: inline-flex;
+}
+ a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.btn {
+    width: 200px;
+    border: 0;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #08d;
+    border-radius: 12px;
+    box-sizing: border-box;
+    height: 35px;
+    margin-left: 15px;
+}
+
+.btn:hover {
+    background-color: rgb(0, 221, 92);
+}
+.retourAcceuil {
+
+    margin-top: 5%;
+    display: block;
+    color: white;
 }

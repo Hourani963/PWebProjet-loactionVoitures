@@ -3,11 +3,11 @@
   <head>
       <meta charset="UTF-8">
       <title>Votre Profil</title>
-      <!--<link href="./vue/styleCSS/Profil.css" rel="stylesheet">-->
+      <link href="./vue/styleCSS/Profil.css" rel="stylesheet">
   </head>
   <body>
         <style>
-            body {
+            /*body {
                 align-items: center;
                 background: -webkit-gradient(linear, left top, left bottom,
                 color-stop(0%, rgba(26, 49, 95, 1)),
@@ -26,7 +26,7 @@
                 background-color: #15172b;
                 border-radius: 20px;
                 box-sizing: border-box;
-                height: 550px;
+                height: 600px;
                 width: 450px;
             }
 
@@ -75,7 +75,7 @@
             }
             .retourAcceuil {
                 color: white;
-            }
+            }*/
         </style>
         <header>
 
@@ -98,12 +98,12 @@
                     </div>
                     <div class="buttpn">
                         <div class="btn-1">
-                            <button class="btn"><a href="index.php?controle=clients&action=switchPSW">Changer Mot de passe</a></button>
-                            <button class="btn"><a href="index.php?controle=clients&action=switchPseudo"">Changer Pseudo</a></button>
+                            <a href="index.php?controle=clients&action=switchPSW"><button class="btn" id="bt1">Changer Mot de passe</button></a>
+                            <a href="index.php?controle=clients&action=switchPseudo"> <button class="btn" id="bt1">Changer Pseudo</button></a>
                         </div>
                         <div class="btn-2">
-                            <button class="btn"><a href="#">Voir vos facture</a></button>
-                            <button class="btn"><a href="index.php?controle=clients&action=bye">Déconnection</a></button>
+                            <a href="index.php?controle=clients&action=voirFacture"><button class="btn">Voir vos facture</button></a>
+                            <a href="index.php?controle=clients&action=bye"><button class="btn">Déconnection</button></a>
                         </div>
                         <a href="./index.php?controle=clients&action=accueilAbon" class="retourAcceuil">Retour à l'acceuil</a>
                     </div>

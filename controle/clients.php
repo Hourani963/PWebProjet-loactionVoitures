@@ -173,6 +173,8 @@ function switchPseudo(){
         require("./modele/clientsBD.php");
         if(verif_Pseudo($_POST['NewPseudo'])){
             sPSeudo($_POST['NewPseudo'],$_SESSION['profil']['id_cli']);
+            $_SESSION['profil']['pseudo'] = $_POST['NewPseudo'];
+            echo $_SESSION['profil']['pseudo'];
             $nexturl = "index.php?controle=clients&action=accueilAbon";
             header("Location:" .$nexturl);
         } else{
@@ -209,5 +211,12 @@ function switchPSW(){
 
     }
 
+}
+
+function voirFacture(){
+    require("./modele/clientsBD.php");
+    $id = $_SESSION['profil']['id_cli'];
+    $Facture = getFacture($id);
+    require('./vue/site/components/VoirFacture.tpl');
 }
 ?>
