@@ -8,6 +8,21 @@
 
     <body>
         <style>
+            .addV {
+                text-align: center;
+                padding-right: 10%;
+                width: 50px;
+                color: black;
+                height: 50px;
+                font-size: 3rem;
+                z-index: 30;
+                border: 8px solid black;
+                padding: 10px;
+                background-color: transparent;
+                border-radius: 50%;
+            }
+            .addV i {
+            }
             .supr {
                 width: 30px;
                 color: red;
@@ -83,5 +98,13 @@
                 </ul>
             </div>
         <?php } ?>
+        <div style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
+            <a href="">
+                <div class="addV">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </a>
+        </div>
+
     </body>
 </html>

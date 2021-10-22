@@ -109,9 +109,9 @@
                 echo ('<tr><th> VEHICULE </th><th> Date Début </th> <th> Date Fin </th> <th> Valeur </th><th> Etat </th> <th> DL </th></tr>');
                 foreach ($Facture as $f) {
 
-                $Voiture = getVoiture($f['id_vehi']);
-                //var_dump($Voiture); die("Ok");
-                echo "<tr class='facture'>";
+                    $Voiture = getVoiture($f['id_vehi']);
+                    //var_dump($Voiture); die("Ok");
+                    echo "<tr class='facture'>";
                     echo ("<td>" . utf8_encode($Voiture[0]['modele']) . "</td>");
                     echo ("<td>" . utf8_encode($f['dateD']) . "</td>");
                     echo ("<td>" . utf8_encode($f['DateF']) . "</td>");
