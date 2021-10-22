@@ -1,5 +1,14 @@
 <?php
 
+function suprVoiture(){
+    require('./modele/voitureBD.php');
+    $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
+    //echo $id_v; die("ok");
+    suprV($id_v);
+    $url = "./index.php?controle=clients&action=touteVoitureAdmin";
+    header("Location:" .$url);
+}
+
 
 function louerVoitureNAbon(){
     require('./modele/voitureBD.php');

@@ -5,6 +5,15 @@ function touteVoiture(){
     $listV = getVoitures();
     require('./vue/site/touteV.tpl');
 }
+
+function touteVoitureAdmin(){
+
+    require('./modele/voitureBD.php');
+    $listV = getVoitures();
+    //var_dump($listV); die("ok");
+    require('./vue/site/vehicule/touteVadmin.tpl');
+}
+
 function ajoutPanier(){
     require("./modele/voitureBD.php");
     $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';

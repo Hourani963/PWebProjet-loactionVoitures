@@ -53,7 +53,7 @@ function getVoiture($id){
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule";
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 2";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -130,6 +130,20 @@ function getAllModels(){
         }
         return $resultat;
         
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+
+function suprV($id){
+    require('./modele/connectBD.php');
+    $sql = "UPDATE vehicule SET etatL = 2 WHERE id_vehi = :id";
+    try {
+        $supr = $pdo->prepare($sql);
+        $supr->bindParam(':id', $id, PDO::PARAM_STR);
+        $supr->execute();
+
     }catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
