@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div><?php require('./vue/site/components/menuAdmin.tpl'); ?></div>
+
 	<form  action="index.php?controle=vehicule&action=ajoutvoiture" method="POST" class="form" enctype="multipart/form-data">
 		<div class="title">Ajout voiture</div>
 			<div class="subtitle">voiture</div>

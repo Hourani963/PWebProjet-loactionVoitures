@@ -99,4 +99,82 @@ function getId_cli(){
     return $resultat;
 }
 
+function verif_Pseudo($p){
+    require('./modele/connectBD.php');
+
+    $sql="SELECT * FROM client WHERE pseudo = :p ";
+    try {
+        $pseudo = $pdo->prepare($sql);
+        $pseudo->bindParam(':p', $p, PDO::PARAM_STR);
+        $bool = $pseudo->execute();
+        //echo "on est dans la Fbd";
+        if ($bool) {
+            $resultat = $pseudo->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            //var_dump($resultat); die("Ok");
+        }
+
+        if (count($resultat) >= 1) {
+             return false;
+        } else {
+            return true;
+        }
+
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+
+function sPSeudo($NewPseudo , $id){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    $sql="UPDATE client SET pseudo = :Nmdp WHERE id_cli = :id";
+    try {
+        $Smdp = $pdo->prepare($sql);
+        $Smdp->bindParam(':Nmdp', $NewPseudo, PDO::PARAM_STR);
+        $Smdp->bindParam(':id', $id, PDO::PARAM_STR);
+        $Smdp->execute();
+
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+
+function switchMdp($NewMotDePasse , $id){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    $sql="UPDATE client SET mdp = :Nmdp WHERE id_cli = :id";
+    try {
+        $Smdp = $pdo->prepare($sql);
+        $Smdp->bindParam(':Nmdp', $NewMotDePasse, PDO::PARAM_STR);
+        $Smdp->bindParam(':id', $id, PDO::PARAM_STR);
+        $Smdp->execute();
+
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+
+function getFacture($id){
+    require('./modele/connectBD.php');
+    $sql = "SELECT * FROM facture WHERE id_cli = :id;";
+    try {
+        $fact = $pdo->prepare($sql);
+        $fact->bindParam(':id', $id, PDO::PARAM_INT);
+        $bool = $fact->execute();
+        if ($bool) {
+            $resultat = $fact->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            //var_dump($resultat); //die("Ok");
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    return $resultat;
+}
+
 ?>
