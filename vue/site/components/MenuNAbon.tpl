@@ -6,58 +6,7 @@
   
   <body><div class="area"></div><nav class="main-menu">
             <ul>
-                <!--<li>
-                    <a href="#">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            Dashboard
-                        </span>
-                    </a>
-                  
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="fa fa-laptop fa-2x"></i>
-                        <span class="nav-text">
-                            Stars Components
-                        </span>
-                    </a>
-                    
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-list fa-2x"></i>
-                        <span class="nav-text">
-                            Forms
-                        </span>
-                    </a>
-                    
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-folder-open fa-2x"></i>
-                        <span class="nav-text">
-                            Pages
-                        </span>
-                    </a>
-                   
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-bar-chart-o fa-2x"></i>
-                        <span class="nav-text">
-                            Graphs and Statistics
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-font fa-2x"></i>
-                        <span class="nav-text">
-                           Quotes
-                        </span>
-                    </a>
-                </li>-->
+
                 <li>
                    <a href="./index.php?controle=vehicule&action=louerVoitureNAbon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
@@ -92,19 +41,6 @@
                 </li>
             </ul>
 
-           <!-- <ul class="logout">
-                <li>
-                   <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 16 16">
-                        <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
-                        <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
-                        </svg>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>  
-            </ul>-->
         
         </nav>
     </div>

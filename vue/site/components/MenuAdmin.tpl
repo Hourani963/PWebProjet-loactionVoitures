@@ -6,50 +6,6 @@
   
   <body><nav class="main-menu">
             <ul>
-                <!--<li>
-                    <a href="#">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            Dashboard
-                        </span>
-                    </a>
-                  
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="fa fa-laptop fa-2x"></i>
-                        <span class="nav-text">
-                            Stars Components
-                        </span>
-                    </a>
-                    
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-list fa-2x"></i>
-                        <span class="nav-text">
-                            Forms
-                        </span>
-                    </a>
-                    
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-folder-open fa-2x"></i>
-                        <span class="nav-text">
-                            Pages
-                        </span>
-                    </a>
-                   
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-bar-chart-o fa-2x"></i>
-                        <span class="nav-text">
-                            Graphs and Statistics
-                        </span>
-                    </a>
-                </li>-->
                 <li>
                     <a href="./index.php?controle=clients&action=touteVoiture">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-display" viewBox="0 0 16 16">

@@ -17,12 +17,12 @@ function ajoutV($marque,$modele,$caract,$path, $etatL){
         if ($bool) {
             return true;
         }
+        else return false;
     }
     catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
-    return false;
 
 }
 
@@ -53,7 +53,7 @@ function getVoiture($id){
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT id_vehi, modele FROM vehicule";
+    $sql="SELECT *  FROM vehicule";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -93,4 +93,46 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
 
 }
 
+function verif_base($marque,$modele){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    
+    $sql="SELECT modele FROM `modeles` WHERE marque = :marque and modele = :modele ";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':marque', $marque, PDO::PARAM_STR);
+        $commande->bindParam(':modele', $modele, PDO::PARAM_STR);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($resultat);die();
+       
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    if (count($resultat) != 0) {
+        return true; 
+    }
+    return false;
+}
+
+function getAllModels(){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+
+    $sql = "SELECT DISTINCT marque FROM modeles";
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
 ?>

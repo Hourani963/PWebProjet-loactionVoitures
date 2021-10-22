@@ -13,15 +13,15 @@ function ajoutPanier(){
     $_SESSION['panier'][$nbV] = $voiture;
     $_SESSION['nbV']=$_SESSION['nbV']+1;
     $listV = getVoitures();
-    var_dump($_SESSION['panier']);
-    require('./vue/site/touteV.tpl');   
+    //var_dump($_SESSION['panier']);
+    require('./vue/site/touteV.tpl');
 }
 
 function voirPanier(){
     
     $panier = $_SESSION['panier'];
-    var_dump($panier);
-    require('./vue/site/panier.tpl');
+    //var_dump($panier);
+    require('vue/site/panier.tpl');
 }
 
 function accueilNAbon(){
@@ -44,7 +44,7 @@ function accueilAbon(){
     require('./vue/site/accueilAbon.tpl');
 }
 function admin(){
-    require("./vue/site/menuAdmin.tpl");
+    require("./vue/site/accueilAdmin.tpl");
     
 }
 function ident(){

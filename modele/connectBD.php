@@ -1,8 +1,8 @@
 <?php
 	$hostname = "localhost";	
-	$base= "projetpweb";
+	$base= "pweb";
 	$loginBD= "root";	
-	$passBD="root";
+	$passBD="";
 	
 	try {
 		$dsn = "mysql:server=$hostname ; dbname=$base";

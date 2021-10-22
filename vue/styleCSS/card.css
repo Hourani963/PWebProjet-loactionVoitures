@@ -1,6 +1,12 @@
 
-.tout{
+body{
+    overflow: auto;
+    display: inline-block;
     
+}
+
+.tout{
+    float: right;
     display: flex;
 }
 .corps{
@@ -90,3 +96,4 @@ p{
     padding-bottom: 10px;
     margin-top : 0;
 }
+
