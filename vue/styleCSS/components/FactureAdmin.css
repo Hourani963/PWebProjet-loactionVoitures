@@ -1,0 +1,9 @@
+.ChoixListeFacture {
+    margin : auto;
+    display: flex;
+    background-color:#0a4870;
+    height: 40px;
+    width: 1000px;
+    justify-content: center;
+    align-items: center;
+}
