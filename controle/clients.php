@@ -14,6 +14,10 @@ function touteVoitureAdmin(){
     require('./vue/site/vehicule/touteVadmin.tpl');
 }
 
+function FactureAdmin(){
+    require('./vue/site/components/VoirFactureAdmin.tpl');
+}
+
 function ajoutPanier(){
     require("./modele/voitureBD.php");
     $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
