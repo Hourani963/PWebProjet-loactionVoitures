@@ -15,7 +15,44 @@ function touteVoitureAdmin(){
 }
 
 function FactureAdmin(){
-    require('./vue/site/components/VoirFactureAdmin.tpl');
+    if (count($_POST) == 0) {
+        require("./modele/clientsBD.php");
+        $Client = getId_cli();
+        require('./vue/site/components/VoirFactureAdmin.tpl');
+    }else {
+        require("./modele/clientsBD.php");
+        require("./modele/voitureBD.php");
+        $test = $_GET['idU'];
+        var_dump($test); die("ok");
+        if($_GET['idU'] == "all"){
+            $Facture = getAllFacture();
+            var_dump($Facture); die("ok");
+            $i = 0;
+            foreach ($Facture as $f) {
+                $Voiture = getVoiture($f['id_vehi']);
+                $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                $i++;
+            }
+            require('./vue/site/components/ListeFactureAdmin.tpl');
+        } else {
+            require('./vue/site/components/VoirFactureAdmin.tpl');
+        }
+        if(isset($_POST['idU'])){
+
+            $Facture = getFacture($_POST['idU']);
+            $i = 0;
+            foreach ($Facture as $f) {
+                $Voiture = getVoiture($f['id_vehi']);
+                $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                $i++;
+            }
+            require('./vue/site/components/ListeFactureAdmin.tpl');
+        } else{
+            require('./vue/site/components/VoirFactureAdmin.tpl');
+        }
+
+    }
+
 }
 
 function ajoutPanier(){
