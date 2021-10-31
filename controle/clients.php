@@ -226,6 +226,13 @@ function voirFacture(){
     require("./modele/clientsBD.php");
     $id = $_SESSION['profil']['id_cli'];
     $Facture = getFacture($id);
+    require("./modele/voitureBD.php");
+    $i = 0;
+    foreach($Facture as $f){
+        $Voiture = getVoiture($f['id_vehi']);
+        $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+        $i++;
+    }
     require('./vue/site/components/VoirFacture.tpl');
 }
 ?>

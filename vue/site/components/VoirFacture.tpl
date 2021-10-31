@@ -103,22 +103,21 @@
             <div id="main">
 
                 <?php
-                require("./modele/voitureBD.php");
+
                 if ($Facture != false) {
                     echo ('<table>');
                 echo ('<tr><th> VEHICULE </th><th> Date Début </th> <th> Date Fin </th> <th> Valeur </th><th> Etat </th> <th> DL </th></tr>');
                 foreach ($Facture as $f) {
 
-                    $Voiture = getVoiture($f['id_vehi']);
-                    //var_dump($Voiture); die("Ok");
+                    //var_dump($f); die("Ok");
                     echo "<tr class='facture'>";
-                    echo ("<td>" . utf8_encode($Voiture[0]['modele']) . "</td>");
+                    echo ("<td>" . utf8_encode($f['id_vehi']) . "</td>");
                     echo ("<td>" . utf8_encode($f['dateD']) . "</td>");
                     echo ("<td>" . utf8_encode($f['DateF']) . "</td>");
                     echo ("<td>" . utf8_encode($f['valeur']) . "</td>");
                     echo ("<td>" . utf8_encode($f['EtatR']). "</td>");
                     //echo ("<td>" . "<i class="fas fa-file-download"></i>" .  "</td>");
-                    ?><td><a href="#" style="text-decoration-color: black"><i class="fas fa-file-download"></i></a></td>
+                    ?><td><a href="#" style="text-decoration: none;color: black"><i class="fas fa-file-download"></i></a></td>
                     <?php
                     echo "</tr>\n";
                 }
