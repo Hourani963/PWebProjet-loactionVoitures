@@ -8,7 +8,6 @@
     <body>
         <style>
             body {
-                align-items: center;
                 background: -webkit-gradient(linear, left top, left bottom,
                 color-stop(0%, rgba(26, 49, 95, 1)),
                 color-stop(10%, rgba(26, 49, 95, 1)),
@@ -17,49 +16,48 @@
                 color-stop(77%, rgba(39, 45, 100, 1)),
                 color-stop(90%, rgba(26, 49, 95, 1)),
                 color-stop(100%, rgba(26, 49, 95, 1)));
-                display: flex;
-                justify-content: center;
                 height: 90vh;
             }
-
             .ChoixListeFacture {
-                color: white;
-                margin : auto;
-                height: 20%;
-                width: 80%;
+                margin-top: 5px;
+                width: 40%;
             }
-            .submit:hover {
-                background-color: #20b302;
+            form {
+                font-size: 15px;
+                color: #ffffff;
+                background-color: #15172b;
+                border-radius: 20px;
+                box-sizing: border-box;
+                width: 100%;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
             }
             .submit {
+                margin-top: 3%;
+                width: 40%;
+                height: 30px;
                 border: 0;
                 background-color: #08d;
                 border-radius: 12px;
                 box-sizing: border-box;
                 color: #eee;
                 cursor: pointer;
-                font-size: 18px;
-                height: 50%;
-                width: 70%;
             }
             .input-container {
-                margin: auto;
-                height: 50px;
-                position: relative;
-                width: 80%;
+                text-align: center;
             }
-
             .input {
+                width: 80%;
+                height: 30px;
                 background-color: #303245;
-                border-radius: 12px;
+                border-radius: 6px;
                 border: 0;
                 box-sizing: border-box;
                 color: #eee;
-                font-size: 18px;
-                height: 50%;
-                outline: 0;
-                padding: 4px 20px 0;
-                width: 100%;
+            }
+            a {
+                color: white;
             }
         </style>
         <div class="ChoixListeFacture" style="background-color: #15172b">
@@ -80,5 +78,9 @@
             </form>
 
         </div>
+        <a href="./index.php?controle=clients&action=admin">
+            Revenir a l'acceuil
+        </a>
+
     </body>
 </html>

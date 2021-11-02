@@ -33,9 +33,7 @@
                         echo ('pas de contact');
                     ?>
             </div>
-            <a href="./index.php?controle=clients&action=admin">
-                <button class="btn">Revenir a l'acceuil</button>
-            </a>
+
         </div>
     </body>
 </html>
