@@ -8,6 +8,7 @@ function touteVoiture(){
             $listV = getVoitures();
             require('./vue/site/touteV.tpl');
         }else if($mode == 'automatique'){
+            $listeVBD = getAllModels();
             require('./vue/site/touteVAutomatique.tpl');
         }
     }else{
@@ -96,6 +97,7 @@ function suppVPanier(){
             
         }
     }
+    
     $panier = $_SESSION['panier'];
     require('vue/site/panier.tpl');
 }

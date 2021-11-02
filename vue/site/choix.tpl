@@ -13,8 +13,10 @@
         
         <div  class = 'corpsChoix'>
         <h1>Vous preferez</h1>
-        <a href='index.php?controle=clients&action=touteVoiture&mode=choix'>Choisir mes modeles</a>
-        <a href='index.php?controle=clients&action=touteVoiture&mode=automatique'>Louer par paquet</a>
+        <div class='contenu'>
+        <a class ='gauche' href='index.php?controle=clients&action=touteVoiture&mode=choix'>Choisir mes modeles</a>
+        <a class='droite' href='index.php?controle=clients&action=touteVoiture&mode=automatique'>Louer par paquet</a>
+        </div>
         </div>
 
 </body>
