@@ -43,8 +43,8 @@
 				<div class="input-container ic2">
 					<select name="etatL" class="input" type="text" placeholder=" " >
 						<option disabled selected value> -- Etat -- </option>
-						<option>NEW</option>
-						<option>OLD</option>
+						<option>Disponible</option>
+						<option>En_revision</option>
 						<div class="cut"></div>
 					</select>
 				</div>

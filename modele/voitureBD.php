@@ -104,7 +104,7 @@ function verif_base($marque,$modele){
         $bool = $commande->execute();
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($resultat);die();
+            
        
         }
     }

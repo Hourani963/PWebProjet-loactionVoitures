@@ -16,9 +16,7 @@ function ajoutvoiture(){
     require("modele/voitureBD.php");
     $listeModele = getAllModele();
     $listeMarque = getAllMarque();
-    //var_dump($listeModele);
-    
-    //var_dump($listeMarque);
+
  
     $msgWrong="";
     $msgDone="";
@@ -44,7 +42,7 @@ function ajoutvoiture(){
                 require("vue/site/ajoutVoiture.tpl");
             }
         }else{
-            $msgWrong = "Erreur d'ajouter la voiture";
+            $msgWrong = "Erreur d'ajouter la voiture (car not in DB)";
             require("vue/site/ajoutVoiture.tpl");
         }
         
