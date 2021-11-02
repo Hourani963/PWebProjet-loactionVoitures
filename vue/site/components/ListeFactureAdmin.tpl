@@ -13,6 +13,12 @@
                 .out {
                     margin-left: 0;
                 }
+                .input {
+                    width: 110%;
+                }
+                .submit {
+                    margin-top: 6%;
+                }
             </style>
             <div id="main">
                 <?php
