@@ -18,20 +18,26 @@
 					<p2><?php echo $msgDone; ?></p2>
 				</div> 
 				<div class="input-container ic1">
-					<input name="marque" list="voitures" class="input" type="text" placeholder=" " id="modele"/>
+					<input name="marque" list="voitures" on class="input" type="text" placeholder=" " id="marque"/>
 					<div class="cut"></div>
-					<label for="modele" class="placeholder">Marque</label>
+					<label for="marque" class="placeholder">Marque</label>
 							<datalist id="voitures" >
-								<?php foreach($listeVBD as $l){
+								<?php
+								foreach($listeMarque as $l){
 									echo ("<option value='" .$l['marque'] . "' ></option>");
 								} ?>
 							</datalist>
 
 				</div>
-				<div class="input-container ic2">
-					<input name="modele" class="input" type="text" placeholder=" " id="marque" disabled />
+				<div class="input-container ic2"> <!-- Problème la liste de modele est la même que la liste des marque-->
+					<input name="modele" list='voitures2'on class="input" type="text"  placeholder=" " id="modele"  />
 					<div class="cut"></div>
 					<label for="modele" class="placeholder">Modele</label>
+							<datalist id="voitures2" >
+								<?php foreach($listeModele as $l2){
+									echo ("<option value='" .$l2['modele'] . "' ></option>");
+								} ?>
+							</datalist>
 					
 				</div>
 				<div class="input-container ic2">

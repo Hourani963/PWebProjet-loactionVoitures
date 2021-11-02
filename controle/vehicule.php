@@ -14,8 +14,12 @@ function erreurAjout(){
 }
 function ajoutvoiture(){
     require("modele/voitureBD.php");
-    $listeVBD = getAllModels();
+    $listeModele = getAllModele();
+    $listeMarque = getAllMarque();
+    //var_dump($listeModele);
     
+    //var_dump($listeMarque);
+ 
     $msgWrong="";
     $msgDone="";
     $marque=strtoupper(isset($_POST['marque'])?($_POST['marque']):''); // trim pour enlever les espaces avant et apres
