@@ -177,4 +177,22 @@ function getFacture($id){
     return $resultat;
 }
 
+function getAllFacture(){
+    require('./modele/connectBD.php');
+    $sql = "SELECT * FROM facture ORDER BY id_cli;";
+    try {
+        $fact = $pdo->prepare($sql);
+        $bool = $fact->execute();
+        if ($bool) {
+            $resultat = $fact->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            //var_dump($resultat); //die("Ok");
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    return $resultat;
+}
+
 ?>

@@ -1,0 +1,51 @@
+body {
+    background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%, rgba(26, 49, 95, 1)),
+    color-stop(10%, rgba(26, 49, 95, 1)),
+    color-stop(24%, rgba(29, 108, 141, 1)),
+    color-stop(37%, rgba(41, 136, 151, 1)),
+    color-stop(77%, rgba(39, 45, 100, 1)),
+    color-stop(90%, rgba(26, 49, 95, 1)),
+    color-stop(100%, rgba(26, 49, 95, 1)));
+    height: 90vh;
+}
+.ChoixListeFacture {
+    width: 40%;
+    border: 3px solid red;
+
+}
+form {
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 3px solid yellow;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit {
+    margin-top: 3%;
+    width: 40%;
+    height: 30px;
+    border: 0;
+    background-color: #08d;
+    border-radius: 12px;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+}
+.input-container {
+    text-align: center;
+}
+.input {
+    width: 80%;
+    height: 30px;
+    background-color: #303245;
+    border-radius: 6px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+}

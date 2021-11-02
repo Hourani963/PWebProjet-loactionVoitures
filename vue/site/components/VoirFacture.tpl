@@ -29,7 +29,7 @@
                 border-radius: 20px;
                 box-sizing: border-box;
                 height: 430px;
-                width: 900px;
+                width: 1000px;
                 margin: auto;
             }
             table {
@@ -39,7 +39,6 @@
                 background-color: #aaa;
                 width: 80%;
                 position: relative;
-                top: 10%;
                 border-radius: 6px;
                 -webkit-border-radius: 6px;
                 -moz-border-radius: 6px;
@@ -68,7 +67,7 @@
             }
             .Title {
                 display: inline-block;
-                margin-bottom: 50px;
+                margin-bottom: 30px;
                 color: white;
                 border-bottom: 3px solid white;
                 position: relative;
@@ -94,7 +93,7 @@
                 width: 40%;
             }
             .btn:hover {
-                background-color: rgb(0, 221, 92);
+                background-color: #20b302;
             }
 
         </style>
@@ -103,22 +102,21 @@
             <div id="main">
 
                 <?php
-                require("./modele/voitureBD.php");
+
                 if ($Facture != false) {
                     echo ('<table>');
                 echo ('<tr><th> VEHICULE </th><th> Date Début </th> <th> Date Fin </th> <th> Valeur </th><th> Etat </th> <th> DL </th></tr>');
                 foreach ($Facture as $f) {
 
-                $Voiture = getVoiture($f['id_vehi']);
-                //var_dump($Voiture); die("Ok");
-                echo "<tr class='facture'>";
-                    echo ("<td>" . utf8_encode($Voiture[0]['modele']) . "</td>");
+                    //var_dump($f); die("Ok");
+                    echo "<tr class='facture'>";
+                    echo ("<td>" . utf8_encode($f['id_vehi']) . "</td>");
                     echo ("<td>" . utf8_encode($f['dateD']) . "</td>");
                     echo ("<td>" . utf8_encode($f['DateF']) . "</td>");
                     echo ("<td>" . utf8_encode($f['valeur']) . "</td>");
                     echo ("<td>" . utf8_encode($f['EtatR']). "</td>");
                     //echo ("<td>" . "<i class="fas fa-file-download"></i>" .  "</td>");
-                    ?><td><a href="#" style="text-decoration-color: black"><i class="fas fa-file-download"></i></a></td>
+                    ?><td><a href="#" style="text-decoration: none; color: black"><i class="fas fa-file-download"></i></a></td>
                     <?php
                     echo "</tr>\n";
                 }

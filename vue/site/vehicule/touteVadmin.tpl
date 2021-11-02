@@ -1,25 +1,67 @@
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>S'inscrire</title>
-	<link href="./vue/styleCSS/vehicule/louerVoiture.css" rel="stylesheet">
-	
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>S'inscrire</title>
+        <link href="./vue/styleCSS/vehicule/louerVoiture.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/fa3cb2061d.js" crossorigin="anonymous"></script>
+    </head>
 
-<body>
-    
+    <body>
+        <style>
+            .addV {
+                text-align: center;
+                padding-right: 10%;
+                width: 50px;
+                color: black;
+                height: 50px;
+                font-size: 3rem;
+                z-index: 30;
+                border: 8px solid black;
+                padding: 10px;
+                background-color: transparent;
+                border-radius: 50%;
+            }
+            .addV i {
+            }
+            .supr {
+                width: 30px;
+                color: red;
+                height: 30px;
+                font-size: 2rem;
+                float: right;
+                position: relative;
+                z-index: 30;
+                background-color: black;
+                border-radius: 50%;
+                bottom: 10px;
+                right: 10px;
+            }
+            .supr {
+                text-decoration-color: red;
+            }
+            .allVoitures{
+                padding-right: 5%;
+                padding-top: 7%;
+            }
+        </style>
         <div class="menu">
-            <?php require("vue/site/components/MenuAbon.tpl");?></div>
-        
-        <?php 
+            <?php require("vue/site/components/menuAdmin.tpl");?></div>
+
+        <?php
         foreach($listV as $l){ ?>
             <div class="allVoitures">
                 <ul>
+                    <a href="index.php?controle=vehicule&action=suprVoiture&vtr= <?php echo $l['id_vehi'] ?>">
+                        <div class="supr">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </a>
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
+
                         <div class="book-container">
+
                             <div class="content">
-                                <input type='number' id='qte' name='qte' min='0' max='100' placeholder='0' class="btn">
-                                <a href="index.php?controle=clients&action=ajoutPanier&vtr= <?php echo $l['id_vehi'] ?>"><button class="btn">Ajouter</button>
+
                             </div>
                         </div>
 
@@ -48,7 +90,7 @@
                                         <p>Samedi 1er février 2020</p>
                                     </div>
                                 </div>
-                                
+
                                 <p class="disclaimer"><?php echo $l['caract'] ?></p> <!-- remarque : pour afficher le prix sans HOVER il faur ajouter un long text-->
                             </div>
                         </div>
@@ -56,5 +98,13 @@
                 </ul>
             </div>
         <?php } ?>
+        <div style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
+            <a href="">
+                <div class="addV">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </a>
+        </div>
 
-</body>
+    </body>
+</html>
