@@ -1,13 +1,6 @@
 
 body{
-    background: -webkit-gradient(linear, left top, left bottom,
-    color-stop(0%, rgba(0, 0, 0, 1)),
-     color-stop(10%, rgba(0, 0, 0, 1)), 
-     color-stop(24%, rgba(3, 39, 36, 1)),
-      color-stop(37%, rgba(12, 28, 10, 1)), 
-      color-stop(77%, rgba(2, 0, 0, 1)),
-       color-stop(90%, rgba(36, 39, 3, 1)),
-        color-stop(100%, rgba(0, 0, 0, 1)));
+
     display: flex;
     
     margin-left: 10%;

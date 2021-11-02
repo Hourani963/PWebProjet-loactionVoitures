@@ -1,14 +1,47 @@
 <?php
 function touteVoiture(){
-    
     require('./modele/voitureBD.php');
-    $listV = getVoitures();
-    require('./vue/site/touteV.tpl');
+    
+    if(isset($_GET['mode'])){
+        $mode = $_GET['mode'];
+        if($mode == 'choix'){
+            $listV = getVoitures();
+            require('./vue/site/touteV.tpl');
+        }else if($mode == 'automatique'){
+            require('./vue/site/touteVAutomatique.tpl');
+        }
+    }else{
+        require('./vue/site/choix.tpl');
+    }
+    
+    
+}
+
+function peutAjouter($voiture){
+    $bool = true;
+    if(isset($_SESSION['panier'])){
+        foreach($_SESSION['panier'] as $p){
+            if($p == $voiture){
+                $bool=false;
+            }
+        }
+    }
+    return $bool;
 }
 function ajoutVo($voiture){
-    $nbV = $_SESSION['nbV'];
-    $_SESSION['panier'][$nbV] = $voiture;
-    $_SESSION['nbV']=$_SESSION['nbV']+1;
+    if(peutAjouter($voiture)){
+        if(isset($_SESSION['nbV'])){
+            $nbV = $_SESSION['nbV'];
+        }else{
+            $nbV=0;
+        }
+        $_SESSION['panier'][$nbV] = $voiture;
+        if(isset($_SESSION['nbV'])){
+            $_SESSION['nbV']=$_SESSION['nbV']+1;
+        }else{
+            $_SESSION['nbV']=$nbV+1;
+        }
+    }
 
 }
 function suppVo($i){
@@ -17,53 +50,59 @@ function suppVo($i){
 }
 function ajoutPanier(){
     require("./modele/voitureBD.php");
-    $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
-    $a=true;
-    echo($_SESSION['nbV']);
-    $test=$_SESSION['panier'];
-    if($_SESSION['nbV']==0){
-        $a=false;
-    }else{
-        foreach($test as $p){
-            if($p[0]['id_vehi']==$id_v){
-                $a=false;
-            }
-        }
-    }
-    
-    if($a){
-        $voiture = getVoiture($id_v);
-        ajoutVo($voiture);
-        
-        //var_dump($_SESSION['panier']);
+    if(isset($_GET['vtr'])){
+        $id_v = $_GET['vtr'];
+        $vo = getVoiture($id_v);
+        ajoutVo($vo);
     }
     $listV = getVoitures();
     require('./vue/site/touteV.tpl');
 }
+
+
+
+
+
+
+
+
+
 function suppVPanier(){
-    $id_v =isset($_GET['id'])?trim($_GET['id']):'';
-    $b=true;
-    if(isset($id_v)){
-        if($_SESSION['nbV']==1){
-            suppVo("");
-        }
+
+    if(isset($_GET['id'])){
+        $id_v =$_GET['id'];
         for ($i = 1; $i <= $_SESSION['nbV']-1; $i++) {
             if($_SESSION['panier'][$i][0]['id_vehi']==$id_v){
-                    suppVo($i);                            
-            }
-
-            
+                    suppVo($i);                          
+            } 
         }
     }
+    
     $panier = $_SESSION['panier'];
     require('vue/site/panier.tpl');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function voirPanier(){
     if(isset($_SESSION['panier'])){
         $panier = $_SESSION['panier'];
-        require('vue/site/panier.tpl');
+
+        require("vue/site/panier.tpl");
     }else{
-        require('vue/site/panierVide.tpl');
+        require("vue/site/panierVide.tpl");
     }
     
 }
