@@ -19,13 +19,27 @@
                 height: 90vh;
             }
             .ChoixListeFacture {
-                margin-top: 5px;
-                width: 40%;
-            }
-            form {
                 font-size: 15px;
                 color: #ffffff;
                 background-color: #15172b;
+                display: block;
+
+                justify-content: center;
+                align-items: center;
+            }
+            .vFacture {
+                margin: auto;
+                margin-top: 5px;
+                width: 60%;
+            }
+            .out {
+                margin-left: 42.5%;
+                display: inline;
+            }
+            .submit:after .out{
+                color: yellow;
+            }
+            form {
                 border-radius: 20px;
                 box-sizing: border-box;
                 width: 100%;
@@ -61,26 +75,31 @@
             }
         </style>
         <div class="ChoixListeFacture" style="background-color: #15172b">
-            <form action="./index.php?controle=clients&action=FactureAdmin&idU=" method="POST">
-                <div class="input-container">
-                    <label for="idU" class="placeholder">Afficher Facture  : </label>
-                    <select id="Modele" name="idU" class="input" required>
-                        <option value="All" selected="selected">Toute les factures</option>
+            <div class="vFacture">
+                <form action="./index.php?controle=clients&action=FactureAdmin&idU=" method="POST">
+                    <div class="input-container">
+                        <label for="idU" class="placeholder">Afficher Facture  : </label>
+                        <select id="Modele" name="idU" class="input" required>
+                            <option value="All" selected="selected">Toute les factures</option>
 
-                        <?php
+                            <?php
                          foreach($Client as $c){
                                 echo '<option value="'. $c['id_cli'] .'" ' . ' >'. $c['nom'] . " " . $c['prenom'] .'</option>';
-                         }
-                        ?>
-                    </select>
-                </div>
-                <input type="submit" value="Submit" class="submit">
-            </form>
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <input type="submit" value="Submit" class="submit">
+                </form>
+            </div>
+            <div class="out">
+                <a href="./index.php?controle=clients&action=admin">
+                    Revenir a l'acceuil
+                </a>
+            </div>
 
         </div>
-        <a href="./index.php?controle=clients&action=admin">
-            Revenir a l'acceuil
-        </a>
+
 
     </body>
 </html>

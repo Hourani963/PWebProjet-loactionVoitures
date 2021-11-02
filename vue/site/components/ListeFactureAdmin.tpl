@@ -6,8 +6,14 @@
         <script src="https://kit.fontawesome.com/fa3cb2061d.js" crossorigin="anonymous"></script>
     </head>
     <body>
+
         <div class="SeeFacture">
             <?php  require('./vue/site/components/VoirFactureAdmin.tpl'); ?>
+            <style>
+                .out {
+                    margin-left: 0;
+                }
+            </style>
             <div id="main">
                 <?php
                     if ($Facture != false) {

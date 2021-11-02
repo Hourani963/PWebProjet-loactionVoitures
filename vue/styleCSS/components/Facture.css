@@ -14,6 +14,7 @@ body {
     height: 90vh;
 }
 .SeeFacture {
+    background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
     height: 430px;
