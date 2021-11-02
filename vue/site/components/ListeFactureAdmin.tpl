@@ -12,6 +12,8 @@
             <style>
                 .out {
                     margin-left: 0;
+                    position: relative;
+                    bottom: 3%;
                 }
                 .input {
                     width: 110%;

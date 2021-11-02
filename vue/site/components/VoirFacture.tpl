@@ -67,7 +67,7 @@
             }
             .Title {
                 display: inline-block;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
                 color: white;
                 border-bottom: 3px solid white;
                 position: relative;
