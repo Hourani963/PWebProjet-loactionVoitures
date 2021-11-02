@@ -14,8 +14,10 @@ function erreurAjout(){
 }
 function ajoutvoiture(){
     require("modele/voitureBD.php");
-    $listeVBD = getAllModels();
-    
+    $listeModele = getAllModele();
+    $listeMarque = getAllMarque();
+
+ 
     $msgWrong="";
     $msgDone="";
     $marque=strtoupper(isset($_POST['marque'])?($_POST['marque']):''); // trim pour enlever les espaces avant et apres
@@ -40,7 +42,7 @@ function ajoutvoiture(){
                 require("vue/site/ajoutVoiture.tpl");
             }
         }else{
-            $msgWrong = "Erreur d'ajouter la voiture";
+            $msgWrong = "Erreur d'ajouter la voiture (car not in DB)";
             require("vue/site/ajoutVoiture.tpl");
         }
         

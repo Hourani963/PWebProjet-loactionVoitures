@@ -2,10 +2,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
 	<link href="./vue/styleCSS/accueilNAbon.css" rel="stylesheet">
 	<title></title>
 </head>
 <body>
+	
 	<div><?php include "vue/site/components/MenuNAbon.tpl" ?></div>
 
 	<div class="slideshow-container">

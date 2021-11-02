@@ -104,7 +104,7 @@ function verif_base($marque,$modele){
         $bool = $commande->execute();
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($resultat);die();
+            
        
         }
     }
@@ -118,10 +118,27 @@ function verif_base($marque,$modele){
     return false;
 }
 
-function getAllModels(){
+function getAllMarque(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
     $sql = "SELECT DISTINCT marque FROM modeles";
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+function getAllModele(){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+
+    $sql = "SELECT DISTINCT modele FROM modeles";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();

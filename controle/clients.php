@@ -48,12 +48,28 @@ function admin(){
     
 }
 function ident(){
+    $msg = "";
     $_SESSION['nbV']=0;
     $_SESSION['panier']=array();
-    $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
-    $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
-    $msg="";
-    $mdp = md5($mdpNC);
+    //******************************* Récupérer la session */
+    if(isset($_SESSION['profil'])){ 
+        //var_dump($_SESSION['profil']);
+        //die;
+        $pseudo=isset($_SESSION['profil']['pseudo'])?($_SESSION['profil']['pseudo']):'';
+        $mdp=isset($_SESSION['profil']['mdp'])?($_SESSION['profil']['mdp']):'';
+        $msg="";
+    }
+    else{
+        if (count($_POST)==0) require("vue/site/ident.tpl");
+
+        $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
+        $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
+        $msg="";
+        $mdp = md5($mdpNC);
+    }
+//*************************************************** Fin récupérer la session */
+//********************************Commencer new Session */
+    
     if($pseudo=='admin' && $mdp== md5('admin')){
         $_SESSION['profil']['pseudo'] = $pseudo;
         $_SESSION['profil']['mdp'] = $mdp;
@@ -67,11 +83,8 @@ function ident(){
         }
         header("Location: index.php?controle=clients&action=admin");
         
-        
-    }else{
-        if (count($_POST)==0) require("vue/site/ident.tpl");
-    else {
-        
+    }
+    else{
         require ("./modele/clientsBD.php");
         
         if (verif_bd($pseudo, $mdp, $profil)) {
@@ -86,11 +99,11 @@ function ident(){
         }
             header ("Location:" . $nexturl);
         }
-        else {
+        else if(count($_POST) != 0){
             $msg = "Utilisateur inconnu !";
             require("vue/site/ident.tpl");
         }
-    }
+    
     }
     
 }
