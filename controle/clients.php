@@ -45,9 +45,22 @@ function ajoutVo($voiture){
 
 }
 function suppVo($i){
-    $_SESSION['panier'][$i][0]='';
-    $_SESSION['nbV']=$_SESSION['nbV']-1;
+        if(isset($_SESSION['nbV'])){
+            $nbV = $_SESSION['nbV']-1;
+        }else{
+            $nbV=0;
+        }
+
+        $_SESSION['panier'][$i] = '';
+
+        if(isset($_SESSION['nbV'])){
+            $_SESSION['nbV']=$_SESSION['nbV']-1;
+        }else{
+            $_SESSION['nbV']=$nbV-1;
+        }
+
 }
+
 function ajoutPanier(){
     require("./modele/voitureBD.php");
     if(isset($_GET['vtr'])){
@@ -68,38 +81,30 @@ function ajoutPanier(){
 
 
 function suppVPanier(){
-
+    $desupp = false;
     if(isset($_GET['id'])){
         $id_v =$_GET['id'];
-        for ($i = 1; $i <= $_SESSION['nbV']-1; $i++) {
-            if($_SESSION['panier'][$i][0]['id_vehi']==$id_v){
-                    suppVo($i);                          
+        for ($i = 0; $i <= count($_SESSION['panier'])-1; $i++) {
+            if(isset($_SESSION['panier'][$i][0]['id_vehi'])){
+                if($_SESSION['panier'][$i][0]['id_vehi']==$id_v){
+                    if($desupp==false){
+                        suppVo($i); 
+                        $desupp=true;
+                    }                 
             } 
+            }
+            
         }
     }
-    
     $panier = $_SESSION['panier'];
     require('vue/site/panier.tpl');
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function voirPanier(){
     if(isset($_SESSION['panier'])){
         $panier = $_SESSION['panier'];
-
+        
         require("vue/site/panier.tpl");
     }else{
         require("vue/site/panierVide.tpl");

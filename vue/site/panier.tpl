@@ -19,8 +19,11 @@
         echo("<li>Quantité : </li>");
         echo("<li>Prix : </li>");
         echo("</ul>");
-        for ($i = 1; $i <= $_SESSION['nbV']-1; $i++){
-                echo("<ul>");
+        $vide=true;
+        for ($i = 0; $i <= count($panier)-1; $i++){
+            if($panier[$i]!=""){
+            $vide = false;
+            echo("<ul>");
                 echo("<div class='descPanier'>");
                     echo("<li>" . $panier[$i][0]['marque'] . "</li>");
                     echo("<li>" . $panier[$i][0]['modele'] . "</li>");
@@ -30,11 +33,19 @@
                     echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $panier[$i][0]['id_vehi'] . "'><button>X </button></a>");
                 echo("</div>");
             echo("</ul>");
+            }
+                
         }
         echo("</div>");
+    if($vide){     
+        echo("<a href ='#'><button ><div class='text'>Valider panier</div></button></a>");  
+    }else{
+        echo("<a href ='index.php?controle=clients&action=validerPanier'><button ><div class='text'>Valider panier</div></button></a>");
 
+    }
+        
     ?>  
-    <a href ='index.php?controle=clients&action=validerPanier'><button><div class='text'>Valider panier</div></button></a>
+    
 
 </div>
 </body>
