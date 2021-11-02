@@ -5,18 +5,59 @@ function touteVoiture(){
     $listV = getVoitures();
     require('./vue/site/touteV.tpl');
 }
-function ajoutPanier(){
-    require("./modele/voitureBD.php");
-    $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
-    $voiture = getVoiture($id_v);
+function ajoutVo($voiture){
     $nbV = $_SESSION['nbV'];
     $_SESSION['panier'][$nbV] = $voiture;
     $_SESSION['nbV']=$_SESSION['nbV']+1;
+
+}
+function suppVo($i){
+    $_SESSION['panier'][$i][0]='';
+    $_SESSION['nbV']=$_SESSION['nbV']-1;
+}
+function ajoutPanier(){
+    require("./modele/voitureBD.php");
+    $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
+    $a=true;
+    echo($_SESSION['nbV']);
+    $test=$_SESSION['panier'];
+    if($_SESSION['nbV']==0){
+        $a=false;
+    }else{
+        foreach($test as $p){
+            if($p[0]['id_vehi']==$id_v){
+                $a=false;
+            }
+        }
+    }
+    
+    if($a){
+        $voiture = getVoiture($id_v);
+        ajoutVo($voiture);
+        
+        //var_dump($_SESSION['panier']);
+    }
     $listV = getVoitures();
-    //var_dump($_SESSION['panier']);
     require('./vue/site/touteV.tpl');
 }
+function suppVPanier(){
+    $id_v =isset($_GET['id'])?trim($_GET['id']):'';
+    $b=true;
+    if(isset($id_v)){
+        if($_SESSION['nbV']==1){
+            suppVo("");
+        }
+        for ($i = 1; $i <= $_SESSION['nbV']-1; $i++) {
+            if($_SESSION['panier'][$i][0]['id_vehi']==$id_v){
+                    suppVo($i);                            
+            }
 
+            
+        }
+    }
+    $panier = $_SESSION['panier'];
+    require('vue/site/panier.tpl');
+}
 function voirPanier(){
     if(isset($_SESSION['panier'])){
         $panier = $_SESSION['panier'];
@@ -41,6 +82,12 @@ function bye(){
 	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
 	header("Location:" .$nexturl);
 }
+function validerPanier(){
+    require('./vue/site/validerPanier.tpl');
+}
+function panierValidé(){
+    require('./vue/site/vue/panierValidé.tpl');
+}
 function gestion(){
     require('./modele/clientsBD.php');
     $res = getDevisAV();
@@ -63,7 +110,6 @@ function ident(){
             $test=json_decode($_COOKIE['session'],1);
             if($test['profil']['pseudo']==$pseudo){
                 $_SESSION=json_decode($_COOKIE['session'],1);
-                var_dump($_SESSION);
                 
             }else{
                 $_SESSION['profil']['pseudo'] = $pseudo;
@@ -95,7 +141,6 @@ function ident(){
                 $test=json_decode($_COOKIE['session'],1);
                 if($test['profil']['pseudo']==$pseudo){
                     $_SESSION=json_decode($_COOKIE['session'],1);
-                    var_dump($_SESSION);
                     
                 }else{
                     $_SESSION['profil'] = $profil;

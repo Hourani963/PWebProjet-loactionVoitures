@@ -17,21 +17,24 @@
         echo("<li>Modele : </li>");
         echo("<li>Caracteristique : </li>");
         echo("<li>Quantité : </li>");
+        echo("<li>Prix : </li>");
         echo("</ul>");
-        foreach ($panier as $p){
-            echo("<ul>");
+        for ($i = 1; $i <= $_SESSION['nbV']-1; $i++){
+                echo("<ul>");
                 echo("<div class='descPanier'>");
-                    echo("<li>" . $p[0]['marque'] . "</li>");
-                    echo("<li>" . $p[0]['modele'] . "</li>");
-                    echo("<li>" . $p[0]['caract'] . "</li>");
+                    echo("<li>" . $panier[$i][0]['marque'] . "</li>");
+                    echo("<li>" . $panier[$i][0]['modele'] . "</li>");
+                    echo("<li>" . $panier[$i][0]['caract'] . "</li>");
+                    echo("<li>" . $panier[$i][0]['val'] . "</li>");
                     echo("<li>qte</li>");
+                    echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $panier[$i][0]['id_vehi'] . "'><button>X </button></a>");
                 echo("</div>");
             echo("</ul>");
         }
         echo("</div>");
 
     ?>  
-    <button><div class='text'>Valider panier</div></button>
+    <a href ='index.php?controle=clients&action=validerPanier'><button><div class='text'>Valider panier</div></button></a>
 
 </div>
 </body>
