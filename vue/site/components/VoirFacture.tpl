@@ -117,7 +117,7 @@
                     echo ("<td>" . utf8_encode($f['valeur']) . "</td>");
                     echo ("<td>" . utf8_encode($f['EtatR']). "</td>");
                     //echo ("<td>" . "<i class="fas fa-file-download"></i>" .  "</td>");
-                    ?><td><a href="#" style="text-decoration: none;color: black"><i class="fas fa-file-download"></i></a></td>
+                    ?><td><a href="#" style="text-decoration: none; color: black"><i class="fas fa-file-download"></i></a></td>
                     <?php
                     echo "</tr>\n";
                 }

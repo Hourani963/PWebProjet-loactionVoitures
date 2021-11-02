@@ -14,6 +14,43 @@ function touteVoitureAdmin(){
     require('./vue/site/vehicule/touteVadmin.tpl');
 }
 
+function FactureAdmin(){
+    if (count($_POST) == 0) {
+        require("./modele/clientsBD.php");
+        $Client = getId_cli();
+        require('./vue/site/components/VoirFactureAdmin.tpl');
+    }else {
+        require("./modele/clientsBD.php");
+        require("./modele/voitureBD.php");
+        $Client = getId_cli();
+        $test = $_POST['idU'];
+        if(isset($_POST['idU'])){
+            if($_POST['idU'] == "All"){
+                $Facture = getAllFacture();
+                $i = 0;
+                foreach ($Facture as $f) {
+                    $Voiture = getVoiture($f['id_vehi']);
+                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $i++;
+                }
+            } else {
+                $Facture = getFacture($_POST['idU']);
+                $i = 0;
+                foreach ($Facture as $f) {
+                    $Voiture = getVoiture($f['id_vehi']);
+                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $i++;
+                }
+            }
+            require('./vue/site/components/ListeFactureAdmin.tpl');
+        } else{
+            require('./vue/site/components/VoirFactureAdmin.tpl');
+        }
+
+    }
+
+}
+
 function ajoutPanier(){
     require("./modele/voitureBD.php");
     $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
@@ -160,7 +197,7 @@ function addFacture(){
     else {
         require("./modele/voitureBD.php");
         insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
-        $nexturl = "index.php?controle=clients&action=accueilAbon";
+        $nexturl = "index.php?controle=clients&action=admin";
         header("Location:" .$nexturl);
     }
 }
