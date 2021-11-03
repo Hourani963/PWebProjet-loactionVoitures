@@ -196,3 +196,18 @@ ul .booking-card:hover .informations-container .more-information {
 h1 {
     margin: 10px 20px;
 }
+
+
+.voitures{
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-flow: rows;
+    
+    gap: 10px;
+}
+
+.allVoitures{
+    position: relative;
+
+}

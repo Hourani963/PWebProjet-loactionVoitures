@@ -51,7 +51,7 @@ function ajoutvoiture(){
                 require("vue/site/ajoutVoiture.tpl");
             }
         }else{
-            $msgWrong = "Erreur d'ajouter la voiture (car not in DB)";
+            $msgWrong = "Erreur d'ajouter la voiture (this modele is not for this mark)";
             require("vue/site/ajoutVoiture.tpl");
         }
         

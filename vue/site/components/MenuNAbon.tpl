@@ -4,7 +4,8 @@
   </head>
   <link href="./vue/styleCSS/components/Menu.css" rel="stylesheet">
   
-  <body><div class="area"></div><nav class="main-menu">
+  <body>
+  <nav class="main-menu">
             <ul>
 
                 <li>

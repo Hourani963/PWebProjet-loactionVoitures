@@ -96,7 +96,7 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
 function verif_base($marque,$modele){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     
-    $sql="SELECT modele FROM `modeles` WHERE marque = :marque and modele = :modele ";
+    $sql="SELECT modele FROM `modeles` WHERE marque = :marque AND modele = :modele ";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque, PDO::PARAM_STR);
@@ -104,7 +104,7 @@ function verif_base($marque,$modele){
         $bool = $commande->execute();
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
-            
+            var_dump($resultat); die;
        
         }
     }

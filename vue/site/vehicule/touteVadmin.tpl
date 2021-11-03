@@ -47,6 +47,7 @@
         <div class="menu">
             <?php require("vue/site/components/menuAdmin.tpl");?></div>
 
+        <div class="Voitures">
         <?php
         foreach($listV as $l){ ?>
             <div class="allVoitures">
@@ -98,13 +99,14 @@
                 </ul>
             </div>
         <?php } ?>
-        <div style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
+        
+        <div clesse="allVoitures" style="padding-left: 100px; display: flex; align-items: center; justify-items: center;">
             <a href="">
                 <div class="addV">
                     <i class="fas fa-plus"></i>
                 </div>
             </a>
         </div>
-
+        </div>
     </body>
 </html>
