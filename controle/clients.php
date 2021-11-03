@@ -24,22 +24,55 @@ function FactureAdmin(){
         require("./modele/voitureBD.php");
         $Client = getId_cli();
         $test = $_POST['idU'];
+        $test2 = $_POST['mounthDate'];
+        $valTotal = 0;
         if(isset($_POST['idU'])){
             if($_POST['idU'] == "All"){
                 $Facture = getAllFacture();
+                if($_POST['mounthDate']!= ''){
+                    $Facture2 = array();
+                    $j=0;
+                    foreach ($Facture as $F){
+                        if(strpos($F['dateD'], $test2) !== false){
+                            $Facture2[$j] = $F;
+                            $j++;
+                        }
+                    }
+                    $Facture =$Facture2;
+                }
+                $i = 0;
+
+                foreach ($Facture as $f) {
+                    $Voiture = getVoiture($f['id_vehi']);
+                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $i++;
+                }
+                foreach ($Facture as $f){
+                    $valTotal = $valTotal + $f['valeur'];
+
+                }
+                //var_dump($valTotal); die("ok");
+            } else {
+                $Facture = getFacture($_POST['idU']);
+                if($_POST['mounthDate']!= ''){
+                    $Facture2 = array();
+                    $j=0;
+                    foreach ($Facture as $F){
+                        if(strpos($F['dateD'], $test2) !== false){
+                            $Facture2[$j] = $F;
+                            $j++;
+                        }
+                    }
+                    $Facture =$Facture2;
+                }
                 $i = 0;
                 foreach ($Facture as $f) {
                     $Voiture = getVoiture($f['id_vehi']);
                     $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
                     $i++;
                 }
-            } else {
-                $Facture = getFacture($_POST['idU']);
-                $i = 0;
-                foreach ($Facture as $f) {
-                    $Voiture = getVoiture($f['id_vehi']);
-                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
-                    $i++;
+                foreach ($Facture as $f){
+                    $valTotal = $valTotal + $f['valeur'];
                 }
             }
             require('./vue/site/components/ListeFactureAdmin.tpl');

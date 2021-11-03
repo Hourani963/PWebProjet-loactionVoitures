@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>Voir Facture Admin</title>
-        <link rel="stylesheet" href="./vue/styleCSS/components/FactureAdmin.css">
+        <!--<link rel="stylesheet" href="./vue/styleCSS/components/FactureAdmin.css">-->
     </head>
     <body>
         <style>
@@ -17,61 +17,78 @@
                 color-stop(90%, rgba(26, 49, 95, 1)),
                 color-stop(100%, rgba(26, 49, 95, 1)));
                 height: 90vh;
-            }
-            .ChoixListeFacture {
-                font-size: 15px;
-                color: #ffffff;
-                background-color: #15172b;
-                display: block;
-
+                display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+            .ChoixListeFacture {
+                border: 0;
+                font-size: 15px;
+                color: #ffffff;
+                /*border: 3px solid red;*/
+                background-color: #15172b;
+                display: block;
+                margin: auto;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                border-radius: 12px;
+                width: 30%;
+            }
+            .input-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /*border: 3px solid yellow;*/
+                margin: auto;
+            }
+            .input {
+                margin: 5px;
+                width: 40%;
+                border-bottom-left-radius: 12px;
+                border-top-left-radius: 12px;
+                border: 0;
+                box-sizing: border-box;
+                color: #eee;
+                background-color: #303245;
             }
             .vFacture {
                 margin: auto;
-                margin-top: 5px;
-                width: 60%;
+                /*border: 3px solid rebeccapurple;*/
             }
-            .out {
-                margin-left: 42.5%;
-                display: inline;
-            }
-            .submit:after .out{
-                color: yellow;
-            }
-            form {
-                border-radius: 20px;
-                box-sizing: border-box;
-                width: 100%;
-                display: inline-flex;
+            .DateSubmit {
+                /*border: 3px solid green;*/
+                margin: auto;
+                display: flex;
                 justify-content: center;
                 align-items: center;
             }
-            .submit {
-                margin-top: 3%;
-                width: 40%;
-                height: 30px;
-                border: 0;
-                background-color: #08d;
-                border-radius: 12px;
-                box-sizing: border-box;
-                color: #eee;
-                cursor: pointer;
-            }
-            .input-container {
-                text-align: center;
-            }
-            .input {
-                width: 80%;
-                height: 30px;
-                background-color: #303245;
-                border-radius: 6px;
-                border: 0;
-                box-sizing: border-box;
-                color: #eee;
-            }
             a {
                 color: white;
+            }
+            .submit {
+                width: 20%;
+                border-radius: 12px;
+                border: 0;
+                cursor: pointer;
+                background-color: #08d;
+                box-sizing: border-box;
+                color: #eee;
+            }
+            .submit:hover{
+                color: black;
+                background-color: green;
+            }
+            a:hover {
+                color: green;
+            }
+            .mounthDate {
+                border-radius: 12px;
+                width: 34%;
+                border: 0;
+                box-sizing: border-box;
+                color: #eee;
+                background-color: #303245;
             }
         </style>
         <div class="ChoixListeFacture" style="background-color: #15172b">
@@ -88,6 +105,10 @@
                             }
                             ?>
                         </select>
+
+                    </div>
+                    <div class="DateSubmit">
+                        <input type="month" id="start" name="mounthDate" class="mounthDate" min="2021-01" >
                     </div>
                     <input type="submit" value="Submit" class="submit">
                 </form>
