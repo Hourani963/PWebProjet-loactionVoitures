@@ -9,7 +9,14 @@
 <body>
     
         <div class="menu">
-            <?php require("vue/site/components/MenuAbon.tpl");?></div>
+            <?php
+                if($_SESSION['profil']['pseudo'] == "admin"){
+                    require("vue/site/components/MenuAdmin.tpl");
+                } else {
+                    require("vue/site/components/MenuAbon.tpl");
+                }
+            ?>
+        </div>
         
         <?php 
         foreach($listV as $l){ ?>
