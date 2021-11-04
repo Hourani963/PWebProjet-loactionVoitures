@@ -9,7 +9,7 @@
 <body>
     
         <div class="menu">
-            <?php require("vue/site/components/MenuAbon.tpl");?></div>
+            <?php require("vue/site/components/MenuAbo.tpl");?></div>
         
         <?php 
         foreach($listV as $l){ ?>
