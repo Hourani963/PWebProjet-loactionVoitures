@@ -19,13 +19,14 @@
         </div>
         
         <?php 
-        foreach($listV as $l){ ?>
+        foreach($listV as $l){ 
+            if($l['etatL']==0){
+                ?>
             <div class="allVoitures">
                 <ul>
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
                         <div class="book-container">
                             <div class="content">
-                                <input type='number' id='qte' name='qte' min='0' max='100' placeholder='0' class="btn">
                                 <a href="index.php?controle=clients&action=ajoutPanier&vtr= <?php echo $l['id_vehi'] ?>"><button class="btn">Ajouter</button>
                             </div>
                         </div>
@@ -62,6 +63,6 @@
                     </li>
                 </ul>
             </div>
-        <?php } ?>
+        <?php }} ?>
 
 </body>

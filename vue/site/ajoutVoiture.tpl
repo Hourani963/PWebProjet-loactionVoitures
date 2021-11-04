@@ -14,8 +14,7 @@
 		<div class="title">Ajout voiture</div>
 			<div class="subtitle">voiture</div>
 				<div class="msg"> 
-					<p1><?php echo $msgWrong; ?></p1>
-					<p2><?php echo $msgDone; ?></p2>
+
 				</div> 
 				<div class="input-container ic1">
 					<input name="marque" list="voitures" on class="input" type="text" placeholder=" " id="marque"/>
