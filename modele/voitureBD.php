@@ -53,7 +53,7 @@ function getVoiture($id){
 function getVoituresAbonne(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     $sql="SELECT *  FROM vehicule WHERE etatL <> 2 AND etatL <> 1";
-    try {
+    try { 
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
         if ($bool) {

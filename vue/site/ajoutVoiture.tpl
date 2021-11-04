@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script src="vue/JS/ajoutVoiture.js"></script>
-	<div><?php require('./vue/site/components/menuAdmin.tpl'); ?></div>
+	
 
 	<form  action="index.php?controle=vehicule&action=ajoutvoiture" method="POST" class="form" enctype="multipart/form-data">
 		<div class="title">Ajout voiture</div>
@@ -59,5 +59,6 @@
 				</div>
 				<input type="submit" class="submit" value="Valider">
 	</form>
+
 </body>
 </html>
