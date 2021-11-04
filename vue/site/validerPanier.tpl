@@ -29,13 +29,10 @@ Payment card number: (4) VISA, (51 -> 55) MasterCard, (36-38-39) DinersClub, (34
         <span class="chip"></span>
         <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
         <div class="date"><span class="date_value">MM / YYYY</span></div>
-        <span class="fullname">FULL NAME</span>
       </div>
       <div class="back">
         <div class="magnetic"></div>
         <div class="bar"></div>
-        <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
-        <span class="chip"></span><span class="disclaimer">This card is property of Random Bank of Random corporation. <br> If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
       </div>
     </div>
   </div>
@@ -48,7 +45,7 @@ Payment card number: (4) VISA, (51 -> 55) MasterCard, (36-38-39) DinersClub, (34
     <input class="expire" type="text" placeholder="MM / YYYY"/>
     <label>CVV</label>
     <input class="ccv" type="text" placeholder="CVC" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-    <a href ='index.php?controle=clients&action=panierValidé' ><button class="buy"><i class="material-icons"></i> Payer €</button></a>
+    <a href ='index.php?controle=clients&action=voirPanier&valide=1' ><button class="buy"><i class="material-icons"></i> Payer  <?php echo $prix; ?> €</button></a>
   </div>
 </div>
 </body>

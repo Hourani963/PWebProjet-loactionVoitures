@@ -126,23 +126,41 @@ function dateDiff($date1, $date2){
  
     return $retour;
 }
+
 function voirPanier(){
+    $etat=false;
     $dated=0;
     $datef=0;
     $res=array();
-    if(isset($_POST['dated']) && isset($_POST['datef'])){
-        $dated=$_POST['dated'];
-        $datef=$_POST['datef'];
-        $date1=strtotime($dated);
-        $date2=strtotime($datef);
-        $res=dateDiff($date1, $date2);
-    }
+    
+   
     if(isset($_SESSION['panier'])){
+        if(isset($_POST['dated']) && isset($_POST['datef'])){
+            $dated=$_POST['dated'];
+            $datef=$_POST['datef'];
+            $date1=strtotime($dated);
+            $date2=strtotime($datef);
+            $_SESSION['dated']=$dated;
+            $_SESSION['datef']=$datef;
+            $res=dateDiff($date1, $date2);
+            if(isset($_GET['mode'])){
+                $etat=true;
+            }
+        }
         $panier = $_SESSION['panier'];
         
         require("vue/site/panier.tpl");
     }else{
         require("vue/site/panierVide.tpl");
+    }
+    if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
+        //Nouvelle facture
+        foreach()
+        //viderLePanier
+        echo($_SESSION['dated']);
+        die;
+        
+
     }
     
 }
@@ -162,6 +180,9 @@ function bye(){
 	header("Location:" .$nexturl);
 }
 function validerPanier(){
+    if(isset($_GET['price'])){
+        $prix = $_GET['price'];
+    }
     require('./vue/site/validerPanier.tpl');
 }
 function panierValidé(){

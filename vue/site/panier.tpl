@@ -50,10 +50,50 @@
         echo("<li>Prix  : </li>");
         echo("<li>" . $prixP . '€ par jour' . "</li>");
         echo("</ul>");
+        
+        if(isset($_POST['dated']) && isset($_POST['datef'])){
+            echo("<ul>");
+            echo("<li>" . 'Date debut ' . $dated . ' Date fin ' . $datef . "</li>");
+            echo("</ul>");
+            echo("<ul>");
+             ?>
+             <a href='index.php?controle=clients&action=voirPanier&mode=1'><button> changer de date</button></a>
+             Ou
+             <?php  
+        if($vide){     
+            echo("<a href ='#'><button ><div class='text'>Valider panier</div></button></a>");  
+        }else{
+            echo("<a href ='index.php?controle=clients&action=validerPanier&price=" . $prixP ."'><button ><div class='text'>Valider panier</div></button></a>");
+        }
+            
+            echo("</ul>");
+        }else{
+            ?>
+     
+        <form action="index.php?controle=clients&action=voirPanier" method="POST">
+        <label for="meeting">Dete de debut:</label>
+        <input type="date" 
+        id="dated" 
+        name="dated"
+        min='<?php echo(date("Y/m/d")); ?>'
+        defaultValue='<?php echo(date("Y/m/d")); ?>'>
+        <label for="meeting">Dete de fin:</label>
+        <input type="date" 
+        id="datef" 
+        name="datef"
+        min='<?php echo(date("Y/m/d")); ?>'
+        defaultValue='<?php echo(date("Y/m/d")); ?>'>
+       <button type='submit'>verif date</button>
+       
+
+      <?php 
+        }
         echo("</div>");
-
-
-      ?>
+        if($etat==true){
+            
+        
+?>
+     
         <form action="index.php?controle=clients&action=voirPanier" method="POST">
         <label for="meeting">Dete de debut:</label>
         <input type="date" 
@@ -71,15 +111,7 @@
        
 
       <?php  
-
-        if($vide){     
-            echo("<a href ='#'><button ><div class='text'>Valider panier</div></button></a>");  
-        }else{
-            echo("<a href ='index.php?controle=clients&action=validerPanier'><button ><div class='text'>Valider panier</div></button></a>");
-        }
-        
-    
-        
+}       
     ?>  
     
  </form>
