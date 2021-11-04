@@ -101,7 +101,7 @@
         <?php } ?>
         </div>
         <div style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
-            <a href="./index.php?controle=vehicule&action=ajoutvoiture">
+            <a href="">
                 <div class="addV">
                     <i class="fas fa-plus"></i>
                 </div>

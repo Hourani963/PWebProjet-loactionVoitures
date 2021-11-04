@@ -10,13 +10,7 @@
         <div class="SeeFacture">
             <?php  require('./vue/site/components/VoirFactureAdmin.tpl'); ?>
             <style>
-                body {
-                    display: block;
-                }
-                .ChoixListeFacture {
-                    width: 50%;
-                }
-                /*.out {
+                .out {
                     margin-left: 0;
                     position: relative;
                     bottom: 3%;
@@ -26,10 +20,6 @@
                 }
                 .submit {
                     margin-top: 6%;
-                }*/
-                h1 {
-                    color: white;
-                    font-size: 15px;
                 }
             </style>
             <div id="main">
@@ -52,11 +42,10 @@
                             echo "</tr>\n";
                         }
                         echo ('</table>');
-                        echo "<h1> Valeur Total : ". $valTotal ." </h1>";
                     }
-                    else { ?>
-                        <h1 style="color: white; font-size: 30px; font-style: italic;">Pas de Facture</h1>
-                    <?php } ?>
+                    else
+                        echo ('pas de contact');
+                    ?>
             </div>
 
         </div>

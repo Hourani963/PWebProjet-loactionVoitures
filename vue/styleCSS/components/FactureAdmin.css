@@ -8,76 +8,44 @@ body {
     color-stop(90%, rgba(26, 49, 95, 1)),
     color-stop(100%, rgba(26, 49, 95, 1)));
     height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .ChoixListeFacture {
-    border: 0;
+    width: 40%;
+    border: 3px solid red;
+
+}
+form {
     font-size: 15px;
     color: #ffffff;
-    /*border: 3px solid red;*/
     background-color: #15172b;
-    display: block;
-    margin: auto;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    width: 30%;
-}
-.input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*border: 3px solid yellow;*/
-    margin: auto;
-}
-.input {
-    margin: 5px;
-    width: 40%;
-    border-bottom-left-radius: 12px;
-    border-top-left-radius: 12px;
-    border: 0;
+    border-radius: 20px;
     box-sizing: border-box;
-    color: #eee;
-    background-color: #303245;
-}
-.vFacture {
-    margin: auto;
-    /*border: 3px solid rebeccapurple;*/
-}
-.DateSubmit {
-    /*border: 3px solid green;*/
-    margin: auto;
-    display: flex;
+    border: 3px solid yellow;
+    width: 100%;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-}
-a {
-    color: white;
 }
 .submit {
-    width: 20%;
-    border-radius: 12px;
+    margin-top: 3%;
+    width: 40%;
+    height: 30px;
     border: 0;
-    cursor: pointer;
     background-color: #08d;
+    border-radius: 12px;
     box-sizing: border-box;
     color: #eee;
+    cursor: pointer;
 }
-.submit:hover{
-    color: black;
-    background-color: green;
+.input-container {
+    text-align: center;
 }
-a:hover {
-    color: green;
-}
-.mounthDate {
-    border-radius: 12px;
-    width: 34%;
+.input {
+    width: 80%;
+    height: 30px;
+    background-color: #303245;
+    border-radius: 6px;
     border: 0;
     box-sizing: border-box;
     color: #eee;
-    background-color: #303245;
 }

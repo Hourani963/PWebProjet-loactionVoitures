@@ -50,22 +50,6 @@ function getVoiture($id){
 
 }
 
-function getVoituresAbonne(){
-    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 2 AND etatL <> 1";
-    try {
-        $commande = $pdo->prepare($sql);
-        $bool = $commande->execute();
-        if ($bool) {
-            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-        }
-    }
-    catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-        die(); // On arrête tout.
-    }
-    return $resultat;
-}
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
@@ -83,25 +67,6 @@ function getVoitures(){
     }
     return $resultat;
 }
-
-function getVoitureLoué(){
-    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL = 1";
-
-    try {
-        $commande = $pdo->prepare($sql);
-        $bool = $commande->execute();
-        if ($bool) {
-            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-        }
-    }
-    catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-        die(); // On arrête tout.
-    }
-    return $resultat;
-}
-
 function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_vec){
     require('./modele/connectBD.php');
 

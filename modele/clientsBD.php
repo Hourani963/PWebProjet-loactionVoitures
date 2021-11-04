@@ -179,9 +179,7 @@ function getFacture($id){
 
 function getAllFacture(){
     require('./modele/connectBD.php');
-        $sql = "SELECT * FROM facture ORDER BY id_cli;";
-
-
+    $sql = "SELECT * FROM facture ORDER BY id_cli;";
     try {
         $fact = $pdo->prepare($sql);
         $bool = $fact->execute();
