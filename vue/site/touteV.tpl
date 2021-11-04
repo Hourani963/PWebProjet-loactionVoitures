@@ -20,7 +20,7 @@
         <div class='wrap'>
         <?php 
         foreach($listV as $l){ 
-            if($l['etatL']==0){
+            
                 ?>
             <div class="allVoitures">
                 <ul>
@@ -63,7 +63,7 @@
                     </li>
                 </ul>
             </div>
-        <?php }} ?>
+        <?php } ?>
         </div>
 
 </body>
