@@ -69,7 +69,5 @@
         <?php } ?>
     </div>
 
-    <div style="display: inline-block;width: 100%"><?php require('vue/site/components/Footer.tpl');?></div>
-
 
 </body>
