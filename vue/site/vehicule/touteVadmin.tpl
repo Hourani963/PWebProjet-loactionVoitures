@@ -47,7 +47,7 @@
         </style>
         <div class="menu">
             <?php require("vue/site/components/menuAdmin.tpl");?></div>
-
+        <div class='wrap'>
         <?php
         foreach($listV as $l){ ?>
             <div class="allVoitures">
@@ -99,6 +99,7 @@
                 </ul>
             </div>
         <?php } ?>
+        </div>
         <div style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
             <a href="">
                 <div class="addV">

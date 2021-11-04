@@ -28,6 +28,10 @@ body{
     list-style: none;
     padding: 0;
 }
+.wrap{
+    padding-top: 100px;
+    display: flex;
+}
 .allVoitures ul .booking-card {
     position: relative;
     width: 300px;
