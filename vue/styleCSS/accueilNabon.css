@@ -1,69 +1,20 @@
-* {box-sizing:border-box}
-
-body{
-  background-color: black ;
-  background: -webkit-gradient(linear, left top, left bottom,
-  color-stop(0%, rgba(0, 0, 0, 1)),
-   color-stop(10%, rgba(0, 0, 0, 1)), 
-   color-stop(24%, rgba(3, 39, 36, 1)),
-    color-stop(37%, rgba(12, 28, 10, 1)), 
-    color-stop(77%, rgba(2, 0, 0, 1)),
-     color-stop(90%, rgba(36, 39, 3, 1)),
-      color-stop(100%, rgba(0, 0, 0, 1)));
-  
+.body {
+  background-image: url(../images/voitures/2021-tesla-model-s.jpg)!important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-attachment:fixed !important;
+  background-repeat:no-repeat !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100vh;
 }
 
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1500px;
-  position: relative;
-  margin: auto;
+.bouton-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
 }
-
-/* Hide the images by default */
-.slideshow-container .mySlides {
-  display: none;
-}
-
-/* Caption text */
-.slideshow-container .text {
-  -webkit-text-stroke: 1px black;
-  -webkit-text-fill-color: red;
-  
-  font-size: 50px ;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-style: italic;
-  margin-bottom: 75px;
-  font-weight: bolder;
-}
-.slideshow-container .c2{
-  -webkit-text-fill-color: purple;
-}
-.slideshow-container .c1{
-  -webkit-text-fill-color: silver;
-}
-
-
-/* Fading animation */
-.slideshow-container .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-  
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+.btn {
+  margin: 10px;
 }
