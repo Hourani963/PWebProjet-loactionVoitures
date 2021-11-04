@@ -54,9 +54,7 @@ function ajoutvoiture(){
             $msgWrong = "Erreur d'ajouter la voiture (car not in DB)";
             require("vue/site/ajoutVoiture.tpl");
         }
-        
     }
-
 }
 
 

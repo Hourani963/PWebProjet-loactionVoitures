@@ -1,6 +1,5 @@
 <?php
 function touteVoiture(){
-    
     require('./modele/voitureBD.php');
     $listV = getVoituresAbonne();
     require('./vue/site/touteV.tpl');
@@ -80,25 +79,168 @@ function FactureAdmin(){
 
     }
 
+    
+    if(isset($_GET['mode'])){
+        $mode = $_GET['mode'];
+        if($mode == 'choix'){
+            $listV = getVoitures();
+            require('./vue/site/touteV.tpl');
+        }else if($mode == 'automatique'){
+            $listeVBD = getAllMarqueDispo();
+            if(isset($_GET["marque"])){
+                $m = $_GET["marque"];
+                $qte = CountAllModelDispo($m);
+                $listeVBD=getAllModelDispo($m);
+                
+            }
+            require('./vue/site/touteVAutomatique.tpl');
+        }
+    }else{
+        require('./vue/site/choix.tpl');
+    }
+    
+    
+}
+
+function peutAjouter($voiture){
+    $bool = true;
+    if(isset($_SESSION['panier'])){
+        foreach($_SESSION['panier'] as $p){
+            if($p == $voiture){
+                $bool=false;
+            }
+        }
+    }
+    return $bool;
+}
+function ajoutVo($voiture){
+    if(peutAjouter($voiture)){
+        if(isset($_SESSION['nbV'])){
+            $nbV = $_SESSION['nbV'];
+        }else{
+            $nbV=0;
+        }
+        $_SESSION['panier'][$nbV] = $voiture;
+        if(isset($_SESSION['nbV'])){
+            $_SESSION['nbV']=$_SESSION['nbV']+1;
+        }else{
+            $_SESSION['nbV']=$nbV+1;
+        }
+    }
+
+}
+function suppVo($i){
+        if(isset($_SESSION['nbV'])){
+            $nbV = $_SESSION['nbV']-1;
+        }else{
+            $nbV=0;
+        }
+
+        $_SESSION['panier'][$i] = '';
+
+        if(isset($_SESSION['nbV'])){
+            $_SESSION['nbV']=$_SESSION['nbV']-1;
+        }else{
+            $_SESSION['nbV']=$nbV-1;
+        }
+
 }
 
 function ajoutPanier(){
     require("./modele/voitureBD.php");
-    $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
-    $voiture = getVoiture($id_v);
-    $nbV = $_SESSION['nbV'];
-    $_SESSION['panier'][$nbV] = $voiture;
-    $_SESSION['nbV']=$_SESSION['nbV']+1;
+    if(isset($_GET['vtr'])){
+        $id_v = $_GET['vtr'];
+        $vo = getVoiture($id_v);
+        ajoutVo($vo);
+    }
     $listV = getVoitures();
-    //var_dump($_SESSION['panier']);
     require('./vue/site/touteV.tpl');
 }
 
-function voirPanier(){
+
+
+
+
+
+
+
+
+function suppVPanier(){
+    $desupp = false;
+    if(isset($_GET['id'])){
+        $id_v =$_GET['id'];
+        for ($i = 0; $i <= count($_SESSION['panier'])-1; $i++) {
+            if(isset($_SESSION['panier'][$i][0]['id_vehi'])){
+                if($_SESSION['panier'][$i][0]['id_vehi']==$id_v){
+                    if($desupp==false){
+                        suppVo($i); 
+                        $desupp=true;
+                    }                 
+            } 
+            }
+            
+        }
+    }
     
     $panier = $_SESSION['panier'];
-    //var_dump($panier);
     require('vue/site/panier.tpl');
+}
+
+function dateDiff($date1, $date2){
+    $diff = abs($date1 - $date2); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
+    $retour = array();
+ 
+    $tmp = $diff;
+    $retour['second'] = $tmp % 60;
+ 
+    $tmp = floor( ($tmp - $retour['second']) /60 );
+    $retour['minute'] = $tmp % 60;
+ 
+    $tmp = floor( ($tmp - $retour['minute'])/60 );
+    $retour['hour'] = $tmp % 24;
+ 
+    $tmp = floor( ($tmp - $retour['hour'])  /24 );
+    $retour['day'] = $tmp;
+ 
+    return $retour;
+}
+
+function voirPanier(){
+    $etat=false;
+    $dated=0;
+    $datef=0;
+    $res=array();
+    
+   
+    if(isset($_SESSION['panier'])){
+        if(isset($_POST['dated']) && isset($_POST['datef'])){
+            $dated=$_POST['dated'];
+            $datef=$_POST['datef'];
+            $date1=strtotime($dated);
+            $date2=strtotime($datef);
+            $_SESSION['dated']=$dated;
+            $_SESSION['datef']=$datef;
+            $res=dateDiff($date1, $date2);
+            if(isset($_GET['mode'])){
+                $etat=true;
+            }
+        }
+        $panier = $_SESSION['panier'];
+        
+        require("vue/site/panier.tpl");
+    }else{
+        require("vue/site/panierVide.tpl");
+    }
+    if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
+        //Nouvelle facture
+        foreach()
+        //viderLePanier
+        echo($_SESSION['dated']);
+        die;
+        
+
+    }
+    
 }
 
 function accueilNAbon(){
@@ -109,14 +251,26 @@ function accueilNAbon(){
 }
 function bye(){
 
-    setcookie('panier_', json_encode($_SESSION['panier']), time()+3600*24, '/', '', false, false);
-    setcookie('nb', json_encode($_SESSION['nbV']), time()+3600*24, '/', '', false, false);
+    setcookie('session', json_encode($_SESSION), time()+3600*24, '/', '', false, false);
 
     session_destroy();
 	$nexturl = "index.php?controle=utilisateur&action=accueilNAbon";
 	header("Location:" .$nexturl);
 }
-
+function validerPanier(){
+    if(isset($_GET['price'])){
+        $prix = $_GET['price'];
+    }
+    require('./vue/site/validerPanier.tpl');
+}
+function panierValidé(){
+    require('./vue/site/vue/panierValidé.tpl');
+}
+function gestion(){
+    require('./modele/clientsBD.php');
+    $res = getDevisAV();
+    require('./vue/site/gestion.tpl');
+}
 function accueilAbon(){
     require('./vue/site/accueilAbon.tpl');
 }
@@ -125,24 +279,30 @@ function admin(){
     
 }
 function ident(){
-    $_SESSION['nbV']=0;
-    $_SESSION['panier']=array();
     $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
     $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
     $msg="";
     $mdp = md5($mdpNC);
     if($pseudo=='admin' && $mdp== md5('admin')){
-        $_SESSION['profil']['pseudo'] = $pseudo;
-        $_SESSION['profil']['mdp'] = $mdp;
-        
-	//cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
-        if(isset($_SESSION['panier'])){
+        if(isset($_COOKIE['session'])){
+            $test=json_decode($_COOKIE['session'],1);
+            if($test['profil']['pseudo']==$pseudo){
+                $_SESSION=json_decode($_COOKIE['session'],1);
+                
+            }else{
+                $_SESSION['profil']['pseudo'] = $pseudo;
+                $_SESSION['profil']['mdp'] = $mdp;
+            }
             
-            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
-            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
-    
+        }else{
+            
+            $_SESSION['profil']['pseudo'] = $pseudo;
+            $_SESSION['profil']['mdp'] = $mdp;
+            
         }
+        var_dump($_SESSION);
         header("Location: index.php?controle=clients&action=admin");
+    
         
         
     }else{
@@ -152,15 +312,20 @@ function ident(){
         require ("./modele/clientsBD.php");
         
         if (verif_bd($pseudo, $mdp, $profil)) {
-            $_SESSION['profil'] = $profil;
+           
             $nexturl = "index.php?controle=clients&action=accueilAbon";
             //cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
-        if(isset($_SESSION['panier'])){
-            
-            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
-            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
-    
-        }
+            if(isset($_COOKIE['session'])){
+                $test=json_decode($_COOKIE['session'],1);
+                if($test['profil']['pseudo']==$pseudo){
+                    $_SESSION=json_decode($_COOKIE['session'],1);
+                    
+                }else{
+                    $_SESSION['profil'] = $profil;
+                }
+            }else{
+                $_SESSION['profil'] = $profil;
+            }
             header ("Location:" . $nexturl);
         }
         else {

@@ -1,19 +1,26 @@
 
 body {
     align-items: center;
-    background: -webkit-gradient(linear, left top, left bottom,
-     color-stop(0%, rgba(26, 49, 95, 1)),
-      color-stop(10%, rgba(26, 49, 95, 1)), 
-      color-stop(24%, rgba(29, 108, 141, 1)),
-       color-stop(37%, rgba(41, 136, 151, 1)), 
-       color-stop(77%, rgba(39, 45, 100, 1)),
-        color-stop(90%, rgba(26, 49, 95, 1)),
-         color-stop(100%, rgba(26, 49, 95, 1)));
     display: flex;
     justify-content: center;
     height: 90vh;
   }
-  
+  .wrapper{
+    padding: 5%;
+    margin:10%;
+    background-color: #303245;
+    color:whitesmoke;
+    
+  }
+  .corpsMarque{
+    background-color: #15172b;
+    padding: 3%;
+    border-radius: 12px;
+  }
+  a{
+    text-decoration: none;
+    color:whitesmoke;
+  }
   .form {
     background-color: #15172b;
     border-radius: 20px;
