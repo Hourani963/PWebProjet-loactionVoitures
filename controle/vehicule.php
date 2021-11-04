@@ -16,6 +16,8 @@ function louerVoitureNAbon(){
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
 function louerVoitureAbon(){
+    require('./modele/voitureBD.php');
+    $listV = getVoitures();
     require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }
 function erreurAjout(){

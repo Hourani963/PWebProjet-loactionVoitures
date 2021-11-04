@@ -279,60 +279,62 @@ function admin(){
     
 }
 function ident(){
-    $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
-    $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
-    $msg="";
-    $mdp = md5($mdpNC);
-    if($pseudo=='admin' && $mdp== md5('admin')){
-        if(isset($_COOKIE['session'])){
-            $test=json_decode($_COOKIE['session'],1);
-            if($test['profil']['pseudo']==$pseudo){
-                $_SESSION=json_decode($_COOKIE['session'],1);
-                
-            }else{
-                $_SESSION['profil']['pseudo'] = $pseudo;
-                $_SESSION['profil']['mdp'] = $mdp;
-            }
-            
-        }else{
-            
-            $_SESSION['profil']['pseudo'] = $pseudo;
-            $_SESSION['profil']['mdp'] = $mdp;
-            
-        }
-        var_dump($_SESSION);
-        header("Location: index.php?controle=clients&action=admin");
-    
-        
-        
-    }else{
+    $msg = "";
+    $_SESSION['nbV']=0;
+    $_SESSION['panier']=array();
+    //******************************* Récupérer la session */
+    if(isset($_SESSION['profil'])){ 
+        //var_dump($_SESSION['profil']);
+        //die;
+        $pseudo=isset($_SESSION['profil']['pseudo'])?($_SESSION['profil']['pseudo']):'';
+        $mdp=isset($_SESSION['profil']['mdp'])?($_SESSION['profil']['mdp']):'';
+        $msg="";
+    }
+    else{
         if (count($_POST)==0) require("vue/site/ident.tpl");
-    else {
+
+        $pseudo=isset($_POST['pseudo'])?trim($_POST['pseudo']):''; // trim pour enlever les espaces avant et apres
+        $mdpNC=isset($_POST['mdp'])?trim($_POST['mdp']):'';
+        $msg="";
+        $mdp = md5($mdpNC);
+    }
+//*************************************************** Fin récupérer la session */
+//********************************Commencer new Session */
+    
+    if($pseudo=='admin' && $mdp== md5('admin')){
+        $_SESSION['profil']['pseudo'] = $pseudo;
+        $_SESSION['profil']['mdp'] = $mdp;
         
+	//cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
+        if(isset($_SESSION['panier'])){
+            
+            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
+            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
+    
+        }
+        header("Location: index.php?controle=clients&action=admin");
+        
+    }
+    else{
         require ("./modele/clientsBD.php");
         
         if (verif_bd($pseudo, $mdp, $profil)) {
-           
+            $_SESSION['profil'] = $profil;
             $nexturl = "index.php?controle=clients&action=accueilAbon";
             //cokieeeeeeeeeeeeeeeeeeeeeeeeeeeees
-            if(isset($_COOKIE['session'])){
-                $test=json_decode($_COOKIE['session'],1);
-                if($test['profil']['pseudo']==$pseudo){
-                    $_SESSION=json_decode($_COOKIE['session'],1);
-                    
-                }else{
-                    $_SESSION['profil'] = $profil;
-                }
-            }else{
-                $_SESSION['profil'] = $profil;
-            }
+        if(isset($_SESSION['panier'])){
+            
+            $_SESSION['panier'] = json_decode($_COOKIE['panier_'],1);
+            $_SESSION['nb'] = json_decode($_COOKIE['nbV'],1);
+    
+        }
             header ("Location:" . $nexturl);
         }
-        else {
+        else if(count($_POST) != 0){
             $msg = "Utilisateur inconnu !";
             require("vue/site/ident.tpl");
         }
-    }
+    
     }
     
 }
