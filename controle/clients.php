@@ -8,7 +8,13 @@ function touteVoiture(){
             $listV = getVoitures();
             require('./vue/site/touteV.tpl');
         }else if($mode == 'automatique'){
-            $listeVBD = getAllModels();
+            $listeVBD = getAllMarqueDispo();
+            if(isset($_GET["marque"])){
+                $m = $_GET["marque"];
+                $qte = CountAllModelDispo($m);
+                $listeVBD=getAllModelDispo($m);
+                
+            }
             require('./vue/site/touteVAutomatique.tpl');
         }
     }else{
@@ -102,8 +108,35 @@ function suppVPanier(){
     require('vue/site/panier.tpl');
 }
 
-
+function dateDiff($date1, $date2){
+    $diff = abs($date1 - $date2); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
+    $retour = array();
+ 
+    $tmp = $diff;
+    $retour['second'] = $tmp % 60;
+ 
+    $tmp = floor( ($tmp - $retour['second']) /60 );
+    $retour['minute'] = $tmp % 60;
+ 
+    $tmp = floor( ($tmp - $retour['minute'])/60 );
+    $retour['hour'] = $tmp % 24;
+ 
+    $tmp = floor( ($tmp - $retour['hour'])  /24 );
+    $retour['day'] = $tmp;
+ 
+    return $retour;
+}
 function voirPanier(){
+    $dated=0;
+    $datef=0;
+    $res=array();
+    if(isset($_POST['dated']) && isset($_POST['datef'])){
+        $dated=$_POST['dated'];
+        $datef=$_POST['datef'];
+        $date1=strtotime($dated);
+        $date2=strtotime($datef);
+        $res=dateDiff($date1, $date2);
+    }
     if(isset($_SESSION['panier'])){
         $panier = $_SESSION['panier'];
         

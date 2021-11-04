@@ -135,4 +135,57 @@ function getAllModels(){
         die(); // On arrête tout.
     }
 }
+function getAllMarqueDispo(){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+
+    $sql = "SELECT DISTINCT marque FROM vehicule WHERE etatL=0";
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+function getAllModelDispo($marque){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+
+    $sql = "SELECT DISTINCT modele FROM vehicule WHERE marque=:marque and etatL=0";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':marque', $marque);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+function CountAllModelDispo($marque){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+
+    $sql = "SELECT count(modele) FROM vehicule WHERE marque=:marque and etatL=0";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':marque', $marque);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
 ?>
