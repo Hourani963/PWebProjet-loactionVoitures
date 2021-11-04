@@ -6,6 +6,7 @@
     </head>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <body>
     
         <div class="menu">
@@ -30,6 +31,8 @@
                                 <a href="index.php?controle=clients&action=ajoutPanier&vtr= <?php echo $l['id_vehi'] ?>"><button class="btn">Ajouter</button>
                             </div>
 =======
+=======
+>>>>>>> parent of 22a0998 (Merge remote-tracking branch 'origin/Jacques-Arno' into TestJA)
     <body style="display: inline-block">
 
     <div class="menu">
@@ -47,6 +50,9 @@
                             <input type='number' id='qte' name='qte' min='0' max='100' placeholder='0' class="btn">
                             <a href="index.php?controle=clients&action=ajoutPanier&vtr= <?php echo $l['id_vehi'] ?>">
                                 <button class="btn">Ajouter</button>
+<<<<<<< HEAD
+>>>>>>> parent of 22a0998 (Merge remote-tracking branch 'origin/Jacques-Arno' into TestJA)
+=======
 >>>>>>> parent of 22a0998 (Merge remote-tracking branch 'origin/Jacques-Arno' into TestJA)
                         </div>
                     </div>
@@ -85,11 +91,14 @@
                             <!-- remarque : pour afficher le prix sans HOVER il faur ajouter un long text-->
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     </li>
                 </ul>
             </div>
         <?php }} ?>
 =======
+=======
+>>>>>>> parent of 22a0998 (Merge remote-tracking branch 'origin/Jacques-Arno' into TestJA)
                     </div>
                 </li>
             </ul>
@@ -97,6 +106,9 @@
         <?php } ?>
     </div>
 
+<<<<<<< HEAD
+>>>>>>> parent of 22a0998 (Merge remote-tracking branch 'origin/Jacques-Arno' into TestJA)
+=======
 >>>>>>> parent of 22a0998 (Merge remote-tracking branch 'origin/Jacques-Arno' into TestJA)
 
 </body>
