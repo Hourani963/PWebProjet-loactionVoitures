@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-	<?php include "./vue/site/components/MenuAbo.tpl" ?></div>
+	<?php include "./vue/site/components/MenuAbon.tpl" ?>
 	<section class="body">
 		<div class="bouton-photo">
 			<a href="./index.php?controle=clients&action=touteVoiture"><button type="button" class="btn btn-primary btn-lg">Voir les voitures</button></a>
