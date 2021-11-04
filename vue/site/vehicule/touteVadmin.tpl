@@ -11,9 +11,9 @@
             .addV {
                 text-align: center;
                 padding-right: 10%;
-                width: 50px;
+                width: 80px;
                 color: black;
-                height: 50px;
+                height: 80px;
                 font-size: 3rem;
                 z-index: 30;
                 border: 8px solid black;
@@ -40,8 +40,9 @@
                 text-decoration-color: red;
             }
             .allVoitures{
+                z-index: auto;
                 padding-right: 5%;
-                padding-top: 7%;
+                padding-top: 4%;
             }
         </style>
         <div class="menu">

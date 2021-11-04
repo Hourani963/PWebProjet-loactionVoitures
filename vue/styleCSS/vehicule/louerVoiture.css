@@ -45,6 +45,7 @@ body{
     text-align: center;
     color: #0a4870;
     transition: 0.3s;
+    z-index: auto;
 }
 .allVoitures ul .booking-card::before {
     content: '';

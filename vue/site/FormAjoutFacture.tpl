@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="./vue/styleCSS/AjoutFacture.css">
 </head>
 <body>
+<style>
+    body {
+        background: -webkit-gradient(linear, left top, left bottom,
+        color-stop(0%, rgba(26, 49, 95, 1)),
+        color-stop(10%, rgba(26, 49, 95, 1)),
+        color-stop(24%, rgba(29, 108, 141, 1)),
+        color-stop(37%, rgba(41, 136, 151, 1)),
+        color-stop(77%, rgba(39, 45, 100, 1)),
+        color-stop(90%, rgba(26, 49, 95, 1)),
+        color-stop(100%, rgba(26, 49, 95, 1)));
+    }
+</style>
     <form action="./index.php?controle=clients&action=addFacture" method="post">
         <div class="title">Bienvenue</div>
         <div class="input-container">
