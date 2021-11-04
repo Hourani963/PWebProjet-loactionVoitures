@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
 	<link href="./vue/styleCSS/accueilNAbon.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,6 +11,7 @@
 	<title>Accueil</title>
 </head>
 <body>
+	
 	<div><?php include "vue/site/components/MenuNAbon.tpl" ?></div>
 	<section class="body">
 		<div class="bouton-photo">

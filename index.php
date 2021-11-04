@@ -5,7 +5,7 @@
 	
 	else {
 		if ((! isset($_SESSION['profil'])) || count($_GET)== 0)	{
-			if(count($_GET)!= 0 && $_GET['controle']=='clients' ){
+			if(count($_GET)!= 0 && $_GET['controle']=='clients' ){ // aller vers le fichier client
 				$controle = "clients";
 				if($_GET['action'] == "inscrire")
 					$action = "inscrire";
@@ -14,13 +14,13 @@
 				else if($_GET['action'] == "accueilNAbon")
 					$action = "accueilNAbon";
 			}
-			else if(count($_GET)!= 0 && $_GET['controle']=='vehicule' ){
+			else if(count($_GET)!= 0 && $_GET['controle']=='vehicule' ){ // aller vers le fichier vehicule
 				$controle = "vehicule";
 				if($_GET['action'] == "louerVoitureNAbon")
 					$action = "louerVoitureNAbon";
 			}
 			else {
-				$controle = "clients";  
+				$controle = "clients";
 				$action = "accueilNAbon";
 			}
 		}

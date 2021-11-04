@@ -53,7 +53,7 @@ function getVoiture($id){
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 2";
+    $sql="SELECT *  FROM vehicule";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -104,7 +104,7 @@ function verif_base($marque,$modele){
         $bool = $commande->execute();
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($resultat);die();
+            
        
         }
     }
@@ -118,7 +118,7 @@ function verif_base($marque,$modele){
     return false;
 }
 
-function getAllModels(){
+function getAllMarque(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
     $sql = "SELECT DISTINCT marque FROM modeles";
@@ -135,15 +135,18 @@ function getAllModels(){
         die(); // On arrête tout.
     }
 }
+function getAllModele(){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
-function suprV($id){
-    require('./modele/connectBD.php');
-    $sql = "UPDATE vehicule SET etatL = 2 WHERE id_vehi = :id";
+    $sql = "SELECT DISTINCT modele FROM modeles";
     try {
-        $supr = $pdo->prepare($sql);
-        $supr->bindParam(':id', $id, PDO::PARAM_STR);
-        $supr->execute();
-
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
     }catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
