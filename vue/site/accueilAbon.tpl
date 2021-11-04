@@ -18,6 +18,7 @@
 			<a href="#"><button type="button" class="btn btn-secondary btn-lg">Nous Contacter</button></a>
 		</div>
 	</section>
-	<?php require('vue/site/components/Footer.tpl');?>
+	
 </body>
+	<footer><?php require('vue/site/components/Footer.tpl');?></footer>
 </html>

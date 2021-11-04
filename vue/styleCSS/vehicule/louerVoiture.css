@@ -171,21 +171,7 @@ body{
 .allVoitures ul .booking-card:hover .informations-container .more-information {
     opacity: 1;
 }
-@media (max-width: 768px) {
-    .allVoitures ul .booking-card::before {
-        background: rgba(10, 72, 112, 0.6);
-   }
-    .allVoitures ul .booking-card .book-container .content {
-        opacity: 1;
-        transform: translateY(0px);
-   }
-    .allVoitures ul .booking-card .informations-container {
-        transform: translateY(0px);
-   }
-    .allVoitures ul .booking-card .informations-container .more-information {
-        opacity: 1;
-   }
-}
+
 .allVoitures .credits {
     display: table;
     background: #0a4870;
@@ -203,4 +189,55 @@ body{
 }
 .allVoitures h1 {
     margin: 10px 20px;
+}
+
+
+.page{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    grid-template-areas: "me"
+                        "allV" ;
+}
+.voitures{
+    margin-top: 50px;
+    margin-left: 75px;
+    
+    grid-area: allV;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+}
+.menu{
+    top: 0px;
+    grid-area: me;
+    z-index: 100;
+}
+
+.allVoitures{
+    
+    position: relative;
+    
+}
+
+@media screen and (max-width: 1300px) {
+    .voitures{
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+}
+@media screen and (max-width: 1000px) {
+    .voitures{
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+@media screen and (max-width: 750px) {
+    .voitures{
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .menu{
+        height: 20px !important;
+    }
 }
