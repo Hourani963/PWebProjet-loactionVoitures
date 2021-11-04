@@ -69,7 +69,7 @@ function getVoituresAbonne(){
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule";
+    $sql="SELECT *  FROM vehicule where etatL=0";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
