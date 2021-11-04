@@ -233,7 +233,7 @@ function voirPanier(){
     }
     if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
         //Nouvelle facture
-        foreach()
+        //foreach()
         //viderLePanier
         echo($_SESSION['dated']);
         die;

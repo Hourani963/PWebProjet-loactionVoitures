@@ -17,7 +17,7 @@
                 }
             ?>
         </div>
-        
+        <div class='wrap'>
         <?php 
         foreach($listV as $l){ 
             if($l['etatL']==0){
@@ -64,5 +64,6 @@
                 </ul>
             </div>
         <?php }} ?>
+        </div>
 
 </body>
