@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    
     <link href="./vue/styleCSS/components/Menu.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,7 +22,10 @@
                     <a class="nav-link" href="./index.php?controle=clients&action=accueilAbon">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?controle=clients&action=touteVoiture">Voir les voitures</a>
+                    <a class="nav-link" href="./index.php?controle=vehicule&action=louerVoitureAbon">Voir les voitures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.php?controle=vehicule&action=ClientVoitures">Mes voitures</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

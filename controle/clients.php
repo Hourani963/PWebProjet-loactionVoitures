@@ -113,15 +113,17 @@ function peutAjouter($voiture){
     }
     return $bool;
 }
-function ajoutVo($voiture){
+function ajoutVo($voiture){ // ajouter voiture 
     if(peutAjouter($voiture)){
-        if(isset($_SESSION['nbV'])){
+        if(isset($_SESSION['nbV'])){ // nbV est le nobre des voitures pour un client donné
             $nbV = $_SESSION['nbV'];
         }else{
             $nbV=0;
         }
         $_SESSION['panier'][$nbV] = $voiture;
-        if(isset($_SESSION['nbV'])){
+
+
+        if(isset($_SESSION['nbV'])){     // nbV ++ 
             $_SESSION['nbV']=$_SESSION['nbV']+1;
         }else{
             $_SESSION['nbV']=$nbV+1;
@@ -129,7 +131,7 @@ function ajoutVo($voiture){
     }
 
 }
-function suppVo($i){
+function suppVo($i){ //delete voiture
         if(isset($_SESSION['nbV'])){
             $nbV = $_SESSION['nbV']-1;
         }else{
@@ -151,17 +153,12 @@ function ajoutPanier(){
     if(isset($_GET['vtr'])){
         $id_v = $_GET['vtr'];
         $vo = getVoiture($id_v);
+        
         ajoutVo($vo);
     }
     $listV = getVoitures();
-    require('./vue/site/touteV.tpl');
+    require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }
-
-
-
-
-
-
 
 
 
@@ -229,7 +226,7 @@ function voirPanier(){
         
         require("vue/site/panier.tpl");
     }else{
-        require("vue/site/panierVide.tpl");
+        require("vue/site/panierVide.tpl"); //faut faire $msg
     }
     if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
         //Nouvelle facture
@@ -477,4 +474,20 @@ function voirVoitureLouerAdmin(){
     //var_dump($listV); die("ok");
     require('./vue/site/touteV.tpl');
 }
+
+function ClientVoitures(){ 
+                            
+    require('./modele/clientsBD.php');
+    //require('./modele/voitureBD.php');
+    //$listVClient = array();
+    $idClient = $_SESSION['profil']['id_cli'];
+    /*$facturesClient = getFacture($idClient);
+    foreach($facturesClient as $f){
+        array_push($listVClient, getVoiture($f['id_vehi']));
+    }*/
+    //var_dump($listVClient);die;
+    $listVClient = getClientVoitures($idClient);
+    require('./vue/site/client/mesVoitures.tpl');
+}
+
 ?>

@@ -86,7 +86,7 @@ function getVoitures(){
 
 function getVoitureLoué(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL = 1";
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible'";
 
     try {
         $commande = $pdo->prepare($sql);
@@ -190,7 +190,7 @@ function getAllModele(){
 function getAllMarqueDispo(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
-    $sql = "SELECT DISTINCT marque FROM vehicule WHERE etatL=0";
+    $sql = "SELECT DISTINCT marque FROM vehicule WHERE etatL='Disponible'";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -207,7 +207,7 @@ function getAllMarqueDispo(){
 function getAllModelDispo($marque){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
-    $sql = "SELECT DISTINCT modele FROM vehicule WHERE marque=:marque and etatL=0";
+    $sql = "SELECT DISTINCT modele FROM vehicule WHERE marque=:marque and etatL='Disponible'";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque);
@@ -225,7 +225,7 @@ function getAllModelDispo($marque){
 function CountAllModelDispo($marque){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
 
-    $sql = "SELECT count(modele) FROM vehicule WHERE marque=:marque and etatL=0";
+    $sql = "SELECT count(modele) FROM vehicule WHERE marque=:marque and etatL='Disponible'";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque);
@@ -240,4 +240,7 @@ function CountAllModelDispo($marque){
         die(); // On arrête tout.
     }
 }
+
+
+
 ?>

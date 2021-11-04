@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<title>Voir les voitures</title>
 	<link href="vue/styleCSS/vehicule/louerVoiture.css" rel="stylesheet">
 	<title></title>
 </head>

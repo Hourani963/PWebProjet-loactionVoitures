@@ -13,17 +13,24 @@ function suprVoiture(){
 function louerVoitureNAbon(){
     require('./modele/voitureBD.php');
     $listV = getVoitures();
+    
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
+
+
 function louerVoitureAbon(){
+    $dateD = array();
+    $dateF = array();
+    $id_vehi = isset($_GET['id_vehi'])?($_GET['id_vehi']):0;
+    $dateD = isset($_POST['StartDate'])?($_POST['StartDate']):'pas choisi';
+    $dateF = isset($_POST['EndDate'])?($_POST['EndDate']):'pas choisi';
+    
     require('./modele/voitureBD.php');
     $listV = getVoitures();
     require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }
-function erreurAjout(){
-    require("./vue/site/messageError.tpl");
-}
-function ajoutvoiture(){
+
+function ajoutvoiture(){ // pour le Admin
     require("modele/voitureBD.php");
     $listeModele = getAllModele();
     $listeMarque = getAllMarque();

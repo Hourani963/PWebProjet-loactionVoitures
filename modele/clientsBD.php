@@ -197,4 +197,23 @@ function getAllFacture(){
     return $resultat;
 }
 
+function getClientVoitures($id_cli){ // jointure entre facture et vehicule
+    require('./modele/connectBD.php'); 
+    $sql = "SELECT * FROM facture 
+            INNER JOIN vehicule ON facture.id_vehi = vehicule.id_vehi AND facture.id_cli = :id_cli";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':id_cli', $id_cli);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
+
 ?>
