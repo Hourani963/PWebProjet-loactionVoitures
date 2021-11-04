@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-    <?php require("./vue/site/components/menuAdmin.tpl");?>
+    <?php require("./vue/site/components/MenuAbon.tpl");?>
     <div class ="tout">
 
     <?php
