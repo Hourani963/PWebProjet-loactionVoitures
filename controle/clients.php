@@ -2,7 +2,7 @@
 function touteVoiture(){
     
     require('./modele/voitureBD.php');
-    $listV = getVoitures();
+    $listV = getVoituresAbonne();
     require('./vue/site/touteV.tpl');
 }
 
@@ -22,29 +22,56 @@ function FactureAdmin(){
     }else {
         require("./modele/clientsBD.php");
         require("./modele/voitureBD.php");
-        $test = $_GET['idU'];
-        var_dump($test); die("ok");
-        if($_GET['idU'] == "all"){
-            $Facture = getAllFacture();
-            var_dump($Facture); die("ok");
-            $i = 0;
-            foreach ($Facture as $f) {
-                $Voiture = getVoiture($f['id_vehi']);
-                $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
-                $i++;
-            }
-            require('./vue/site/components/ListeFactureAdmin.tpl');
-        } else {
-            require('./vue/site/components/VoirFactureAdmin.tpl');
-        }
+        $Client = getId_cli();
+        $valTotal = 0;
         if(isset($_POST['idU'])){
+            if($_POST['idU'] == "All"){
+                $Facture = getAllFacture();
+                if($_POST['mounthDate']!= ''){
+                    $Facture2 = array();
+                    $j=0;
+                    foreach ($Facture as $F){
+                        if(strpos($F['dateD'], $_POST['mounthDate']) !== false){
+                            $Facture2[$j] = $F;
+                            $j++;
+                        }
+                    }
+                    $Facture =$Facture2;
+                }
+                $i = 0;
 
-            $Facture = getFacture($_POST['idU']);
-            $i = 0;
-            foreach ($Facture as $f) {
-                $Voiture = getVoiture($f['id_vehi']);
-                $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
-                $i++;
+                foreach ($Facture as $f) {
+                    $Voiture = getVoiture($f['id_vehi']);
+                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $i++;
+                }
+                foreach ($Facture as $f){
+                    $valTotal = $valTotal + $f['valeur'];
+
+                }
+                //var_dump($valTotal); die("ok");
+            } else {
+                $Facture = getFacture($_POST['idU']);
+                if($_POST['mounthDate']!= ''){
+                    $Facture2 = array();
+                    $j=0;
+                    foreach ($Facture as $F){
+                        if(strpos($F['dateD'], $_POST['mounthDate']) !== false){
+                            $Facture2[$j] = $F;
+                            $j++;
+                        }
+                    }
+                    $Facture =$Facture2;
+                }
+                $i = 0;
+                foreach ($Facture as $f) {
+                    $Voiture = getVoiture($f['id_vehi']);
+                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $i++;
+                }
+                foreach ($Facture as $f){
+                    $valTotal = $valTotal + $f['valeur'];
+                }
             }
             require('./vue/site/components/ListeFactureAdmin.tpl');
         } else{
@@ -193,7 +220,7 @@ function addFacture(){
 
     if (count($_POST) == 0) {
         require("./modele/voitureBD.php");
-        $Voiture = getVoitures();
+        $Voiture = getVoituresAbonne();
         require("./modele/clientsBD.php");
         $Client = getId_cli();
         require('./vue/site/FormAjoutFacture.tpl') ;
@@ -201,7 +228,7 @@ function addFacture(){
     else {
         require("./modele/voitureBD.php");
         insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
-        $nexturl = "index.php?controle=clients&action=accueilAbon";
+        $nexturl = "index.php?controle=clients&action=admin";
         header("Location:" .$nexturl);
     }
 }
@@ -267,6 +294,20 @@ function voirFacture(){
     require("./modele/clientsBD.php");
     $id = $_SESSION['profil']['id_cli'];
     $Facture = getFacture($id);
+    require("./modele/voitureBD.php");
+    $i = 0;
+    foreach($Facture as $f){
+        $Voiture = getVoiture($f['id_vehi']);
+        $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+        $i++;
+    }
     require('./vue/site/components/VoirFacture.tpl');
+}
+
+function voirVoitureLouerAdmin(){
+    require('./modele/voitureBD.php');
+    $listV = getVoitureLoué();
+    //var_dump($listV); die("ok");
+    require('./vue/site/touteV.tpl');
 }
 ?>

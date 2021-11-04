@@ -122,9 +122,9 @@
                 }
                 echo ('</table>');
                 }
-                else
-                echo ('pas de contact');
-                ?>
+                    else { ?>
+                    <h1 style="color: white; font-size: 30px; font-style: italic;">Pas de Facture</h1>
+                    <?php } ?>
             </div>
             <a href='./index.php?controle=clients&action=profilClient'>
                 <button class="btn">Revenir a l'acceuil</button>
