@@ -282,30 +282,36 @@ function voirPanier(){
     
    
     
-    if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
+    if(isset($_GET['valide'])){
         //Nouvelle facture
         require("./modele/voitureBD.php");
             $test=0;
             
             
             foreach($panier as $p){
+                if($p!=''){
+                    $id=$_SESSION['profil']['id_cli'];
+                    $id_vec = $p['id_vehi'];
+                    $start_Date = $p['dated'];
+                    $end_Date=$p['datef'];
+                    $r=dateDiff(strtotime($p['dated']), strtotime($p['datef']));
+                    $p['valeurParJour']=$p['valeurParJour']* $r['day'];
+                    if($r['day']>30){
+                        $p['valeurParJour']=$p['valeurParJour']*0.95;
+                    }
+                    $val=$p['valeurParJour'];
+                    $state=0;
+                    insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
+                    
+                    etatV($id_vec, 1);
+                    
+                    $_SESSION["nbV"]=0;
+                    
+                    $afficherPanier=false;
+                    
+        
+                }
                 
-                $id=$_SESSION['profil']['id_cli'];
-                $id_vec = $p['id_vehi'];
-                $start_Date = $_SESSION['dated'];
-                $end_Date=$_SESSION['datef'];
-                $diff=dateDiff(strtotime($start_Date), strtotime($end_Date));
-                $val=$p['val']*$diff['day'];
-                $state=0;
-                insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
-                
-                etatV($id_vec, 1);
-                
-                $_SESSION["nbV"]=0;
-                
-                $afficherPanier=false;
-                
-    
               }
           $panier='';
           $_SESSION['panier']='';
@@ -314,20 +320,6 @@ function voirPanier(){
           header("Location: $url");  
     }else{
         if(isset($_SESSION['panier'])){
-            if(isset($_POST['dated']) && isset($_POST['datef'])){
-                $dated=$_POST['dated'];
-                $datef=$_POST['datef'];
-                $date1=strtotime($dated);
-                $date2=strtotime($datef);
-                $_SESSION['dated']=$dated;
-                $_SESSION['datef']=$datef;
-                $res=dateDiff($date1, $date2);
-                if(isset($_GET['mode'])){
-                    $etat=true;
-                }
-            }
-            
-            
             require("vue/site/panier.tpl");
         }else{
             require("vue/site/panierVide.tpl");
