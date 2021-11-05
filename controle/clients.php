@@ -61,7 +61,7 @@ function FactureAdmin(){
 
                 foreach ($Facture as $f) {
                     $Voiture = getVoiture($f['id_vehi']);
-                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $Facture[$i]['id_vehi'] = $Voiture['modele'];
                     $i++;
                 }
                 foreach ($Facture as $f){

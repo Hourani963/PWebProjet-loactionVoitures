@@ -118,9 +118,6 @@
                     Revenir a l'acceuil
                 </a>
             </div>
-
         </div>
-
-
     </body>
 </html>
