@@ -34,7 +34,7 @@
 									</svg>
 									<strong><?php echo $l['valeurParJour']. " € / jour" ?></strong>
 								</p>
-								<p class="sub-title"><?php echo (isset($dateD[$idv])?$prixTotal:'0') . " € / " . (isset($dateD[$idv])?$dateStatic:'0') ." jour(s)" ?></p>
+								<p class="sub-title"><?php echo (isset($dateD[$idv])?$prixTotal:'0') . " € / " . (isset($dateD[$idv])?$dateStatic:'0') ." jour(s)<strong class='Cred'>" .(isset($dateD[$idv])?$msg:'' )?></strong></p>
 								<div class="more-information">
 									<div class="info-and-date-container">
 									<button class="dateD" onclick="openForm(<?php echo $l['id_vehi'] ?>)" >
@@ -76,7 +76,7 @@ function estValide() {
 	if(document.getElementById("dateD").innerHTML == "pas choisi"){
 		alert("Il faut choisir une date débart");
 	}
-} -->
-</script>
+} 
+</script>-->
 </body>
 </html>

@@ -256,6 +256,9 @@ body{
         height: 20px !important;
     }
 }
+.Cred{
+    color: red;
+}
 
 /************petit formulaire pour les dates*********************/
 .open-button {
