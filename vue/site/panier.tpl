@@ -16,22 +16,26 @@
         echo("<li>Marque : </li>");
         echo("<li>Modele : </li>");
         echo("<li>Caracteristique : </li>");
+        echo("<li>DATE D : </li>");
+        echo("<li>DATE F : </li>");
         echo("<li>Prix : </li>");
         echo("</ul>");
         $vide=true;
         
        
-            
+            var_dump($panier);
             foreach ($panier as $p){
                 if($p!=''){
                 $vide = false;
                 echo("<ul>");
                     echo("<div class='descPanier'>");
-                    $prixP += $p['val'];
+                    $prixP += $p['valeurParJour'];
                         echo("<li>" . $p['marque'] . "</li>");
                         echo("<li>" . $p['modele'] . "</li>");
                         echo("<li>" . $p['caract'] . "</li>");
-                        echo("<li>" . $p['val'] . "€". "</li>");
+                        echo("<li>" . $p['dated'] . "</li>");
+                        echo("<li>" . $p['datef'] . "</li>");
+                        echo("<li>" . $p['valeurParJour'] . "€". "</li>");
                         echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $p['id_vehi'] . "'><button>X </button></a>");
                     echo("</div>");
                 echo("</ul>");
@@ -88,7 +92,6 @@
         defaultValue='<?php echo(date("Y/m/d")); ?>'>
        <button type='submit'>verif date</button>
        
-
       <?php 
         }
         echo("</div>");
@@ -111,7 +114,6 @@
         defaultValue='<?php echo(date("Y/m/d")); ?>'>
        <button type='submit'>verif date</button>
        
-
       <?php  
 }       
     ?>  
