@@ -8,6 +8,9 @@
 
     <body>
         <style>
+            .iconAddV{
+                margin-left: 40%;
+            }
             .addV {
                 text-align: center;
                 padding-right: 10%;
@@ -47,7 +50,7 @@
         </style>
         <div class="menu">
             <?php require("vue/site/components/menuAdmin.tpl");?></div>
-        <div class='wrap'>
+        <div class='voitures'>
         <?php
         foreach($listV as $l){ ?>
             <div class="allVoitures">
@@ -99,13 +102,14 @@
                 </ul>
             </div>
         <?php } ?>
-        </div>
-        <div style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
+        
+        <div class="iconAddV" style="padding-right: 70px; display: flex; align-items: center; justify-items: center;">
             <a href="./index.php?controle=vehicule&action=ajoutvoiture">
                 <div class="addV">
                     <i class="fas fa-plus"></i>
                 </div>
             </a>
+        </div>
         </div>
 
     </body>

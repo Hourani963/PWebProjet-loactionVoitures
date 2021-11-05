@@ -37,7 +37,8 @@ body{
 }
 .allVoitures ul .booking-card {
     position: relative;
-    width: 300px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex: 0 0 300px;
     flex-direction: column;
@@ -96,7 +97,7 @@ body{
 }
 .allVoitures ul .booking-card .informations-container {
     flex: 1 0 auto;
-    padding: 20px;
+    padding: 10px;
     background: #f0f0f0;
     transform: translateY(206px);
     transition: 0.3s;
@@ -134,17 +135,20 @@ body{
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container {
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box {
     flex: 1 0;
     padding: 15px;
-    margin-top: 20px;
+   
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     background: white;
     font-weight: bold;
     font-size: 0.9em;
+    margin: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box .icon {
     margin-bottom: 5px;
@@ -191,7 +195,9 @@ body{
     margin: 10px 20px;
 }
 
-
+.sub-titleNAbon{
+   margin-bottom: 5px;
+}
 .page{
     display: grid;
     grid-template-columns: 1fr;
@@ -200,13 +206,13 @@ body{
                         "allV" ;
 }
 .voitures{
-    margin-top: 50px;
-    margin-left: 75px;
+    padding-top: 50px;
+    margin-left: 10px;
     
     grid-area: allV;
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .menu{
     top: 0px;
@@ -219,18 +225,19 @@ body{
     position: relative;
     
 }
-
-@media screen and (max-width: 1300px) {
-    .voitures{
-        grid-template-columns: 1fr 1fr 1fr; 
-    }
+.dateF{
+    margin: auto;
 }
-@media screen and (max-width: 1000px) {
+.dateD{
+    margin: auto;
+}
+
+@media screen and (max-width: 1350px) {
     .voitures{
         grid-template-columns: 1fr 1fr; 
     }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 900px) {
     .voitures{
         grid-template-columns: 1fr; 
     }
@@ -241,6 +248,7 @@ body{
         height: 20px !important;
     }
 }
+
 /************petit formulaire pour les dates*********************/
 .open-button {
     background-color: #555;
