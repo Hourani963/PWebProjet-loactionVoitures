@@ -7,6 +7,14 @@
 	<title></title>
 </head>
 <body>
+	<style>
+		.retourAcceuil {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+		}
+	</style>
 	<script src="vue/JS/ajoutVoiture.js"></script>
 	
 	<div class="form">
@@ -58,8 +66,8 @@
 						<label for="file" class="placeholder">Image</label>
 					</div>
 					<input type="submit" class="submit" value="Valider">
+			<a href="./index.php?controle=clients&action=admin" class="retourAcceuil">Retour</a>
 		</form>
-		<a href="./index.php?controle=clients&action=admin"><button type="text" class="submit accueil">Accueil</button></a>
 	</div>
 	</body>
 </html>

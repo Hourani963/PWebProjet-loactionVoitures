@@ -6,7 +6,7 @@
     <!--<link rel="stylesheet" href="./vue/styleCSS/components/FactureAdmin.css">-->
 </head>
 <body>
-<!--<style>
+<style>
     body {
         background: -webkit-gradient(linear, left top, left bottom,
         color-stop(0%, rgba(26, 49, 95, 1)),
@@ -118,6 +118,6 @@
             Revenir a l'acceuil
         </a>
     </div>
-</div>-->
+</div>
 </body>
 </html>

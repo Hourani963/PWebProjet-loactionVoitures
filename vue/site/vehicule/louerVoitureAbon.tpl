@@ -64,8 +64,8 @@
                                             <p>Fin</p>
                                             <p id="dateD"><?php echo isset($dateF[$idv])?$dateF[$idv]:"pas choisi";?></p>
                                         </div>
+                                    </button>
                                 </div>
-                                </button>
                                 <p class="disclaimer"><?php echo $l['caract'] ?></p>
                                 <!-- remarque : pour afficher le prix sans HOVER il faur ajouter un long text-->
                             </div>
