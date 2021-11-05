@@ -19,22 +19,40 @@
         echo("<li>Prix : </li>");
         echo("</ul>");
         $vide=true;
-        for ($i = 0; $i <= count($panier)-1; $i++){
-            if($panier[$i]!=""){
-            $vide = false;
-            echo("<ul>");
-                echo("<div class='descPanier'>");
-                $prixP += $panier[$i][0]['val'];
-                    echo("<li>" . $panier[$i][0]['marque'] . "</li>");
-                    echo("<li>" . $panier[$i][0]['modele'] . "</li>");
-                    echo("<li>" . $panier[$i][0]['caract'] . "</li>");
-                    echo("<li>" . $panier[$i][0]['val'] . "€". "</li>");
-                    echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $panier[$i][0]['id_vehi'] . "'><button>X </button></a>");
-                echo("</div>");
-            echo("</ul>");
+        
+        if($_SESSION["nbV"]>0 && is_array($panier)){
+            
+            for ($i = 0; $i <= count($panier)-1; $i++){
+                if($panier[$i]!=""){
+                $vide = false;
+                echo("<ul>");
+                    echo("<div class='descPanier'>");
+                    $prixP += $panier[$i][0]['val'];
+                        echo("<li>" . $panier[$i][0]['marque'] . "</li>");
+                        echo("<li>" . $panier[$i][0]['modele'] . "</li>");
+                        echo("<li>" . $panier[$i][0]['caract'] . "</li>");
+                        echo("<li>" . $panier[$i][0]['val'] . "€". "</li>");
+                        echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $panier[$i][0]['id_vehi'] . "'><button>X </button></a>");
+                    echo("</div>");
+                echo("</ul>");
+                }
+                    
             }
-                
-        }
+        }/*else{
+            if($panier!=''){
+                echo("<ul>");
+                    echo("<div class='descPanier'>");
+                    $prixP = $panier[0]['val'];
+                        echo("<li>" . $panier[0]['marque'] . "</li>");
+                        echo("<li>" . $panier[0]['modele'] . "</li>");
+                        echo("<li>" . $panier[0]['caract'] . "</li>");
+                        echo("<li>" . $panier[0]['val'] . "€". "</li>");
+                        echo("<a href='index.php?controle=clients&action=suppVPanierS&id=" . $panier[0]['id_vehi'] . "'><button>X </button></a>");
+                    echo("</div>");
+                echo("</ul>");
+            }
+            
+        }*/
         
         
         if($_SESSION["nbV"]>10){
@@ -90,7 +108,6 @@
         }
         echo("</div>");
         if($etat==true){
-            
         
 ?>
      

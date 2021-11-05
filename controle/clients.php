@@ -123,15 +123,26 @@ function FactureAdmin(){
 }
 
 function peutAjouter($voiture){
-    $bool = true;
     if(isset($_SESSION['panier'])){
-        foreach($_SESSION['panier'] as $p){
-            if($p == $voiture){
-                $bool=false;
+        if(is_array($_SESSION['panier'])){
+            if($_SESSION['panier'][0] == $voiture){
+                return false;
+                
+             }
+                    
+                   
+                    //multi
+                    
+            foreach($_SESSION['panier'] as $p){
+                if($p == $voiture){
+                     return false;;
+                }
             }
-        }
+
+           
+      }
     }
-    return $bool;
+    return true;
 }
 function ajoutVo($voiture){
     if(peutAjouter($voiture)){
@@ -141,12 +152,16 @@ function ajoutVo($voiture){
             $nbV=0;
         }
         $_SESSION['panier'][$nbV] = $voiture;
+        
+        
+        
         if(isset($_SESSION['nbV'])){
             $_SESSION['nbV']=$_SESSION['nbV']+1;
         }else{
             $_SESSION['nbV']=$nbV+1;
         }
     }
+
 
 }
 function suppVo($i){
@@ -181,12 +196,30 @@ function ajoutPanier(){
 
 
 
-
+function suppVPanierS(){
+    $desupp = false;
+    $etat=false;
+    if(isset($_GET['id'])){
+        $id_v =$_GET['id'];
+            if(isset($_SESSION['panier'][0]['id_vehi'])){
+                if($_SESSION['panier'][0]['id_vehi']==$id_v){
+                    if($desupp==false){
+                        suppVo(0); 
+                        $desupp=true;
+                    }                 
+            } 
+            }   
+    }
+    
+    $panier = $_SESSION['panier'];
+    require('vue/site/panier.tpl');
+}
 
 
 
 function suppVPanier(){
     $desupp = false;
+    $etat=false;
     if(isset($_GET['id'])){
         $id_v =$_GET['id'];
         for ($i = 0; $i <= count($_SESSION['panier'])-1; $i++) {
@@ -229,36 +262,75 @@ function voirPanier(){
     $etat=false;
     $dated=0;
     $datef=0;
+    $afficherPanier=true;
     $res=array();
+    if(isset($_SESSION['panier'])){
+        $panier = $_SESSION['panier'];
+
+    }
     
    
-    if(isset($_SESSION['panier'])){
-        if(isset($_POST['dated']) && isset($_POST['datef'])){
-            $dated=$_POST['dated'];
-            $datef=$_POST['datef'];
-            $date1=strtotime($dated);
-            $date2=strtotime($datef);
-            $_SESSION['dated']=$dated;
-            $_SESSION['datef']=$datef;
-            $res=dateDiff($date1, $date2);
-            if(isset($_GET['mode'])){
-                $etat=true;
-            }
-        }
-        $panier = $_SESSION['panier'];
-        
-        require("vue/site/panier.tpl");
-    }else{
-        require("vue/site/panierVide.tpl");
-    }
+    
     if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
         //Nouvelle facture
-        //foreach()
-        //viderLePanier
-        echo($_SESSION['dated']);
-        die;
+        require("./modele/voitureBD.php");
+        if(isset($panier[1][0])){
+            for($i = 0; $i < count($panier); $i++){
+            
+                $id=$_SESSION['profil']['id_cli'];
+                $id_vec = $panier[$i][0]['id_vehi'];
+                $start_Date = $dated;
+                $end_Date=$datef;
+                $val=$_GET['valide'];
+                $state=0;
+                insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
+                etatV($id_vec, 1);
+                $_SESSION["nbV"]=0;
+                $panier[$i][0]='';
+                $afficherPanier=false;
+    
+              }
         
+        }else{
+            
+            $id=$_SESSION['profil']['id_cli'];
+            $id_vec = $panier[0][0]["id_vehi"];
+            $start_Date = $dated;
+            $end_Date=$datef;
+            $val=$_GET['valide'];
+            $state=0;
+            insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
+            etatV($id_vec, 1);
+            
+            $panier[0][0]='';
+            $afficherPanier=false;
 
+
+        }
+        
+          $_SESSION['panier']='';
+          $url = "index.php?controle=clients&action=voirPanier";
+          header("Location: $url");  
+    }else{
+        if(isset($_SESSION['panier'])){
+            if(isset($_POST['dated']) && isset($_POST['datef'])){
+                $dated=$_POST['dated'];
+                $datef=$_POST['datef'];
+                $date1=strtotime($dated);
+                $date2=strtotime($datef);
+                $_SESSION['dated']=$dated;
+                $_SESSION['datef']=$datef;
+                $res=dateDiff($date1, $date2);
+                if(isset($_GET['mode'])){
+                    $etat=true;
+                }
+            }
+            
+            
+            require("vue/site/panier.tpl");
+        }else{
+            require("vue/site/panierVide.tpl");
+        }
     }
     
 }

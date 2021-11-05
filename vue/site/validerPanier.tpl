@@ -45,7 +45,7 @@ Payment card number: (4) VISA, (51 -> 55) MasterCard, (36-38-39) DinersClub, (34
     <input class="expire" type="text" placeholder="MM / YYYY"/>
     <label>CVV</label>
     <input class="ccv" type="text" placeholder="CVC" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-    <a href ='index.php?controle=clients&action=voirPanier&valide=1' ><button class="buy"><i class="material-icons"></i> Payer  <?php echo $prix; ?> €</button></a>
+    <a href ='index.php?controle=clients&action=voirPanier&valide=<?php echo $prix; ?>' ><button class="buy"><i class="material-icons"></i> Payer  <?php echo $prix; ?> €</button></a>
   </div>
 </div>
 </body>

@@ -127,7 +127,26 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
     }
 
 }
-
+function etatV($idv,$etatv){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    
+    $sql="UPDATE vehicule SET etatL =:etat WHERE id_vehi=:idv";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':etat', $etatv, PDO::PARAM_STR);
+        $commande->bindParam(':idv', $idv, PDO::PARAM_STR);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+            
+       
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
 function verif_base($marque,$modele){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     
