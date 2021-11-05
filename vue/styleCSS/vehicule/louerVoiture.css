@@ -18,9 +18,7 @@ body{
     padding: 0;
     font-family: 'Sofia', sans-serif;
 }
-.wrap{
-    display: flex;
-}
+
 .allVoitures h2 {
     color: #0a4870;
     font-weight: 500;
@@ -197,6 +195,16 @@ body{
 
 .sub-titleNAbon{
    margin-bottom: 5px;
+}
+.sub-titleAdminVoirV{
+    margin-bottom: 5px;
+}
+.informations-containerVoitureLouerAdmin{
+    transform: translateY(340px) !important;
+   
+}
+.allVoitures ul .booking-card:hover .informations-containerVoitureLouerAdmin {
+    transform: translateY(150px) !important;
 }
 .page{
     display: grid;

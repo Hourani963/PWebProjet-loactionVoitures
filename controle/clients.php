@@ -78,28 +78,6 @@ function FactureAdmin(){
         }
 
     }
-
-    
-    if(isset($_GET['mode'])){
-        $mode = $_GET['mode'];
-        if($mode == 'choix'){
-            $listV = getVoitures();
-            require('./vue/site/touteV.tpl');
-        }else if($mode == 'automatique'){
-            $listeVBD = getAllMarqueDispo();
-            if(isset($_GET["marque"])){
-                $m = $_GET["marque"];
-                $qte = CountAllModelDispo($m);
-                $listeVBD=getAllModelDispo($m);
-                
-            }
-            require('./vue/site/touteVAutomatique.tpl');
-        }
-    }else{
-        require('./vue/site/choix.tpl');
-    }
-    
-    
 }
 
 function peutAjouter($voiture){ // vérifier si on a pas la même voiture dans le panier

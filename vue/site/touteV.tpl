@@ -17,7 +17,7 @@
                 }
             ?>
         </div>
-        <div class='wrap'>
+        <div class='voitures'>
         <?php 
         foreach($listV as $l){ 
             
@@ -25,22 +25,18 @@
             <div class="allVoitures">
                 <ul>
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
-                        <div class="book-container">
-                            <div class="content">
-                                <a href="index.php?controle=clients&action=ajoutPanier&vtr= <?php echo $l['id_vehi'] ?>"><button class="btn">Ajouter</button>
-                            </div>
-                        </div>
 
-                        <div class="informations-container">
+                        <div class="informations-container informations-containerVoitureLouerAdmin">
                             <h2 class="title"><?php echo $l['marque'] ?></h2>
                             <p class="sub-title"><?php echo $l['modele'] ?></p>
                             <p class="price">
                                 <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-                                </svg>De 0 à 15 €
+                                </svg>
+                                <?php echo $l['valeurParJour']. " € / jour" ?>
                             </p>
-                            <p class="sub-title">Voiture disponible : 5</p>
-                            <div class="more-information">
+                            <p class="sub-title"><?php echo $l['etatL'] ?></p>
+                            <div class="more-information ">
                                 <div class="info-and-date-container">
                                     <div class="box info">
                                         <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">

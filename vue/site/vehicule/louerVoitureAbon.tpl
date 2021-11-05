@@ -71,12 +71,12 @@
 	</div>
 	</div>
 
-	<script>
+<!--	<script>
 function estValide() {
 	if(document.getElementById("dateD").innerHTML == "pas choisi"){
 		alert("Il faut choisir une date débart");
 	}
-}
+} -->
 </script>
 </body>
 </html>
