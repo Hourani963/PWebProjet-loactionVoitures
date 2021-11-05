@@ -21,7 +21,7 @@
 						<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
 							<div class="book-container">
 								<div class="content">
-									<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>"><button class="btn">Réserver</button></a>
+									<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo $dateD[$idv]?>&dateF=<?php echo $dateF[$idv]?>"><button class="btn">Réserver</button></a>
 								</div>
 							</div>
 
@@ -34,7 +34,7 @@
 									</svg>
 									<strong><?php echo $l['valeurParJour']. " € / jour" ?></strong>
 								</p>
-								<p class="sub-title">Voiture disponible : 5 // faut changer</p>
+								<p class="sub-title"><?php echo (isset($dateD[$idv])?$prixTotal:'0') . " € / " . (isset($dateD[$idv])?$dateStatic:'0') ." jour(s)" ?></p>
 								<div class="more-information">
 									<div class="info-and-date-container">
 									<button class="dateD" onclick="openForm(<?php echo $l['id_vehi'] ?>)">
