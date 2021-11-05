@@ -21,7 +21,7 @@
 						<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
 							<div class="book-container">
 								<div class="content">
-									<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo $dateD[$idv]?>&dateF=<?php echo $dateF[$idv]?>"><button class="btn">Réserver</button></a>
+									<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo isset($dateD[$idv])?$dateD[$idv]:'' ?>&dateF=<?php echo isset($dateF[$idv])?$dateF[$idv]:''?>"><button class="btn">Réserver</button></a>
 								</div>
 							</div>
 
@@ -37,23 +37,23 @@
 								<p class="sub-title"><?php echo (isset($dateD[$idv])?$prixTotal:'0') . " € / " . (isset($dateD[$idv])?$dateStatic:'0') ." jour(s)" ?></p>
 								<div class="more-information">
 									<div class="info-and-date-container">
-									<button class="dateD" onclick="openForm(<?php echo $l['id_vehi'] ?>)">
+									<button class="dateD" onclick="openForm(<?php echo $l['id_vehi'] ?>)" >
 										<div class="box date">
 											<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 												<path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
 											</svg>
 											<p>Début</p>
-											<p><?php echo isset($dateD[$idv])?$dateD[$idv]:'pas choisif'; ?></p>
+											<p><?php echo isset($dateD[$idv])?$dateD[$idv]:'pas choisi'; ?></p>
 											<p></p>
 										</div>
 									</button>
-									<button class="dateF" onclick="openForm(<?php echo $l['id_vehi'] ?>)">
+									<button class="dateF" onclick="openForm(<?php echo $l['id_vehi'] ?>)" >
 										<div class="box date">
 											<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 												<path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
 											</svg>
 											<p>Fin</p>
-											<p><?php echo isset($dateF[$idv])?$dateF[$idv]:"pas choisif";?></p>
+											<p id="dateD"><?php echo isset($dateF[$idv])?$dateF[$idv]:"pas choisi";?></p>
 										</div>
 										</div>
 									</button>
@@ -70,5 +70,13 @@
 		?>
 	</div>
 	</div>
+
+	<script>
+function estValide() {
+	if(document.getElementById("dateD").innerHTML == "pas choisi"){
+		alert("Il faut choisir une date débart");
+	}
+}
+</script>
 </body>
 </html>
