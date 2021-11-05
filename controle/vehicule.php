@@ -20,16 +20,20 @@ function louerVoitureNAbon(){
 
 function louerVoitureAbon(){
     require('./modele/voitureBD.php');
-    $count = countVoiture(); // le nombre des voitures dans la base
-    
-    
+    //$count = countVoiture(); // le nombre des voitures dans la base
+    $prixTotal = "";
     $id_vehi = isset($_POST['idV'])?($_POST['idV']):0;
+    $voiture = getVoiture($id_vehi);
+    //var_dump($voiture[0]);die;
     if(isset($_POST['StartDate'])){
         $dateD[$id_vehi] = $_POST['StartDate'];
         //echo $dateD['idV']; die;
     }
     if(isset($_POST['EndDate'])){
         $dateF[$id_vehi] = $_POST['EndDate'];
+        $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
+
+        $prixTotal = $dateStatic * $voiture[0]['valeurParJour'];
         //echo $dateD['idV']; die;
     }
     //echo $id_vehi;

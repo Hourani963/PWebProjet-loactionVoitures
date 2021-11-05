@@ -102,7 +102,7 @@ function FactureAdmin(){
     
 }
 
-function peutAjouter($voiture){
+function peutAjouter($voiture){ // vérifier si on a pas la même voiture dans le panier
     $bool = true;
     if(isset($_SESSION['panier'])){
         foreach($_SESSION['panier'] as $p){
@@ -113,15 +113,18 @@ function peutAjouter($voiture){
     }
     return $bool;
 }
-function ajoutVo($voiture){ // ajouter voiture 
-    if(peutAjouter($voiture)){
-        if(isset($_SESSION['nbV'])){ // nbV est le nobre des voitures pour un client donné
+function ajoutVo($voiture){ // ajouter voiture dans le panier
+    if(peutAjouter($voiture)){ //si on a pas la voiture dans le panier
+        if(isset($_SESSION['nbV'])){ // nbV est le nombre des voitures pour un client donné
             $nbV = $_SESSION['nbV'];
         }else{
             $nbV=0;
         }
+        
         $_SESSION['panier'][$nbV] = $voiture;
-
+        // il ne faut pas oublier de mettre les dans dans les cookies
+        $_SESSION['panier'][$nbV]['dateD'] = $_GET['dateD']; //dateD est obligatoir
+        isset($_GET['dateF'])?$_SESSION['panier'][$nbV]['dateF']= $_GET['dateF']:'null'; // dateF pas obligatoir
 
         if(isset($_SESSION['nbV'])){     // nbV ++ 
             $_SESSION['nbV']=$_SESSION['nbV']+1;
@@ -150,6 +153,7 @@ function suppVo($i){ //delete voiture
 
 function ajoutPanier(){
     require("./modele/voitureBD.php");
+
     if(isset($_GET['vtr'])){
         $id_v = $_GET['vtr'];
         $vo = getVoiture($id_v);
