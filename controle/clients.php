@@ -249,24 +249,22 @@ function dateDiff($date1, $date2){
 }
 
 function voirPanier(){
-    $etat=false;
-    $dated=0;
-    $datef=0;
-    $afficherPanier=true;
-    $res=array();
-    if(isset($_SESSION['panier'])){
-        $panier = $_SESSION['panier'];
+    if(count($_POST) == 0){
+        require("vue/site/panierVide.tpl");
+    } else{
+        $etat=false;
+        $dated=0;
+        $datef=0;
+        $afficherPanier=true;
+        $res=array();
+        if(isset($_SESSION['panier'])){
+            $panier = $_SESSION['panier'];
 
-    }
-    
-   
-    
-    if(isset($_GET['valide'])){
-        //Nouvelle facture
-        require("./modele/voitureBD.php");
+        }
+        if(isset($_GET['valide'])){
+            //Nouvelle facture
+            require("./modele/voitureBD.php");
             $test=0;
-            
-            
             foreach($panier as $p){
                 if($p!=''){
                     $id=$_SESSION['profil']['id_cli'];
@@ -281,29 +279,31 @@ function voirPanier(){
                     $val=$p['valeurParJour'];
                     $state=0;
                     insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
-                    
+
                     etatV($id_vec, 1);
-                    
+
                     $_SESSION["nbV"]=0;
-                    
+
                     $afficherPanier=false;
-                    
-        
+
+
                 }
-                
-              }
-          $panier='';
-          $_SESSION['panier']='';
-          $_SESSION['panier']=array();
-          $url = "index.php?controle=clients&action=voirPanier";
-          header("Location: $url");  
-    }else{
-        if(isset($_SESSION['panier'])){
-            require("vue/site/panier.tpl");
+
+            }
+            $panier='';
+            $_SESSION['panier']='';
+            $_SESSION['panier']=array();
+            $url = "index.php?controle=clients&action=voirPanier";
+            header("Location: $url");
         }else{
-            require("vue/site/panierVide.tpl");
+            if(isset($_SESSION['panier'])){
+                require("vue/site/panier.tpl");
+            }else{
+                require("vue/site/panierVide.tpl");
+            }
         }
     }
+
     
 }
 
