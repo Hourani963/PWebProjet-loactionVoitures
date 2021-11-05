@@ -84,22 +84,42 @@ function getVoitures(){
     return $resultat;
 }
 
-function getVoitureLoué(){
+function getVoitureLouer(){ // j'ai fait INNER JOIN pour récupérer les date dans les factures
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible'";
+    $sql = "SELECT DISTINCT * FROM vehicule 
+            INNER JOIN facture ON facture.id_vehi = vehicule.id_vehi";
 
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
         if ($bool) {
-            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
         }
-    }
-    catch (PDOException $e) {
+        return $resultat;
+        
+    }catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
-    return $resultat;
+}
+function getVoituresLeftJoinFacture(){ // utiliser pour la fonction affichier toute les voitures avec leur facture
+    // comme il y a des voitures facturé et des voitures non facturé, j'ai besoin de faire inner join
+    require('./modele/connectBD.php'); 
+    $sql = "SELECT DISTINCT * FROM vehicule 
+            LEFT JOIN facture ON facture.id_vehi = vehicule.id_vehi";
+
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
 }
 
 function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_vec){

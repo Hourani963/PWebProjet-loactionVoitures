@@ -8,7 +8,8 @@ function touteVoiture(){
 function touteVoitureAdmin(){
 
     require('./modele/voitureBD.php');
-    $listV = getVoitures();
+    //$listVNonLouer = getVoitures();
+    $VoituresLeftJoinFacture = getVoituresLeftJoinFacture();
     //var_dump($listV); die("ok");
     require('./vue/site/vehicule/touteVadmin.tpl');
 }
@@ -452,9 +453,9 @@ function voirFacture(){
 
 function voirVoitureLouerAdmin(){
     require('./modele/voitureBD.php');
-    $listV = getVoitureLoué();
+    $listV = getVoitureLouer();
     //var_dump($listV); die("ok");
-    require('./vue/site/touteV.tpl');
+    require('./vue/site/touteVLouer.tpl');
 }
 
 function ClientVoitures(){ 

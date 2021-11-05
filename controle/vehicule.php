@@ -18,7 +18,7 @@ function louerVoitureNAbon(){
 }
 
 
-function louerVoitureAbon(){
+function louerVoitureAbon(){  // le client choisi la date ici
     require('./modele/voitureBD.php');
     //$count = countVoiture(); // le nombre des voitures dans la base
     $prixTotal = "";
@@ -26,15 +26,27 @@ function louerVoitureAbon(){
     $voiture = getVoiture($id_vehi);
     //var_dump($voiture[0]);die;
  
-    isset($_POST['StartDate'])?$dateD[$id_vehi] = $_POST['StartDate']:$dateD[$id_vehi]='';
-    if(isset($_POST['EndDate'])){
-        $dateF[$id_vehi] = $_POST['EndDate'];
-        $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
+    //isset($_POST['StartDate'])?$dateD[$id_vehi] = $_POST['StartDate']:$dateD[$id_vehi]='';
+    if(isset($_POST['StartDate'])){
+        $dateD[$id_vehi] = $_POST['StartDate'];
+        if(isset($_POST['EndDate']) &&  $_POST['EndDate'] != ''){
+            
+            $dateF[$id_vehi] = $_POST['EndDate'];
+            $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
 
-        $prixTotal = $dateStatic * $voiture[0]['valeurParJour'];
-        //echo $dateD['idV']; die;
+            $prixTotal = $dateStatic * $voiture[0]['valeurParJour'];
+            //var_dump ($voiture[0]); die;
+        }
+        else{
+            $dateF[$id_vehi]='';
+            $prixTotal = 30 * $voiture[0]['valeurParJour'];
+            $dateStatic = 30;
+        }
+
+        
+       // echo $prixTotal; die;      
     }
-
+    
     
     
     $listV = getVoitures();
