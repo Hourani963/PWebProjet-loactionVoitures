@@ -4,11 +4,31 @@
 	<meta charset="utf-8">
 	<title>Ajout voiture</title>
 	<link href="./vue/styleCSS/identInscrire.css" rel="stylesheet">
-	<title></title>
+	<title>Ajouter une voiture</title>
 </head>
 <body>
 	<script src="vue/JS/ajoutVoiture.js"></script>
-	
+	<style>
+		body {
+			background: -webkit-gradient(linear, left top, left bottom,
+			color-stop(0%, rgba(26, 49, 95, 1)),
+			color-stop(10%, rgba(26, 49, 95, 1)),
+			color-stop(24%, rgba(29, 108, 141, 1)),
+			color-stop(37%, rgba(41, 136, 151, 1)),
+			color-stop(77%, rgba(39, 45, 100, 1)),
+			color-stop(90%, rgba(26, 49, 95, 1)),
+			color-stop(100%, rgba(26, 49, 95, 1)));
+		}
+		.form {
+			margin: auto;
+		}
+		.retourAcceuil {
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
 
 	<form  action="index.php?controle=vehicule&action=ajoutvoiture" method="POST" class="form" enctype="multipart/form-data">
 		<div class="title">Ajout voiture</div>
@@ -58,6 +78,7 @@
 					<label for="file" class="placeholder">Image</label>
 				</div>
 				<input type="submit" class="submit" value="Valider">
+		<a href="./index.php?controle=clients&action=admin" class="retourAcceuil">Retour</a>
 	</form>
 
 </body>
