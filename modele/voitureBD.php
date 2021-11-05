@@ -272,5 +272,17 @@ function countVoiture(){
     $count = $stmt->fetchColumn();
     return $count;
 }
+function suprV($id){
+    require('./modele/connectBD.php');
+    $sql = "UPDATE vehicule SET etatL = 2 WHERE id_vehi = :id";
+    try {
+        $supr = $pdo->prepare($sql);
+        $supr->bindParam(':id', $id, PDO::PARAM_STR);
+        $supr->execute();
 
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
 ?>
