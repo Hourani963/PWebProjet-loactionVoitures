@@ -25,7 +25,7 @@
                     <a class="nav-link" href="./index.php?controle=vehicule&action=louerVoitureAbon">Voir les voitures</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?controle=vehicule&action=ClientVoitures">Mes voitures</a>
+                    <a class="nav-link" href="./index.php?controle=clients&action=ClientVoitures">Mes voitures</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
