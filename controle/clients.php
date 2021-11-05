@@ -125,7 +125,7 @@ function FactureAdmin(){
 function peutAjouter($voiture){
     if(isset($_SESSION['panier'])){
         if(is_array($_SESSION['panier'])){
-            if($_SESSION['panier'][0] == $voiture){
+            if(isset($_SESSION['panier'][0])  && $_SESSION['panier'][0] == $voiture){
                 return false;
                 
              }
@@ -151,7 +151,12 @@ function ajoutVo($voiture){
         }else{
             $nbV=0;
         }
+        /******************/
+        
+        
         $_SESSION['panier'][$nbV] = $voiture;
+        
+        
         
         
         
@@ -201,8 +206,8 @@ function suppVPanierS(){
     $etat=false;
     if(isset($_GET['id'])){
         $id_v =$_GET['id'];
-            if(isset($_SESSION['panier'][0]['id_vehi'])){
-                if($_SESSION['panier'][0]['id_vehi']==$id_v){
+            if(isset($_SESSION['panier']['id_vehi'])){
+                if($_SESSION['panier']['id_vehi']==$id_v){
                     if($desupp==false){
                         suppVo(0); 
                         $desupp=true;
@@ -223,8 +228,8 @@ function suppVPanier(){
     if(isset($_GET['id'])){
         $id_v =$_GET['id'];
         for ($i = 0; $i <= count($_SESSION['panier'])-1; $i++) {
-            if(isset($_SESSION['panier'][$i][0]['id_vehi'])){
-                if($_SESSION['panier'][$i][0]['id_vehi']==$id_v){
+            if(isset($_SESSION['panier'][$i]['id_vehi'])){
+                if($_SESSION['panier'][$i]['id_vehi']==$id_v){
                     if($desupp==false){
                         suppVo($i); 
                         $desupp=true;
@@ -240,6 +245,7 @@ function suppVPanier(){
 }
 
 function dateDiff($date1, $date2){
+    
     $diff = abs($date1 - $date2); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
     $retour = array();
  
@@ -274,41 +280,32 @@ function voirPanier(){
     if(isset($_GET['valide']) && isset($_SESSION['dated']) && isset($_SESSION['datef'])){
         //Nouvelle facture
         require("./modele/voitureBD.php");
-        if(isset($panier[1][0])){
-            for($i = 0; $i < count($panier); $i++){
+            $test=0;
             
+            var_dump($_SESSION['nbV']);
+            var_dump($panier);
+            foreach($panier as $p){
+                
                 $id=$_SESSION['profil']['id_cli'];
-                $id_vec = $panier[$i][0]['id_vehi'];
-                $start_Date = $dated;
-                $end_Date=$datef;
-                $val=$_GET['valide'];
+                $id_vec = $p['id_vehi'];
+                $start_Date = $_SESSION['dated'];
+                $end_Date=$_SESSION['datef'];
+                $diff=dateDiff(strtotime($start_Date), strtotime($end_Date));
+                $val=$p['val']*$diff['day'];
                 $state=0;
                 insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
+                
                 etatV($id_vec, 1);
+                
                 $_SESSION["nbV"]=0;
-                $panier[$i][0]='';
+                
                 $afficherPanier=false;
+                
     
               }
-        
-        }else{
-            
-            $id=$_SESSION['profil']['id_cli'];
-            $id_vec = $panier[0][0]["id_vehi"];
-            $start_Date = $dated;
-            $end_Date=$datef;
-            $val=$_GET['valide'];
-            $state=0;
-            insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
-            etatV($id_vec, 1);
-            
-            $panier[0][0]='';
-            $afficherPanier=false;
-
-
-        }
-        
+          $panier='';
           $_SESSION['panier']='';
+          $_SESSION['panier']=array();
           $url = "index.php?controle=clients&action=voirPanier";
           header("Location: $url");  
     }else{
@@ -555,7 +552,7 @@ function voirFacture(){
     $i = 0;
     foreach($Facture as $f){
         $Voiture = getVoiture($f['id_vehi']);
-        $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+        $Facture[$i]['id_vehi'] = $Voiture['modele'];
         $i++;
     }
     require('./vue/site/components/VoirFacture.tpl');

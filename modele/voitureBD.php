@@ -37,13 +37,17 @@ function getVoiture($id){
         $bool = $commande->execute();
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-            
+            if(count($resultat)==1){
+                $resultat=$resultat[0];
+            }
         }
     }
     catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
+
+    /*$resultat[0]['id_vehi]*/
     return $resultat;
     
 
