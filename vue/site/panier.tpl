@@ -23,7 +23,7 @@
         $vide=true;
         
        
-            var_dump($panier);
+            
             foreach ($panier as $p){
                 if($p!=''){
                 $vide = false;
