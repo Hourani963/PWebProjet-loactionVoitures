@@ -13,15 +13,35 @@ function suprVoiture(){
 function louerVoitureNAbon(){
     require('./modele/voitureBD.php');
     $listV = getVoitures();
+    
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
+
+
 function louerVoitureAbon(){
+    require('./modele/voitureBD.php');
+    //$count = countVoiture(); // le nombre des voitures dans la base
+    $prixTotal = "";
+    $id_vehi = isset($_POST['idV'])?($_POST['idV']):0;
+    $voiture = getVoiture($id_vehi);
+    //var_dump($voiture[0]);die;
+ 
+    isset($_POST['StartDate'])?$dateD[$id_vehi] = $_POST['StartDate']:$dateD[$id_vehi]='';
+    if(isset($_POST['EndDate'])){
+        $dateF[$id_vehi] = $_POST['EndDate'];
+        $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
+
+        $prixTotal = $dateStatic * $voiture[0]['valeurParJour'];
+        //echo $dateD['idV']; die;
+    }
+
+    
+    
+    $listV = getVoitures();
     require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }
-function erreurAjout(){
-    require("./vue/site/messageError.tpl");
-}
-function ajoutvoiture(){
+
+function ajoutvoiture(){ // pour le Admin
     require("modele/voitureBD.php");
     $listeModele = getAllModele();
     $listeMarque = getAllMarque();

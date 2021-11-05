@@ -15,7 +15,7 @@
 	<div><?php include "vue/site/components/MenuNAbon.tpl" ?></div>
 	<section class="body">
 		<div class="bouton-photo">
-			<a href="./index.php?controle=clients&action=ident"><button type="button" class="btn btn-primary btn-lg">Voir les voitures</button></a>
+			<a href="./index.php?controle=vehicule&action=louerVoitureNAbon"><button type="button" class="btn btn-primary btn-lg">Voir les voitures</button></a>
 			<a href="./index.php?controle=clients&action=ident"><button type="button" class="btn btn-secondary btn-lg">Nous Contacter</button></a>
 		</div>
 	</section>

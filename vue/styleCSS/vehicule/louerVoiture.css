@@ -171,21 +171,7 @@ body{
 .allVoitures ul .booking-card:hover .informations-container .more-information {
     opacity: 1;
 }
-@media (max-width: 768px) {
-    .allVoitures ul .booking-card::before {
-        background: rgba(10, 72, 112, 0.6);
-   }
-    .allVoitures ul .booking-card .book-container .content {
-        opacity: 1;
-        transform: translateY(0px);
-   }
-    .allVoitures ul .booking-card .informations-container {
-        transform: translateY(0px);
-   }
-    .allVoitures ul .booking-card .informations-container .more-information {
-        opacity: 1;
-   }
-}
+
 .allVoitures .credits {
     display: table;
     background: #0a4870;
@@ -204,3 +190,115 @@ body{
 .allVoitures h1 {
     margin: 10px 20px;
 }
+
+
+.page{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    grid-template-areas: "me"
+                        "allV" ;
+}
+.voitures{
+    margin-top: 50px;
+    margin-left: 75px;
+    
+    grid-area: allV;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+}
+.menu{
+    top: 0px;
+    grid-area: me;
+    z-index: 100;
+}
+
+.allVoitures{
+    
+    position: relative;
+    
+}
+
+@media screen and (max-width: 1300px) {
+    .voitures{
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+}
+@media screen and (max-width: 1000px) {
+    .voitures{
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+@media screen and (max-width: 750px) {
+    .voitures{
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .menu{
+        height: 20px !important;
+    }
+}
+/************petit formulaire pour les dates*********************/
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+      
+    display: none;
+    position: fixed;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  .form-popup body{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+ 

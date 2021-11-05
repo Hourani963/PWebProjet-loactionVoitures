@@ -21,7 +21,7 @@
                       <a class="nav-link" href="./index.php?controle=clients&action=accueilNAbon">Accueil <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="./index.php?controle=clients&action=ident">Voir les voitures</a>
+                      <a class="nav-link" href="./index.php?controle=vehicule&action=louerVoitureNAbon">Voir les voitures</a>
                   </li>
               </ul>
               <ul class="navbar-nav ml-auto">
