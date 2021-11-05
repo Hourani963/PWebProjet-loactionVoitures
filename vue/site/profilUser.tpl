@@ -32,7 +32,7 @@
                         </div>
                         <div class="btn-2">
                             <a href="index.php?controle=clients&action=voirFacture"><button class="btn">Voir vos facture</button></a>
-                            <a href="index.php?controle=clients&action=bye"><button class="btn">Déconnection</button></a>
+                            <a href="index.php?controle=clients&action=bye"><button class="btn">Déconnexion</button></a>
                         </div>
                         <a href="./index.php?controle=clients&action=accueilAbon" class="retourAcceuil">Retour à l'acceuil</a>
                     </div>
