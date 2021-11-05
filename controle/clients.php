@@ -567,4 +567,19 @@ function voirVoitureLouerAdmin(){
     //var_dump($listV); die("ok");
     require('./vue/site/touteV.tpl');
 }
+
+function ClientVoitures(){
+
+    require('./modele/clientsBD.php');
+    //require('./modele/voitureBD.php');
+    //$listVClient = array();
+    $idClient = $_SESSION['profil']['id_cli'];
+    /*$facturesClient = getFacture($idClient);
+    foreach($facturesClient as $f){
+        array_push($listVClient, getVoiture($f['id_vehi']));
+    }*/
+    //var_dump($listVClient);die;
+    $listVClient = getClientVoitures($idClient);
+    require('./vue/site/client/mesVoitures.tpl');
+}
 ?>
