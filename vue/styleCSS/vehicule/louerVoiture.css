@@ -214,13 +214,15 @@ body{
                         "allV" ;
 }
 .voitures{
-    padding-top: 50px;
-    margin-left: 10px;
+    /*padding-top: 50px;*/
+    margin-left: 50px;
+    justify-content: center;
     
     grid-area: allV;
     display: grid;
 
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap:  40px;
 }
 .menu{
     top: 0px;
@@ -240,12 +242,12 @@ body{
     margin: auto;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1450px) {
     .voitures{
         grid-template-columns: 1fr 1fr; 
     }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 930px) {
     .voitures{
         grid-template-columns: 1fr; 
     }
