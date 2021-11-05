@@ -19,13 +19,24 @@ function louerVoitureNAbon(){
 
 
 function louerVoitureAbon(){
-    $dateD = array();
-    $dateF = array();
-    $id_vehi = isset($_GET['id_vehi'])?($_GET['id_vehi']):0;
-    $dateD = isset($_POST['StartDate'])?($_POST['StartDate']):'pas choisi';
-    $dateF = isset($_POST['EndDate'])?($_POST['EndDate']):'pas choisi';
-    
     require('./modele/voitureBD.php');
+    $count = countVoiture(); // le nombre des voitures dans la base
+    
+    
+    $id_vehi = isset($_POST['idV'])?($_POST['idV']):0;
+    if(isset($_POST['StartDate'])){
+        $dateD[$id_vehi] = $_POST['StartDate'];
+        //echo $dateD['idV']; die;
+    }
+    if(isset($_POST['EndDate'])){
+        $dateF[$id_vehi] = $_POST['EndDate'];
+        //echo $dateD['idV']; die;
+    }
+    //echo $id_vehi;
+    //$dateD = isset($_POST['StartDate'])?($_POST['StartDate']):'pas choisi';
+    //$dateF = isset($_POST['EndDate'])?($_POST['EndDate']):'pas choisi';
+    
+    
     $listV = getVoitures();
     require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }

@@ -241,6 +241,13 @@ function CountAllModelDispo($marque){
     }
 }
 
+function countVoiture(){
+    require('./modele/connectBD.php');
+    $sql = "SELECT COUNT(*) FROM vehicule";
 
+    $stmt = $pdo->query($sql);
+    $count = $stmt->fetchColumn();
+    return $count;
+}
 
 ?>

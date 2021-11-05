@@ -13,7 +13,9 @@
 		
 	<div class="voitures">
 		<?php 
-			foreach($listV as $l){ ?>
+			foreach($listV as $l){ 
+				$idv = 	$l['id_vehi'];
+			?>
 				<div class="allVoitures">
 					<ul>
 						<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
@@ -35,23 +37,23 @@
 								<p class="sub-title">Voiture disponible : 5 // faut changer</p>
 								<div class="more-information">
 									<div class="info-and-date-container">
-									<button class="dateD" onclick="openForm()">
+									<button class="dateD" onclick="openForm(<?php echo $l['id_vehi'] ?>)">
 										<div class="box date">
 											<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 												<path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
 											</svg>
 											<p>Début</p>
-											<p><?php echo $dateD ?></p>
+											<p><?php echo isset($dateD[$idv])?$dateD[$idv]:'pas choisif'; ?></p>
 											<p></p>
 										</div>
 									</button>
-									<button class="dateF" onclick="openForm()">
+									<button class="dateF" onclick="openForm(<?php echo $l['id_vehi'] ?>)">
 										<div class="box date">
 											<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
 												<path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
 											</svg>
 											<p>Fin</p>
-											<p><?php echo $dateF ?></p>
+											<p><?php echo isset($dateF[$idv])?$dateF[$idv]:"pas choisif";?></p>
 										</div>
 										</div>
 									</button>
@@ -61,14 +63,12 @@
 						</li>
 					</ul>
 				</div>
+				
+				<?php require ("./vue/site/components/choisirDate.tpl") ?> <!-- il faut mettre ce component dans la boucle pour récupérer le id de chaque voiture-->
+
 			<?php }
 		?>
 	</div>
 	</div>
-
-
-	<?php include "./vue/site/components/choisirDate.tpl" ?>
-
-
 </body>
 </html>
