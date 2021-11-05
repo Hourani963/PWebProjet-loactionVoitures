@@ -31,7 +31,7 @@ function louerVoitureAbon(){
         $dateF[$id_vehi] = $_POST['EndDate'];
         $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
 
-        $prixTotal = $dateStatic * $voiture[0]['valeurParJour'];
+        $prixTotal = $dateStatic * $voiture['valeurParJour'];
         //echo $dateD['idV']; die;
     }
 

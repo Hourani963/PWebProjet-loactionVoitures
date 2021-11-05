@@ -16,43 +16,32 @@
         echo("<li>Marque : </li>");
         echo("<li>Modele : </li>");
         echo("<li>Caracteristique : </li>");
+        echo("<li>DATE D : </li>");
+        echo("<li>DATE F : </li>");
         echo("<li>Prix : </li>");
         echo("</ul>");
         $vide=true;
         
-        if($_SESSION["nbV"]>0 && is_array($panier)){
-            
+       
+            var_dump($panier);
             foreach ($panier as $p){
-                
+                if($p!=''){
                 $vide = false;
                 echo("<ul>");
                     echo("<div class='descPanier'>");
-                    $prixP += $p['val'];
+                    $prixP += $p['valeurParJour'];
                         echo("<li>" . $p['marque'] . "</li>");
                         echo("<li>" . $p['modele'] . "</li>");
                         echo("<li>" . $p['caract'] . "</li>");
-                        echo("<li>" . $p['val'] . "€". "</li>");
+                        echo("<li>" . $p['dated'] . "</li>");
+                        echo("<li>" . $p['datef'] . "</li>");
+                        echo("<li>" . $p['valeurParJour'] . "€". "</li>");
                         echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $p['id_vehi'] . "'><button>X </button></a>");
                     echo("</div>");
                 echo("</ul>");
-                
-                    
+                }     
             }
-        }/*else{
-            if($panier!=''){
-                echo("<ul>");
-                    echo("<div class='descPanier'>");
-                    $prixP = $panier[0]['val'];
-                        echo("<li>" . $panier[0]['marque'] . "</li>");
-                        echo("<li>" . $panier[0]['modele'] . "</li>");
-                        echo("<li>" . $panier[0]['caract'] . "</li>");
-                        echo("<li>" . $panier[0]['val'] . "€". "</li>");
-                        echo("<a href='index.php?controle=clients&action=suppVPanierS&id=" . $panier[0]['id_vehi'] . "'><button>X </button></a>");
-                    echo("</div>");
-                echo("</ul>");
-            }
-            
-        }*/
+        
         
         
         if($_SESSION["nbV"]>10){
@@ -103,7 +92,6 @@
         defaultValue='<?php echo(date("Y/m/d")); ?>'>
        <button type='submit'>verif date</button>
        
-
       <?php 
         }
         echo("</div>");
@@ -126,7 +114,6 @@
         defaultValue='<?php echo(date("Y/m/d")); ?>'>
        <button type='submit'>verif date</button>
        
-
       <?php  
 }       
     ?>  
