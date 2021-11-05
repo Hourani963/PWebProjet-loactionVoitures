@@ -2,9 +2,9 @@
 
 
 
-function ajoutV($marque,$modele,$caract,$path, $etatL){
+function ajoutV($marque,$modele,$caract,$path, $etatL,$valeurParJour){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="INSERT INTO vehicule (marque,modele,caract, path_photo, etatL) VALUES (:marque,:modele,:caract,:path_photo,:etatL);";
+    $sql="INSERT INTO vehicule (marque,modele,caract, path_photo, etatL,valeurParJour) VALUES (:marque,:modele,:caract,:path_photo,:etatL,:valeurParJour);";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque);
@@ -12,7 +12,7 @@ function ajoutV($marque,$modele,$caract,$path, $etatL){
         $commande->bindParam(':caract', $caract);
         $commande->bindParam(':path_photo', $path);
         $commande->bindParam(':etatL', $etatL);
-
+        $commande->bindParam(':valeurParJour', $valeurParJour);
         $bool = $commande->execute();
         if ($bool) {
             return true;
@@ -151,7 +151,7 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
 function verif_base($marque,$modele){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     
-    $sql="SELECT modele FROM `modeles` WHERE marque = :marque and modele = :modele ";
+    $sql="SELECT modele FROM `modeles` WHERE marque = :marque OR modele = :modele ";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque, PDO::PARAM_STR);

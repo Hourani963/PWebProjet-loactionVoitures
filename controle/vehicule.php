@@ -84,6 +84,8 @@ function ajoutvoiture(){ // pour le Admin
     $caract=isset($_POST['caract'])?($_POST['caract']):'';
     $img=isset($_POST['img']);
     $etatL=isset($_POST['etatL'])?($_POST['etatL']):'';
+    $prix = isset($_POST['prix'])?($_POST['prix']):'';
+
     if(isset($_FILES['img'])){
         $tmpName = $_FILES['img']['tmp_name'];
         $name = $_FILES['img']['name'];
@@ -96,7 +98,7 @@ function ajoutvoiture(){ // pour le Admin
     if(count($_POST) == 0)require("vue/site/ajoutVoiture.tpl");
     else{
         if(verif_base($marque, $modele)){
-            if(ajoutV($marque,$modele,$caract,$path, $etatL)){
+            if(ajoutV($marque,$modele,$caract,$path, $etatL,$prix)){
                 $msgDone = "Voiture Bien Ajouté";
                 require("vue/site/ajoutVoiture.tpl");
             }
