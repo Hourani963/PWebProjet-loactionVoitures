@@ -6,7 +6,7 @@
     <link href="vue/styleCSS/vehicule/louerVoiture.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="text-align: center">
 <header style="z-index: 100000;">
     <?php include "./vue/site/components/MenuAbon.tpl" ?>
 </header>
@@ -14,9 +14,11 @@
     <div class="page">
         <div class="voitures">
             <?php
+            if($listVClient != false){
             foreach($listVClient as $l){
                 $dateDynamique = ((strtotime($l['DateF']) - strtotime(date('Y-m-d'))) / (60 * 60 * 24));
-                $dateStatic = ((strtotime($l['DateF']) - strtotime($l['dateD'])) / (60 * 60 * 24)); ?>
+                $dateStatic = ((strtotime($l['DateF']) - strtotime($l['dateD'])) / (60 * 60 * 24));
+            ?>
             <div class="allVoitures">
                 <ul>
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
@@ -70,8 +72,14 @@
                     </li>
                 </ul>
             </div>
-            <?php }
-        ?>
+            <?php
+                }
+            } else { ?>
+            <div style="width: 60%;margin: auto; margin-top: 85%; margin-left: 160%;">
+                <h1 style="color: white; font-size: 30px; font-style: italic;">Pas de Voiture disponible </h1>
+            </div>
+
+            <?php } ?>
         </div>
     </div>
 </section>

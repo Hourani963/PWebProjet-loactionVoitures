@@ -6,7 +6,7 @@
     <link href="vue/styleCSS/vehicule/louerVoiture.css" rel="stylesheet">
 
 </head>
-<body>
+<body style="text-align: center;">
 <header style="z-index: 100000;">
     <?php include "./vue/site/components/MenuAbon.tpl" ?>
 </header>
@@ -17,6 +17,7 @@
         <div class="voitures" style="z-index: auto!important;">
 
             <?php
+            if($listV != false){
 			foreach($listV as $l){
 				$idv = 	$l['id_vehi'];
 			?>
@@ -77,8 +78,14 @@
             <?php require ("./vue/site/components/choisirDate.tpl") ?>
             <!-- il faut mettre ce component dans la boucle pour récupérer le id de chaque voiture-->
 
-            <?php }
-		?>
+            <?php
+                }
+            } else { ?>
+                <div style="width: 60%;margin: auto; margin-top: 85%; margin-left: 160%;">
+                    <h1 style="color: white; font-size: 30px; font-style: italic;">Pas de Voiture disponible </h1>
+                </div>
+
+            <?php } ?>
         </div>
     </div>
 </section>

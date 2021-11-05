@@ -54,9 +54,9 @@ function getVoiture($id){
 
 }
 
-function getVoituresAbonne(){
+/*function getVoituresAbonne(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 2 AND etatL <> 1";
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Revision' AND etatL <> 'Louer'";
     try { 
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -69,11 +69,11 @@ function getVoituresAbonne(){
         die(); // On arrête tout.
     }
     return $resultat;
-}
+}*/
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule where etatL=0";
+    $sql="SELECT *  FROM vehicule where etatL='Disponible'";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -90,8 +90,8 @@ function getVoitures(){
 
 function getVoitureLoué(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    //$sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible'";
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 0 AND etatL <> 2";
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible'";
+    //$sql="SELECT *  FROM vehicule WHERE etatL <> 0 AND etatL <> 2";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -108,11 +108,9 @@ function getVoitureLoué(){
 
 function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_vec){
     require('./modele/connectBD.php');
-
     //var_dump($_SESSION['profil']); die("ok");
     $sql = "INSERT INTO facture (id_cli,id_vehi,dateD,DateF, valeur, EtatR)
 			VALUES (:cli,:vec, :Sdate, :Edate, :val ,:state)";
-
 
     try{
         $insert = $pdo->prepare($sql);
@@ -133,18 +131,12 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
 }
 function etatV($idv,$etatv){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    
     $sql="UPDATE vehicule SET etatL =:etat WHERE id_vehi=:idv";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':etat', $etatv, PDO::PARAM_STR);
         $commande->bindParam(':idv', $idv, PDO::PARAM_STR);
-        $bool = $commande->execute();
-        if ($bool) {
-            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
-            
-       
-        }
+        $commande->execute();
     }
     catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
@@ -274,7 +266,7 @@ function countVoiture(){
 }
 function suprV($id){
     require('./modele/connectBD.php');
-    $sql = "UPDATE vehicule SET etatL = 2 WHERE id_vehi = :id";
+    $sql = "UPDATE vehicule SET etatL = 'Revision' WHERE id_vehi = :id";
     try {
         $supr = $pdo->prepare($sql);
         $supr->bindParam(':id', $id, PDO::PARAM_STR);

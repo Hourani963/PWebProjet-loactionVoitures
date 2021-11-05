@@ -6,7 +6,7 @@ function touteVoiture(){
     if(isset($_GET['mode'])){
         $mode = $_GET['mode'];
         if($mode == 'choix'){
-            $listV = $listV = getVoituresAbonne();
+            $listV = getVoitures();
             require('./vue/site/touteV.tpl');
         }else if($mode == 'automatique'){
             $listeVBD = getAllMarqueDispo();
@@ -249,61 +249,66 @@ function dateDiff($date1, $date2){
 }
 
 function voirPanier(){
-    if(count($_POST) == 0){
-        require("vue/site/panierVide.tpl");
-    } else{
-        $etat=false;
-        $dated=0;
-        $datef=0;
-        $afficherPanier=true;
-        $res=array();
-        if(isset($_SESSION['panier'])){
-            $panier = $_SESSION['panier'];
+    $etat = false;
+    $dated = 0;
+    $datef = 0;
+    $afficherPanier = true;
+    $res = array();
+    if (isset($_SESSION['panier'])) {
+        $panier = $_SESSION['panier'];
 
+    }
+    if (count($_POST) == 0) {
+        if (isset($_SESSION['panier'])) {
+            require("vue/site/panier.tpl");
+        } else {
+            require("vue/site/panierVide.tpl");
         }
-        if(isset($_GET['valide'])){
+    } else {
+
+        if (isset($_GET['valide'])) {
             //Nouvelle facture
             require("./modele/voitureBD.php");
-            $test=0;
-            foreach($panier as $p){
-                if($p!=''){
-                    $id=$_SESSION['profil']['id_cli'];
+            $test = 0;
+            foreach ($panier as $p) {
+                if ($p != '') {
+                    $id = $_SESSION['profil']['id_cli'];
                     $id_vec = $p['id_vehi'];
                     $start_Date = $p['dated'];
-                    $end_Date=$p['datef'];
-                    $r=dateDiff(strtotime($p['dated']), strtotime($p['datef']));
-                    $p['valeurParJour']=$p['valeurParJour']* $r['day'];
-                    if($r['day']>30){
-                        $p['valeurParJour']=$p['valeurParJour']*0.95;
+                    $end_Date = $p['datef'];
+                    $r = dateDiff(strtotime($p['dated']), strtotime($p['datef']));
+                    $p['valeurParJour'] = $p['valeurParJour'] * $r['day'];
+                    if ($r['day'] > 30) {
+                        $p['valeurParJour'] = $p['valeurParJour'] * 0.95;
                     }
-                    $val=$p['valeurParJour'];
-                    $state=0;
-                    insertFacture($id,$id_vec,$start_Date,$end_Date,$val,$state);
+                    $val = $p['valeurParJour'];
+                    $state = 'Disponible';
+                    insertFacture($id, $id_vec, $start_Date, $end_Date, $val, $state);
+                    echo "1ere fonction passer";
+                    etatV($id_vec, 'Louer');
 
-                    etatV($id_vec, 1);
+                    $_SESSION["nbV"] = 0;
 
-                    $_SESSION["nbV"]=0;
-
-                    $afficherPanier=false;
+                    $afficherPanier = false;
 
 
                 }
 
             }
-            $panier='';
-            $_SESSION['panier']='';
-            $_SESSION['panier']=array();
+            $panier = '';
+            $_SESSION['panier'] = '';
+            $_SESSION['panier'] = array();
             $url = "index.php?controle=clients&action=voirPanier";
             header("Location: $url");
-        }else{
-            if(isset($_SESSION['panier'])){
+        } else {
+            if (isset($_SESSION['panier'])) {
                 require("vue/site/panier.tpl");
-            }else{
+            } else {
                 require("vue/site/panierVide.tpl");
             }
         }
-    }
 
+    }
     
 }
 
@@ -449,7 +454,7 @@ function addFacture(){
 
     if (count($_POST) == 0) {
         require("./modele/voitureBD.php");
-        $Voiture = getVoituresAbonne();
+        $Voiture = getVoitures();
         require("./modele/clientsBD.php");
         $Client = getId_cli();
         require('./vue/site/FormAjoutFacture.tpl') ;
