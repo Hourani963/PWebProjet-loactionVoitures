@@ -8,3 +8,14 @@ header{
 .dropdown-item {
   z-index: 10;
 }
+
+.navbar-nav{
+  cursor: pointer;
+}
+a{
+  margin-right: 10px;
+}
+
+.dropdown-item{
+  z-index: 10;
+}
