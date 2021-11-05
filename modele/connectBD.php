@@ -1,10 +1,10 @@
 <?php
-	//$hostname = "localhost:3306";	
+	$hostname = "localhost:3306";
 	//$hostname = "proxy50.rt3.io:30465";
-	$hostname = "10.191.12.131:3306";	
+	//$hostname = "10.191.12.131:3306";
 	$base= "pweb";
-	$loginBD= "ahmad";	
-	$passBD="syfsa";
+	$loginBD= "root";
+	$passBD="";
 	
 	try {
 		//$pdo = mysql_connect('10.191.12.131:3306', 'ahmad', 'syfsa');

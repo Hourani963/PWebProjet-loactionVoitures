@@ -61,7 +61,7 @@ function FactureAdmin(){
 
                 foreach ($Facture as $f) {
                     $Voiture = getVoiture($f['id_vehi']);
-                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $Facture[$i]['id_vehi'] = $Voiture['modele'];
                     $i++;
                 }
                 foreach ($Facture as $f){
@@ -567,5 +567,20 @@ function voirVoitureLouerAdmin(){
     $listV = getVoitureLoué();
     //var_dump($listV); die("ok");
     require('./vue/site/touteV.tpl');
+}
+
+function ClientVoitures(){
+
+    require('./modele/clientsBD.php');
+    //require('./modele/voitureBD.php');
+    //$listVClient = array();
+    $idClient = $_SESSION['profil']['id_cli'];
+    /*$facturesClient = getFacture($idClient);
+    foreach($facturesClient as $f){
+        array_push($listVClient, getVoiture($f['id_vehi']));
+    }*/
+    //var_dump($listVClient);die;
+    $listVClient = getClientVoitures($idClient);
+    require('./vue/site/client/mesVoitures.tpl');
 }
 ?>
