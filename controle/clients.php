@@ -107,15 +107,14 @@ function peutAjouter($voiture){
             if(isset($_SESSION['panier'][0])  && $_SESSION['panier'][0] == $voiture){
                 return false;
                 
-             }
-                    
-                   
-                    //multi
-                    
+             } 
             foreach($_SESSION['panier'] as $p){
-                if($p == $voiture){
-                     return false;;
+                if($p!=''){
+                    if($p['id_vehi'] == $voiture['id_vehi']){
+                        return false;;
+                   }
                 }
+                
             }
 
            
@@ -123,6 +122,8 @@ function peutAjouter($voiture){
     }
     return true;
 }
+
+
 function ajoutVo($voiture,$dated,$datef){
     if(peutAjouter($voiture)){
         if(isset($_SESSION['nbV'])){
@@ -132,7 +133,7 @@ function ajoutVo($voiture,$dated,$datef){
         }
         /******************/
         
-        
+
         $_SESSION['panier'][$nbV] = $voiture;
         $_SESSION['panier'][$nbV]['datef']=$datef;
         $_SESSION['panier'][$nbV]['dated']=$dated;
@@ -371,7 +372,7 @@ function ident(){
             $_SESSION['profil']['mdp'] = $mdp;
             
         }
-        var_dump($_SESSION);
+        
         header("Location: index.php?controle=clients&action=admin");
     
         
