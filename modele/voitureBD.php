@@ -83,7 +83,25 @@ function getVoitures(){
     }
     return $resultat;
 }
-
+/*
+function getVoitureLoué(){
+    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible' AND etatL <> 'Revision'";
+    //$sql="SELECT *  FROM vehicule WHERE etatL <> 0 AND etatL <> 2";
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+        }
+    }
+    catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+    return $resultat;
+}
+*/
 function getVoitureLouer(){ // j'ai fait INNER JOIN pour récupérer les date dans les factures
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     $sql = "SELECT DISTINCT * FROM vehicule 
