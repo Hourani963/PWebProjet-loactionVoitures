@@ -20,7 +20,8 @@
                           Voiture
                       </a>
                       <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                          <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureAdmin">Voir les voiture</a>
+                      <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureAdmin">Voir toutes les voitures</a>
+                          <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureDispoAdmin">Voir les voiture DISPONIBLES</a>
                           <a class="dropdown-item" href="./index.php?controle=clients&action=voirVoitureLouerAdmin">Voir les voiture loué</a>
                           <a class="dropdown-item" href="./index.php?controle=vehicule&action=ajoutvoiture">Ajouter une voiture</a>
                       </div>

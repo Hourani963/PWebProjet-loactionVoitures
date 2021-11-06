@@ -9,7 +9,7 @@
 <body>
     
         <div class="menu">
-            <?php require("vue/site/components/menuAdmin.tpl");?></div>
+            <?php require("vue/site/components/MenuAbon.tpl");?></div>
         
         <div  class = 'corpsChoix'>
         <h1>Vous preferez</h1>

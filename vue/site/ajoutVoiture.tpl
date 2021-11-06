@@ -7,6 +7,14 @@
 	<title></title>
 </head>
 <body>
+	<style>
+		.retourAcceuil {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+		}
+	</style>
 	<script src="vue/JS/ajoutVoiture.js"></script>
 	
 	<div class="form">
@@ -14,7 +22,8 @@
 			<div class="title">Ajout voiture</div>
 				<div class="subtitle">voiture</div>
 					<div class="msg"> 
-
+						<p1><?php echo $msgWrong; ?></p1>
+						<p2><?php echo $msgDone; ?></p2>
 					</div> 
 					<div class="input-container ic1">
 						<input name="marque" list="voitures" on class="input" type="text" placeholder=" " id="marque"/>
@@ -52,14 +61,19 @@
 						<div class="cut cut-short"></div>
 						<label for="caract" class="placeholder">caracteristique</>
 					</div>
+					<div class="input-container ic3">
+						<input name="prix" class="input" type="number" placeholder=" " />
+						<div class="cut cut-short"></div>
+						<label for="prix" class="placeholder">Prix par jour</>
+					</div>
 					<div class="input-container ic2">
 						<input name="img" class="input" type="file" placeholder=" " />
 						<div class="cut"></div>
 						<label for="file" class="placeholder">Image</label>
 					</div>
 					<input type="submit" class="submit" value="Valider">
+			<a href="./index.php?controle=clients&action=admin" class="retourAcceuil">Retour</a>
 		</form>
-		<a href="./index.php?controle=clients&action=admin"><button type="text" class="submit accueil">Accueil</button></a>
 	</div>
 	</body>
 </html>

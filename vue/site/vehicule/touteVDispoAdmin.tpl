@@ -11,7 +11,7 @@
             <?php require("vue/site/components/menuAdmin.tpl");?></div>
         <div class='voitures'>
         <?php
-        foreach($listV as $l){
+        foreach($VoituresLeftJoinFacture as $l){
             $dateDynamique = ((strtotime($l['DateF']) - strtotime(date('Y-m-d'))) / (60 * 60 * 24));
             $dateStatic = ((strtotime($l['DateF']) - strtotime($l['dateD'])) / (60 * 60 * 24));
                  ?>
