@@ -47,7 +47,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item" href="./index.php?controle=clients&action=profilClient">Mon profil</a>
-                        <a class="dropdown-item" href="./index.php?controle=clients&action=bye">Déconnecxion</a>
+                        <a class="dropdown-item" href="./index.php?controle=clients&action=bye">Déconnexion</a>
                     </div>
                 </li>
             </ul>

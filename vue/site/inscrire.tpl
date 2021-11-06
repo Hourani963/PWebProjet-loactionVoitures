@@ -34,7 +34,7 @@
 				<div class="input-container ic5">
 					<input name="email" class="input" type="text" placeholder=" " required/>
 					<div class="cut"></div>
-					<label for="email" class="placeholder">Email</label>
+					<label for="email" class="placeholder">E-mail</label>
 				</div>
 
 				<div class="input-container ic4">
@@ -44,7 +44,7 @@
 				</div>
 				<button type="text" class="submit">S'inscrire</button>
 				</form>
-				<span class="returnIdent">Déjà inscrit ?<a href="./index.php?controle=clients&action=ident">Connectez vous !</a></span>
+				<span class="returnIdent">Déjà inscrit ? <a href="./index.php?controle=clients&action=ident">Connectez vous !</a></span>
 				<a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
 			</div>
 			

@@ -64,7 +64,7 @@ function getVoituresAbonne(){
         }
     }
     catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getvoituresabnnes: " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
     return $resultat;
@@ -83,7 +83,7 @@ function getVoitures(){ // Left join est seulement pour récupérer les date dan
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de selec get voitures : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -120,7 +120,7 @@ function getVoitureLouer(){ // j'ai fait INNER JOIN pour récupérer les date da
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select voitureLouer: " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -139,32 +139,39 @@ function getVoituresLeftJoinFacture(){ // utiliser pour la fonction affichier to
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select 2 : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
 
 function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_vec){
+    
     require('./modele/connectBD.php');
 
     //var_dump($_SESSION['profil']); die("ok");
-    $sql = "INSERT INTO facture (id_cli,id_vehi,dateD,DateF, valeur, EtatR)
-			VALUES (:cli,:vec, :Sdate, :Edate, :val ,:EtatR)";
+    $sql = "INSERT INTO facture (id_cli,id_vehi,dateD,DateF, valeur, EtatR) VALUES (:cli,:vec, :Sdate, :Edate, :val ,:EtatR)";
 
 
     try{
+       
         $insert = $pdo->prepare($sql);
+        
         $insert->bindParam(':cli', $id_cli, PDO::PARAM_INT);
         $insert->bindParam(':vec', $id_vec, PDO::PARAM_INT);
         $insert->bindParam(':Sdate', $start_Date, PDO::PARAM_STR);
         $insert->bindParam(':Edate', $end_Date, PDO::PARAM_STR);
         $insert->bindParam(':val', $val, PDO::PARAM_INT);
         $insert->bindParam(':EtatR', $state_vec, PDO::PARAM_STR);
+        
+        
+    
         $insert->execute();
+
 
     }
     catch(PDOException $e){
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select aa: " . $e->getMessage() . "\n");
+        
         die(); // On arrête tout.
     }
 

@@ -298,9 +298,9 @@ function voirPanier(){
                     }
                     $val = $p['valeurParJour'];
                     $state = 1; //réglement fait
-                    etatV($id_vec, "Louer");
+                    
                     insertFacture($id, $id_vec, $start_Date, $end_Date, $val, $state);
-
+                    etatV($id_vec, "Louer");
                     $_SESSION["nbV"] = 0;
 
                     $afficherPanier = false;

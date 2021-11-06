@@ -11,7 +11,7 @@
     </header>
     <section style="margin-top: 50%; font-size: 3rem; margin-left: 93%;width: 500px; text-align: center">
         <div class ="tout" style='color: black'>
-            Pensez a remplir votre panier
+            Pensez à remplir votre panier
         </div>
     </section>
 
