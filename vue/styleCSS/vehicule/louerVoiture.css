@@ -242,14 +242,29 @@ body{
     margin: auto;
 }
 
+@media screen and (max-width: 1700px) {
+    .voitures{
+        column-gap: 0px ;
+        margin-left: 30px;
+    }
+}
 @media screen and (max-width: 1450px) {
     .voitures{
         grid-template-columns: 1fr 1fr; 
+        column-gap: 40px ;
+        margin-left: 70px;
+    }
+}
+@media screen and (max-width: 1170px) {
+    .voitures{
+        column-gap: 0px ;
+        margin-left: 0px;
     }
 }
 @media screen and (max-width: 930px) {
     .voitures{
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
+        margin-left: 50%;
     }
 }
 
