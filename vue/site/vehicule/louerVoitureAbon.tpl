@@ -403,7 +403,6 @@
                                 </a>
                             </div>
                         </div>
-
                         <div class="informations-container">
                             <h2 class="title"><?php echo $l['marque'] ?></h2>
                             <p class="sub-title"><?php echo $l['modele'] ?></p>

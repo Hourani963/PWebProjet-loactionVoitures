@@ -28,7 +28,7 @@ function touteVoiture(){
 function touteVoitureAdmin(){
 
     require('./modele/voitureBD.php');
-    $listV = getVoitures();
+    $listV = getVoituresLeftJoinFacture();
     //var_dump($listV); die("ok");
     require('./vue/site/vehicule/touteVadmin.tpl');
 }
