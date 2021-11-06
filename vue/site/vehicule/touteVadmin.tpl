@@ -49,6 +49,377 @@
         padding-top: 4%;
     }
 
+    body{
+        background: -webkit-gradient(linear, left top, left bottom,
+        color-stop(0%, rgba(26, 49, 95, 1)),
+        color-stop(10%, rgba(26, 49, 95, 1)),
+        color-stop(24%, rgba(29, 108, 141, 1)),
+        color-stop(37%, rgba(41, 136, 151, 1)),
+        color-stop(77%, rgba(39, 45, 100, 1)),
+        color-stop(90%, rgba(26, 49, 95, 1)),
+        color-stop(100%, rgba(26, 49, 95, 1)));
+        display: inline-block;
+
+        margin-left: 10%;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Sofia', sans-serif;
+        scrollbar-color: transparent transparent; /* thumb and track color */
+        scrollbar-width: 0px;
+    }
+
+
+    *::-webkit-scrollbar {
+        width: 0;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: none;
+    }
+
+    * {
+        -ms-overflow-style: none;
+    }
+    .allVoitures h2 {
+        color: #0a4870;
+        font-weight: 500;
+    }
+    .allVoitures .page.ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+    }
+    .allVoitures ul .booking-card {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex: 0 0 300px;
+        flex-direction: column;
+        margin: 20px;
+        margin-bottom: 30px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-position: center center;
+        background-size: cover;
+        text-align: center;
+        color: #0a4870;
+        transition: 0.3s;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 72, 112, 0);
+        transition: 0.3s;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .book-container {
+        height: 200px;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .book-container .content {
+        position: relative;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        transform: translateY(-200px);
+        transition: 0.3s;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .book-container .content .btn {
+        border: 3px solid white;
+        padding: 10px 15px;
+        background: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.3em;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .book-container .content .btn:hover {
+        background: white;
+        border: 0px solid white;
+        color: #0a4870;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container {
+        flex: 1 0 auto;
+        padding: 10px;
+        background: #f0f0f0;
+        transform: translateY(206px);
+        transition: 0.3s;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .title {
+        position: relative;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.2em;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        width: 50px;
+        margin: auto;
+        background: #0a4870;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .price .icon {
+        margin-right: 10px;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .more-information {
+        opacity: 0;
+        transition: 0.3s;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box {
+        flex: 1 0;
+        padding: 15px;
+        margin-top: 20px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        background: white;
+        font-weight: bold;
+        font-size: 0.9em;
+        margin: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box .icon {
+        margin-bottom: 5px;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box.info {
+        color: #ec992c;
+        margin-right: 10px;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card .informations-container .more-information .disclaimer {
+        margin-top: 20px;
+        font-size: 0.8em;
+        color: #7d7d7d;
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card:hover::before {
+        background: rgba(10, 72, 112, 0.6);
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card:hover .book-container .content {
+        opacity: 1;
+        transform: translateY(0px);
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card:hover .informations-container {
+        transform: translateY(0px);
+        z-index: auto;
+    }
+    .allVoitures ul .booking-card:hover .informations-container .more-information {
+        opacity: 1;
+        z-index: auto;
+    }
+
+    .allVoitures .credits {
+        display: table;
+        background: #0a4870;
+        color: white;
+        line-height: 25px;
+        margin: 10px auto;
+        padding: 20px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: auto;
+    }
+    .allVoitures .credits a {
+        color: #e3ebf1;
+        z-index: auto;
+    }
+    .allVoitures h1 {
+        margin: 10px 20px;
+        z-index: auto;
+    }
+
+    .sub-titleNAbon{
+        margin-bottom: 5px;
+    }
+    .sub-titleAdminVoirV{
+        margin-bottom: 5px;
+    }
+    .informations-containerVoitureLouerAdmin{
+        transform: translateY(340px) !important;
+
+    }
+    .allVoitures ul .booking-card:hover .informations-containerVoitureLouerAdmin {
+        transform: translateY(150px) !important;
+    }
+
+    .page{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 1fr;
+        grid-template-areas: "me"
+                        "allV" ;
+    }
+    .voitures{
+        padding-top: 50px;
+        margin-left: 50px;
+        justify-content: center;
+
+        grid-area: allV;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap:  40px;
+    }
+    .menu{
+        top: 0px;
+        grid-area: me;
+        z-index: 100;
+    }
+
+    .allVoitures{
+        z-index: auto;
+        position: relative;
+
+    }
+
+    .dateF{
+        margin: auto;
+    }
+    .dateD{
+        margin: auto;
+    }
+    @media screen and (max-width: 1700px) {
+        .voitures{
+            column-gap: 0px ;
+            margin-left: 30px;
+        }
+    }
+    @media screen and (max-width: 1450px) {
+        .voitures{
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px ;
+            margin-left: 70px;
+        }
+    }
+    @media screen and (max-width: 1170px) {
+        .voitures{
+            column-gap: 0px ;
+            margin-left: 0px;
+        }
+    }
+    @media screen and (max-width: 930px) {
+        .voitures{
+            grid-template-columns: 1fr;
+            margin-left: 50%;
+        }
+    }
+    @media screen and (max-width: 985px) {
+        .menu{
+            height: 20px !important;
+        }
+    }
+    /************petit formulaire pour les dates*********************/
+    .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 280px;
+    }
+
+    /* The popup form - hidden by default */
+    .form-popup {
+
+        display: none;
+        position: fixed;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
+    .form-popup body{
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+    }
+
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+        background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+    }
+
 </style>
 <header style="z-index: 10000;">
     <?php require("vue/site/components/menuAdmin.tpl");?>

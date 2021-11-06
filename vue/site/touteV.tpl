@@ -7,6 +7,9 @@
 </head>
 
 <body>
+        <style>
+            
+        </style>
         <header style="z-index: 100000">
             <?php
                 if($_SESSION['profil']['pseudo'] == "admin"){
