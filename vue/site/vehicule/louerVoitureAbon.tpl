@@ -12,7 +12,7 @@
 </header>
 <section style="z-index: auto">
 	<div class="page">
-
+		
 		<div class="voitures">
 			<?php
 			foreach($listV as $l){
@@ -23,7 +23,11 @@
 					<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
 						<div class="book-container">
 							<div class="content">
-								<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo isset($dateD[$idv])?$dateD[$idv]:'' ?>&dateF=<?php echo isset($dateF[$idv])?$dateF[$idv]:''?>"><button class="btn">Réserver</button></a>
+								<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo isset($dateD[$idv])?$dateD[$idv]:'' ?>&dateF=<?php echo isset($dateF[$idv])?$dateF[$idv]:''?>">
+									<button class="btn" <?php if($msg!=''){ ?> onclick="openFormErreur(<?php $msg ?>)" <?php } ?> >
+										Réserver
+									</button>
+								</a>
 							</div>
 						</div>
 
@@ -67,7 +71,7 @@
 			</div>
 
 			<?php require ("./vue/site/components/choisirDate.tpl") ?> <!-- il faut mettre ce component dans la boucle pour récupérer le id de chaque voiture-->
-
+			<?php require ("./vue/site/components/erreurBox.tpl") ?> 
 			<?php }
 		?>
 		</div>

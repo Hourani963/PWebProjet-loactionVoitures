@@ -13,12 +13,12 @@
         $prixP=0;
         echo("<div class = 'corpsPanier' style='width:260px; padding:5'>");
         echo("<ul>");
-        echo("<li>Marque : </li>");
-        echo("<li>Modele : </li>");
-        echo("<li>Caracteristique : </li>");
-        echo("<li>DATE D : </li>");
-        echo("<li>DATE F : </li>");
-        echo("<li>Prix : </li>");
+        echo("<li>Marque---- :</li>");
+        echo("<li>Modele--- :.</li>");
+        echo("<li>Caracteristique ----:         .</li>");
+        echo("<li>DATE D---- : </li>");
+        echo("<li>DATE F---- : </li>");
+        echo("<li>Prix :---- </li>");
         echo("</ul>");
         $vide=true;
 
@@ -43,7 +43,7 @@
                         echo("<li>" . $p['dated'] . "</li>");
                         echo("<li>" . $p['datef'] . "</li>");
                         echo("<li>" . $p['valeurParJour'] . "€". "</li>");
-                        echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $p['id_vehi'] . "'><button>X </button></a>");
+                        echo("<a href='index.php?controle=clients&action=suppVPanier&id=" . $p['id_vehi'] . "'><button>Annuler </button></a>");
                     echo("</div>");
                 echo("</ul>");
                 }

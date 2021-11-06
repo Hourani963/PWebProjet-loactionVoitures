@@ -12,7 +12,7 @@ function suprVoiture(){
 
 function louerVoitureNAbon(){
     require('./modele/voitureBD.php');
-    $listV = getVoitures();
+    $listV = getVoituresLeftJoinFacture(); //uniquement les voitures disponible
     
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
@@ -21,6 +21,7 @@ function louerVoitureNAbon(){
 function louerVoitureAbon(){  // le client choisi la date ici
     require('./modele/voitureBD.php');
     //$count = countVoiture(); // le nombre des voitures dans la base
+    $listV = getVoituresLeftJoinFacture();//uniquement les voitures disponible
     $prixTotal = "";
     $id_vehi = isset($_POST['idV'])?($_POST['idV']):0;
     $voiture = getVoiture($id_vehi);
@@ -67,7 +68,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
     
     
     
-    $listV = getVoitures();
+    
     require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }
 

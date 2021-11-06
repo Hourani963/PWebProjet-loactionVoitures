@@ -24,13 +24,20 @@ function touteVoiture(){
     
     
 }
-
 function touteVoitureAdmin(){
+
+    require('./modele/voitureBD.php');
+    $listV = getVoitures();
+    //var_dump($listV); die("ok");
+    require('./vue/site/vehicule/touteVadmin.tpl');
+}
+
+function touteVoitureDispoAdmin(){
 
     require('./modele/voitureBD.php');
     $VoituresLeftJoinFacture = getVoituresLeftJoinFacture();
     //var_dump($listV); die("ok");
-    require('./vue/site/vehicule/touteVadmin.tpl');
+    require('./vue/site/vehicule/touteVDispoAdmin.tpl');
 }
 
 function FactureAdmin(){
@@ -85,7 +92,7 @@ function FactureAdmin(){
                 $i = 0;
                 foreach ($Facture as $f) {
                     $Voiture = getVoiture($f['id_vehi']);
-                    $Facture[$i]['id_vehi'] = $Voiture[0]['modele'];
+                    $Facture[$i]['id_vehi'] = $Voiture['modele'];
                     $i++;
                 }
                 foreach ($Facture as $f){
@@ -170,14 +177,23 @@ function suppVo($i){
 
 function ajoutPanier(){
     require("./modele/voitureBD.php");
-    if(isset($_GET['vtr'])  && isset($_GET['dateD']) && isset($_GET['dateF'])){
-        $id_v = $_GET['vtr'];
-        $datef=$_GET['dateF'];
-        $dated=$_GET['dateD'];
-        $vo = getVoiture($id_v);
-        ajoutVo($vo,$dated,$datef);
+    $msg = '';
+    
+    if((isset($_GET['dateD']) && ($_GET['dateD']=='')) ){
+        $msg ="Il faut choisir une date de départ pour ajouter la voiture dans le panier";
+        
     }
-    $listV = getVoitures();
+    else{
+        if(isset($_GET['vtr']) && isset($_GET['dateF'])){
+            $id_v = $_GET['vtr'];
+            $datef=$_GET['dateF'];
+            $dated=$_GET['dateD'];
+            $vo = getVoiture($id_v);
+            ajoutVo($vo,$dated,$datef);
+        }
+    }
+
+    $listV = getVoituresLeftJoinFacture(); // uniquement les voitures dispo
     require('./vue/site/vehicule/louerVoitureAbon.tpl');
 }
 
@@ -259,7 +275,7 @@ function voirPanier(){
 
     }
 
-        if (isset($_GET['valide'])) {
+        if (isset($_GET['valide'])) { // probleme de sécurité
             //Nouvelle facture
             require("./modele/voitureBD.php");
             $test = 0;
@@ -269,22 +285,25 @@ function voirPanier(){
                     $id_vec = $p['id_vehi'];
                     $start_Date = $p['dated'];
                     $end_Date = $p['datef'];
-                    $r = dateDiff(strtotime($p['dated']), strtotime($p['datef']));
+                    if($end_Date != ''){
+                        $r = dateDiff(strtotime($p['dated']), strtotime($p['datef']));
+                    }
+                    else{ // facture sur un mois
+                        $r = 30;
+                    }
+                    
                     $p['valeurParJour'] = $p['valeurParJour'] * $r['day'];
                     if ($r['day'] > 30) {
                         $p['valeurParJour'] = $p['valeurParJour'] * 0.95;
                     }
                     $val = $p['valeurParJour'];
-                    $state = 'Disponible';
+                    $state = 1; //réglement fait
+                    etatV($id_vec, "Louer");
                     insertFacture($id, $id_vec, $start_Date, $end_Date, $val, $state);
-                    echo "1ere fonction passer";
-                    etatV($id_vec, 'Louer');
 
                     $_SESSION["nbV"] = 0;
 
                     $afficherPanier = false;
-
-
                 }
 
             }
