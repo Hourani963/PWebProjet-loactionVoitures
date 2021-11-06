@@ -7,36 +7,38 @@
 
 </head>
 <body>
+<header style="z-index: 100000">
+	<?php include "./vue/site/components/MenuAbon.tpl" ?>
+</header>
+<section style="z-index: auto">
+	<div class="page">
 
-<div class="page">
-		<div class="menu"><?php include "./vue/site/components/MenuAbon.tpl" ?></div>
-		
-	<div class="voitures">
-		<?php 
-			foreach($listV as $l){ 
+		<div class="voitures">
+			<?php
+			foreach($listV as $l){
 				$idv = 	$l['id_vehi'];
 			?>
-				<div class="allVoitures">
-					<ul>
-						<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
-							<div class="book-container">
-								<div class="content">
-									<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo isset($dateD[$idv])?$dateD[$idv]:'' ?>&dateF=<?php echo isset($dateF[$idv])?$dateF[$idv]:''?>"><button class="btn">Réserver</button></a>
-								</div>
+			<div class="allVoitures">
+				<ul>
+					<li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
+						<div class="book-container">
+							<div class="content">
+								<a href="index.php?controle=clients&action=ajoutPanier&vtr=<?php echo $l['id_vehi'] ?>&dateD=<?php echo isset($dateD[$idv])?$dateD[$idv]:'' ?>&dateF=<?php echo isset($dateF[$idv])?$dateF[$idv]:''?>"><button class="btn">Réserver</button></a>
 							</div>
+						</div>
 
-							<div class="informations-container">
-								<h2 class="title"><?php echo $l['marque'] ?></h2>
-								<p class="sub-title"><?php echo $l['modele'] ?></p>
-								<p class="price">
-									<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
-										<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-									</svg>
-									<strong><?php echo $l['valeurParJour']. " € / jour" ?></strong>
-								</p>
-								<p class="sub-title"><?php echo (isset($dateD[$idv])?$prixTotal:'0') . " € / " . (isset($dateD[$idv])?$dateStatic:'0') ." jour(s)<strong class='Cred'>" .(isset($dateD[$idv])?$msg:'' )?></strong></p>
-								<div class="more-information">
-									<div class="info-and-date-container">
+						<div class="informations-container">
+							<h2 class="title"><?php echo $l['marque'] ?></h2>
+							<p class="sub-title"><?php echo $l['modele'] ?></p>
+							<p class="price">
+								<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+									<path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
+								</svg>
+								<strong><?php echo $l['valeurParJour']. " € / jour" ?></strong>
+							</p>
+							<p class="sub-title"><?php echo (isset($dateD[$idv])?$prixTotal:'0') . " € / " . (isset($dateD[$idv])?$dateStatic:'0') ." jour(s)<strong class='Cred'>" .(isset($dateD[$idv])?$msg:'' )?></strong></p>
+							<div class="more-information">
+								<div class="info-and-date-container">
 									<button class="dateD" onclick="openForm(<?php echo $l['id_vehi'] ?>)" >
 										<div class="box date">
 											<svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -55,21 +57,23 @@
 											<p>Fin</p>
 											<p id="dateD"><?php echo isset($dateF[$idv])?$dateF[$idv]:"pas choisi";?></p>
 										</div>
-										</div>
-									</button>
-									<p class="disclaimer"><?php echo $l['caract'] ?></p> <!-- remarque : pour afficher le prix sans HOVER il faur ajouter un long text-->
 								</div>
+								</button>
+								<p class="disclaimer"><?php echo $l['caract'] ?></p> <!-- remarque : pour afficher le prix sans HOVER il faur ajouter un long text-->
 							</div>
-						</li>
-					</ul>
-				</div>
-				
-				<?php require ("./vue/site/components/choisirDate.tpl") ?> <!-- il faut mettre ce component dans la boucle pour récupérer le id de chaque voiture-->
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<?php require ("./vue/site/components/choisirDate.tpl") ?> <!-- il faut mettre ce component dans la boucle pour récupérer le id de chaque voiture-->
 
 			<?php }
 		?>
+		</div>
 	</div>
-	</div>
+</section>
+
 
 <!--	<script>
 function estValide() {

@@ -529,7 +529,7 @@ function voirFacture(){
         $Facture[$i]['id_vehi'] = $Voiture['modele'];
         $i++;
     }
-    var_dump($Facture); die();
+    //var_dump($Facture); die();
     require('./vue/site/components/VoirFacture.tpl');
 }
 
