@@ -21,8 +21,8 @@
                       </a>
                       <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                       <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureAdmin">Voir toutes les voitures</a>
-                          <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureDispoAdmin">Voir les voiture DISPONIBLES</a>
-                          <a class="dropdown-item" href="./index.php?controle=clients&action=voirVoitureLouerAdmin">Voir les voiture loué</a>
+                          <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureDispoAdmin">Voir les voitures DISPONIBLES</a>
+                          <a class="dropdown-item" href="./index.php?controle=clients&action=voirVoitureLouerAdmin">Voir les voitures loué</a>
                           <a class="dropdown-item" href="./index.php?controle=vehicule&action=ajoutvoiture">Ajouter une voiture</a>
                       </div>
                   </li>
@@ -38,7 +38,7 @@
               </ul>
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                      <a class="nav-link" href="./index.php?controle=clients&action=bye">Déconnecxion</a>
+                      <a class="nav-link" href="./index.php?controle=clients&action=bye">Déconnexion</a>
                   </li>
               </ul>
           </div>
