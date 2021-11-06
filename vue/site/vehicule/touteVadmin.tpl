@@ -7,47 +7,6 @@
     </head>
 
     <body>
-        <style>
-            .iconAddV{
-                margin-left: 40%;
-            }
-            .addV {
-                text-align: center;
-                padding-right: 10%;
-                width: 80px;
-                color: black;
-                height: 80px;
-                font-size: 3rem;
-                z-index: 30;
-                border: 8px solid black;
-                padding: 10px;
-                background-color: transparent;
-                border-radius: 50%;
-            }
-            .addV i {
-            }
-            .supr {
-                width: 30px;
-                color: red;
-                height: 30px;
-                font-size: 2rem;
-                float: right;
-                position: relative;
-                z-index: 30;
-                background-color: black;
-                border-radius: 50%;
-                bottom: 10px;
-                right: 10px;
-            }
-            .supr {
-                text-decoration-color: red;
-            }
-            .allVoitures{
-                z-index: auto;
-                padding-right: 5%;
-                padding-top: 4%;
-            }
-        </style>
         <div class="menu">
             <?php require("vue/site/components/menuAdmin.tpl");?></div>
         <div class='voitures'>

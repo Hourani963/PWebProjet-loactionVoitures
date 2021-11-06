@@ -18,7 +18,7 @@
         echo("<li>Caracteristique ----:         .</li>");
         echo("<li>DATE D---- : </li>");
         echo("<li>DATE F---- : </li>");
-        echo("<li>Prix :---- </li>");
+        echo("<li>Prix : </li>");
         echo("</ul>");
         $vide=true;
 
