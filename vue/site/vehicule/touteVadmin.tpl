@@ -17,7 +17,6 @@
                  ?>
             <div class="allVoitures">
                 <ul>
-                    
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
 
                         <div class="book-container">

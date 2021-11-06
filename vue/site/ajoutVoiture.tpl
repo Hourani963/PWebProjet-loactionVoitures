@@ -38,7 +38,7 @@
 
 					</div>
 					<div class="input-container ic2">
-						<input name="modele" list='voitures2'on class="input" type="text"  placeholder=" " id="modele"  />
+						<input name="modele" list='voitures2'on class="input" type="text"  placeholder=" " id="modele" required />
 						<div class="cut"></div>
 						<label for="modele" class="placeholder">Modele</label>
 								<datalist id="voitures2" >
@@ -49,7 +49,7 @@
 						
 					</div>
 					<div class="input-container ic2">
-						<select name="etatL" class="input" type="text" placeholder=" " >
+						<select name="etatL" class="input" type="text" placeholder=" " required>
 							<option disabled selected value> -- Etat -- </option>
 							<option>Disponible</option>
 							<option>En_revision</option>
@@ -62,12 +62,12 @@
 						<label for="caract" class="placeholder">caracteristique</>
 					</div>
 					<div class="input-container ic3">
-						<input name="prix" class="input" type="number" placeholder=" " />
+						<input name="prix" class="input" type="number" placeholder=" " required/>
 						<div class="cut cut-short"></div>
 						<label for="prix" class="placeholder">Prix par jour</>
 					</div>
 					<div class="input-container ic2">
-						<input name="img" class="input" type="file" placeholder=" " />
+						<input name="img" class="input" type="file" placeholder=" " required/>
 						<div class="cut"></div>
 						<label for="file" class="placeholder">Image</label>
 					</div>
