@@ -90,7 +90,7 @@ function getVoitures(){
 
 function getVoitureLoué(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible'";
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible' AND etatL <> 'Revision'";
     //$sql="SELECT *  FROM vehicule WHERE etatL <> 0 AND etatL <> 2";
     try {
         $commande = $pdo->prepare($sql);
