@@ -533,7 +533,7 @@ function voirFacture(){
 
 function voirVoitureLouerAdmin(){
     require('./modele/voitureBD.php');
-    $listV = getVoitureLoué();
+    $listV = getVoitureLouer();
     //var_dump($listV); die("ok");
     require('./vue/site/touteV.tpl');
 }
