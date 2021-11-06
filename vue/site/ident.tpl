@@ -12,7 +12,7 @@
         <form action="./index.php?controle=clients&action=ident" method="POST">
            
             <div class="title">Bienvenue</div>
-                <div class="subtitle">Se connecter pour voir les meuilleur voitures!</div>
+                <div class="subtitle">Se connecter pour voir les meuilleures voitures!</div>
                 <div class="msg"> <?php echo $msg; ?> </div> 
                 <div class="input-container ic1">
                     <input name="pseudo" class="input" type="text" placeholder=" " required/>

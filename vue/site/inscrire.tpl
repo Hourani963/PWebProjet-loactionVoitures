@@ -11,7 +11,7 @@
 	<div class="form">
 		<form action="./index.php?controle=clients&action=inscrire" method="POST">
 			<div class="title">Bienvenue</div>
-				<div class="subtitle">Let's create your account!</div>
+				<div class="subtitle">Création de compte</div>
 				<div class="msg"> <?php echo $msg; ?> </div>
 				<div class="input-container ic1">
 					<input name="nom" class="input" type="text" placeholder=" " required/>
@@ -22,7 +22,7 @@
 				<div class="input-container ic2">
 					<input name="prenom" class="input" type="text" placeholder=" " />
 					<div class="cut"></div>
-					<label for="prenom" class="placeholder">Prenom</label>
+					<label for="prenom" class="placeholder">Prénom</label>
 				</div>
 
 				<div class="input-container ic3">
@@ -40,11 +40,11 @@
 				<div class="input-container ic4">
 					<input name="mdp" class="input" type="password" placeholder=" " required/>
 					<div class="cut"></div>
-					<label for="mdp" class="placeholder">Mot de pass</label>
+					<label for="mdp" class="placeholder">Mot de passe</label>
 				</div>
 				<button type="text" class="submit">S'inscrire</button>
 				</form>
-				<span class="returnIdent">Déja inscirt ?<a href="./index.php?controle=clients&action=ident">Connecter vous !</a></span>
+				<span class="returnIdent">Déjà inscrit ?<a href="./index.php?controle=clients&action=ident">Connectez vous !</a></span>
 				<a href="./index.php?controle=clients&action=accueilNAbon"><button type="text" class="submit accueil">Accueil</button></a>
 			</div>
 			
