@@ -258,13 +258,6 @@ function voirPanier(){
         $panier = $_SESSION['panier'];
 
     }
-    if (count($_POST) == 0) {
-        if (isset($_SESSION['panier'])) {
-            require("vue/site/panier.tpl");
-        } else {
-            require("vue/site/panierVide.tpl");
-        }
-    } else {
 
         if (isset($_GET['valide'])) {
             //Nouvelle facture
@@ -308,7 +301,7 @@ function voirPanier(){
             }
         }
 
-    }
+
     
 }
 
