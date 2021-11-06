@@ -126,9 +126,8 @@ function getVoitureLouer(){ // j'ai fait INNER JOIN pour récupérer les date da
 function getVoituresLeftJoinFacture(){ // utiliser pour la fonction affichier toute les voitures avec leur facture
     // comme il y a des voitures facturé et des voitures non facturé, j'ai besoin de faire inner join
     require('./modele/connectBD.php'); 
-    $sql = "SELECT DISTINCT * FROM vehicule 
-            LEFT JOIN facture ON facture.id_vehi = vehicule.id_vehi";
-
+    $sql = "SELECT DISTINCT *,vehicule.id_vehi  FROM vehicule 	
+            LEFT JOIN facture ON vehicule.id_vehi = facture.id_vehi WHERE vehicule.etatL = 'Disponible'";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();

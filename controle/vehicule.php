@@ -32,7 +32,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
         $dateD[$id_vehi] = $_POST['StartDate'];
 
         $dateDynamique = ((strtotime($dateD[$id_vehi]) - strtotime(date('Y-m-d'))) / (60 * 60 * 24));
-        if($dateDynamique <= 0){
+        if($dateDynamique < 0){
             $dateD[$id_vehi]= '';
             $dateStatic = '';
             $msg = "il faut que la date de début soit à partir d'aujourd'hui";
@@ -48,19 +48,19 @@ function louerVoitureAbon(){  // le client choisi la date ici
                     $msg = "il faut choisir la date de fin de location après la date de début";
                 }
                 else{
-                    $prixTotal = $dateStatic * $voiture[0]['valeurParJour'];
+                    $prixTotal = $dateStatic * $voiture['valeurParJour'];
                 }
                 
                 //var_dump ($voiture[0]); die;
             }
             else{
                 $dateF[$id_vehi]='';
-                $prixTotal = 30 * $voiture[0]['valeurParJour'];
+                $prixTotal = 30 * $voiture['valeurParJour'];
                 $dateStatic = 30;
             }
     
         }
-        
+        //var_dump($voiture); die;
         
        // echo $prixTotal; die;      
     }
