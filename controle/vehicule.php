@@ -5,7 +5,7 @@ function suprVoiture(){
     $id_v =isset($_GET['vtr'])?trim($_GET['vtr']):'';
     //echo $id_v; die("ok");
     suprV($id_v);
-    $url = "./index.php?controle=clients&action=touteVoitureAdmin";
+    $url = "./index.php?controle=clients&action=touteVoitureDispoAdmin";
     header("Location:" .$url);
 }
 

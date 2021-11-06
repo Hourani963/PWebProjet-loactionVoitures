@@ -17,11 +17,7 @@
                  ?>
             <div class="allVoitures">
                 <ul>
-                    <a href="index.php?controle=vehicule&action=suprVoiture&vtr= <?php echo $l['id_vehi'] ?>">
-                        <div class="supr">
-                            <i class="fas fa-times-circle"></i>
-                        </div>
-                    </a>
+                    
                     <li class="booking-card" style="background-image: url(<?php echo $l['path_photo'] ?>)">
 
                         <div class="book-container">
