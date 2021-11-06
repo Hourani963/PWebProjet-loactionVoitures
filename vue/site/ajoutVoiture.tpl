@@ -22,7 +22,8 @@
 			<div class="title">Ajout voiture</div>
 				<div class="subtitle">voiture</div>
 					<div class="msg"> 
-
+						<p1><?php echo $msgWrong; ?></p1>
+						<p2><?php echo $msgDone; ?></p2>
 					</div> 
 					<div class="input-container ic1">
 						<input name="marque" list="voitures" on class="input" type="text" placeholder=" " id="marque"/>
@@ -59,6 +60,11 @@
 						<input name="caract" class="input" type="text" placeholder=" " />
 						<div class="cut cut-short"></div>
 						<label for="caract" class="placeholder">caracteristique</>
+					</div>
+					<div class="input-container ic3">
+						<input name="prix" class="input" type="number" placeholder=" " />
+						<div class="cut cut-short"></div>
+						<label for="prix" class="placeholder">Prix par jour</>
 					</div>
 					<div class="input-container ic2">
 						<input name="img" class="input" type="file" placeholder=" " />

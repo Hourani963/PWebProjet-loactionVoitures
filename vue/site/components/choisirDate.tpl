@@ -18,9 +18,8 @@
                 <label for="EndDate" class="placeholder" >Date Fin</label>
                 <input type="date" id="EndDate" name="EndDate" class="input" value="<?php echo $dateF[$idv]; ?>">
             </div>
-            <input type="text" value="<?php echo $l['id_vehi'] ?>" name="idV">
+            <input type="text" value="<?php echo $l['id_vehi'] ?>" name="idV"  style="display: none;"> <!--le id_vehi just pour savoir que la date correspond bien à quel voiture -->
             <button type="submit" class="btn">Valider</button>
-           
             <button type="button" class="btn cancel" onclick="closeForm(<?php echo $l['id_vehi'] ?>)">Close</button>
         </form>
     </div>

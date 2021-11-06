@@ -25,7 +25,7 @@
                     <label for="mdp" class="placeholder">Mot de pass</label>
                 </div>
                 
-            <a href="./index.php?controle=clients&action=ident"><button type="text" class="submit">submit</button></a>
+                <button type="text" class="submit"><a href="./index.php?controle=clients&action=ident">submit</a></button>
             
         </form>
         <span class="returnInscrire">Vous n'êtez pas inscrit ?<a href="./index.php?controle=clients&action=inscrire">Inscrivez-vous</a></span>

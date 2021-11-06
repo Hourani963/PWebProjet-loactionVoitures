@@ -9,36 +9,16 @@ body{
     color-stop(90%, rgba(26, 49, 95, 1)),
     color-stop(100%, rgba(26, 49, 95, 1)));
     display: inline-block;
-
+    
     margin-left: 10%;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Sofia', sans-serif;
-    scrollbar-color: transparent transparent; /* thumb and track color */
-    scrollbar-width: 0px;
 }
 
-
-*::-webkit-scrollbar {
-    width: 0;
-}
-
-*::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-    background: transparent;
-    border: none;
-}
-
-* {
-    -ms-overflow-style: none;
-}
 .allVoitures h2 {
     color: #0a4870;
     font-weight: 500;
@@ -49,9 +29,14 @@ body{
     list-style: none;
     padding: 0;
 }
+.wrap{
+    padding-top: 100px;
+    display: flex;
+}
 .allVoitures ul .booking-card {
     position: relative;
-    width: 300px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex: 0 0 300px;
     flex-direction: column;
@@ -77,11 +62,9 @@ body{
     bottom: 0;
     background: rgba(10, 72, 112, 0);
     transition: 0.3s;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .book-container {
     height: 200px;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .book-container .content {
     position: relative;
@@ -93,7 +76,6 @@ body{
     width: 100%;
     transform: translateY(-200px);
     transition: 0.3s;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .book-container .content .btn {
     border: 3px solid white;
@@ -105,21 +87,18 @@ body{
     color: white;
     cursor: pointer;
     transition: 0.3s;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .book-container .content .btn:hover {
     background: white;
     border: 0px solid white;
     color: #0a4870;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container {
     flex: 1 0 auto;
-    padding: 20px;
+    padding: 10px;
     background: #f0f0f0;
     transform: translateY(206px);
     transition: 0.3s;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .title {
     position: relative;
@@ -127,7 +106,6 @@ body{
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 1.2em;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .title::after {
     content: '';
@@ -139,71 +117,61 @@ body{
     width: 50px;
     margin: auto;
     background: #0a4870;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .price {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .price .icon {
     margin-right: 10px;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information {
     opacity: 0;
     transition: 0.3s;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container {
     display: flex;
-    z-index: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box {
     flex: 1 0;
     padding: 15px;
-    margin-top: 20px;
+   
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     background: white;
     font-weight: bold;
     font-size: 0.9em;
-    z-index: auto;
+    margin: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box .icon {
     margin-bottom: 5px;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box.info {
     color: #ec992c;
     margin-right: 10px;
-    z-index: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .disclaimer {
     margin-top: 20px;
     font-size: 0.8em;
     color: #7d7d7d;
-    z-index: auto;
 }
 .allVoitures ul .booking-card:hover::before {
     background: rgba(10, 72, 112, 0.6);
-    z-index: auto;
 }
 .allVoitures ul .booking-card:hover .book-container .content {
     opacity: 1;
     transform: translateY(0px);
-    z-index: auto;
 }
 .allVoitures ul .booking-card:hover .informations-container {
     transform: translateY(0px);
-    z-index: auto;
 }
 .allVoitures ul .booking-card:hover .informations-container .more-information {
     opacity: 1;
-    z-index: auto;
 }
 
 .allVoitures .credits {
@@ -217,18 +185,27 @@ body{
     -moz-border-radius: 10px;
     border-radius: 10px;
     text-align: center;
-    z-index: auto;
 }
 .allVoitures .credits a {
     color: #e3ebf1;
-    z-index: auto;
 }
 .allVoitures h1 {
     margin: 10px 20px;
-    z-index: auto;
 }
 
-
+.sub-titleNAbon{
+   margin-bottom: 5px;
+}
+.sub-titleAdminVoirV{
+    margin-bottom: 5px;
+}
+.informations-containerVoitureLouerAdmin{
+    transform: translateY(340px) !important;
+   
+}
+.allVoitures ul .booking-card:hover .informations-containerVoitureLouerAdmin {
+    transform: translateY(150px) !important;
+}
 .page{
     display: grid;
     grid-template-columns: 1fr;
@@ -237,13 +214,15 @@ body{
                         "allV" ;
 }
 .voitures{
-    margin-top: 50px;
-    margin-left: 75px;
+    padding-top: 50px;
+    margin-left: 50px;
+    justify-content: center;
     
     grid-area: allV;
     display: grid;
-    z-index: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap:  40px;
 }
 .menu{
     top: 0px;
@@ -252,27 +231,40 @@ body{
 }
 
 .allVoitures{
-    z-index: auto;
+    
     position: relative;
     
 }
+.dateF{
+    margin: auto;
+}
+.dateD{
+    margin: auto;
+}
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1700px) {
     .voitures{
-        z-index: auto;
-        grid-template-columns: 1fr 1fr 1fr; 
+        column-gap: 0px ;
+        margin-left: 30px;
     }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1450px) {
     .voitures{
-        z-index: auto;
         grid-template-columns: 1fr 1fr; 
+        column-gap: 40px ;
+        margin-left: 70px;
     }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1170px) {
     .voitures{
-        z-index: auto;
-        grid-template-columns: 1fr; 
+        column-gap: 0px ;
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 930px) {
+    .voitures{
+        grid-template-columns: 1fr;
+        margin-left: 50%;
     }
 }
 
@@ -281,6 +273,10 @@ body{
         height: 20px !important;
     }
 }
+.Cred{
+    color: red;
+}
+
 /************petit formulaire pour les dates*********************/
 .open-button {
     background-color: #555;

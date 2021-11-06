@@ -2,9 +2,9 @@
 
 
 
-function ajoutV($marque,$modele,$caract,$path, $etatL){
+function ajoutV($marque,$modele,$caract,$path, $etatL,$valeurParJour){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="INSERT INTO vehicule (marque,modele,caract, path_photo, etatL) VALUES (:marque,:modele,:caract,:path_photo,:etatL);";
+    $sql="INSERT INTO vehicule (marque,modele,caract, path_photo, etatL,valeurParJour) VALUES (:marque,:modele,:caract,:path_photo,:etatL,:valeurParJour);";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque);
@@ -12,7 +12,7 @@ function ajoutV($marque,$modele,$caract,$path, $etatL){
         $commande->bindParam(':caract', $caract);
         $commande->bindParam(':path_photo', $path);
         $commande->bindParam(':etatL', $etatL);
-
+        $commande->bindParam(':valeurParJour', $valeurParJour);
         $bool = $commande->execute();
         if ($bool) {
             return true;
@@ -37,26 +37,22 @@ function getVoiture($id){
         $bool = $commande->execute();
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-            if(count($resultat)==1){
-                $resultat=$resultat[0];
-            }
+            
         }
     }
     catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
-
-    /*$resultat[0]['id_vehi]*/
     return $resultat;
     
 
 
 }
 
-/*function getVoituresAbonne(){
+function getVoituresAbonne(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Revision' AND etatL <> 'Louer'";
+    $sql="SELECT *  FROM vehicule WHERE etatL <> 2 AND etatL <> 1";
     try { 
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -69,11 +65,11 @@ function getVoiture($id){
         die(); // On arrête tout.
     }
     return $resultat;
-}*/
+}
 
 function getVoitures(){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule where etatL='Disponible'";
+    $sql="SELECT *  FROM vehicule where etatL=0";
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
@@ -88,29 +84,51 @@ function getVoitures(){
     return $resultat;
 }
 
-function getVoitureLoué(){
+function getVoitureLouer(){ // j'ai fait INNER JOIN pour récupérer les date dans les factures
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="SELECT *  FROM vehicule WHERE etatL <> 'Disponible'";
-    //$sql="SELECT *  FROM vehicule WHERE etatL <> 0 AND etatL <> 2";
+    $sql = "SELECT DISTINCT * FROM vehicule 
+            INNER JOIN facture ON facture.id_vehi = vehicule.id_vehi";
+
     try {
         $commande = $pdo->prepare($sql);
         $bool = $commande->execute();
         if ($bool) {
-            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
         }
-    }
-    catch (PDOException $e) {
+        return $resultat;
+        
+    }catch (PDOException $e) {
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
-    return $resultat;
+}
+function getVoituresLeftJoinFacture(){ // utiliser pour la fonction affichier toute les voitures avec leur facture
+    // comme il y a des voitures facturé et des voitures non facturé, j'ai besoin de faire inner join
+    require('./modele/connectBD.php'); 
+    $sql = "SELECT DISTINCT * FROM vehicule 
+            LEFT JOIN facture ON facture.id_vehi = vehicule.id_vehi";
+
+    try {
+        $commande = $pdo->prepare($sql);
+        $bool = $commande->execute();
+        if ($bool) {
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $resultat;
+        
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
 }
 
 function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_vec){
     require('./modele/connectBD.php');
+
     //var_dump($_SESSION['profil']); die("ok");
     $sql = "INSERT INTO facture (id_cli,id_vehi,dateD,DateF, valeur, EtatR)
 			VALUES (:cli,:vec, :Sdate, :Edate, :val ,:state)";
+
 
     try{
         $insert = $pdo->prepare($sql);
@@ -129,24 +147,11 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
     }
 
 }
-function etatV($idv,$etatv){
-    require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="UPDATE vehicule SET etatL =:etat WHERE id_vehi=:idv";
-    try {
-        $commande = $pdo->prepare($sql);
-        $commande->bindParam(':etat', $etatv, PDO::PARAM_STR);
-        $commande->bindParam(':idv', $idv, PDO::PARAM_STR);
-        $commande->execute();
-    }
-    catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-        die(); // On arrête tout.
-    }
-}
+
 function verif_base($marque,$modele){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
     
-    $sql="SELECT modele FROM `modeles` WHERE marque = :marque and modele = :modele ";
+    $sql="SELECT modele FROM `modeles` WHERE marque = :marque OR modele = :modele ";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':marque', $marque, PDO::PARAM_STR);
@@ -264,17 +269,5 @@ function countVoiture(){
     $count = $stmt->fetchColumn();
     return $count;
 }
-function suprV($id){
-    require('./modele/connectBD.php');
-    $sql = "UPDATE vehicule SET etatL = 'Revision' WHERE id_vehi = :id";
-    try {
-        $supr = $pdo->prepare($sql);
-        $supr->bindParam(':id', $id, PDO::PARAM_STR);
-        $supr->execute();
 
-    }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-        die(); // On arrête tout.
-    }
-}
 ?>
