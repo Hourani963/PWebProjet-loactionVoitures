@@ -55,6 +55,14 @@
                                 </div>
 
                                 <p class="disclaimer"><?php echo $l['caract'] ?></p> <!-- remarque : pour afficher le prix sans HOVER il faur ajouter un long text-->
+                                <?php
+                                if($l['etatL']=='Revision'){
+                                    ?>
+                                    <a href="index.php?controle=vehicule&action=revenirVoituire&id=<?php echo $l['id_vehi'] ?>"><button>Faire revenir</button></a>
+
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </li>

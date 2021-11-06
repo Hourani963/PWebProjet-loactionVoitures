@@ -324,4 +324,17 @@ function suprV($id){
         die(); // On arrête tout.
     }
 }
+function revenir($id){
+    require('./modele/connectBD.php');
+    $sql = "UPDATE vehicule SET etatL = 'Disponible' WHERE id_vehi = :id";
+    try {
+        $supr = $pdo->prepare($sql);
+        $supr->bindParam(':id', $id, PDO::PARAM_STR);
+        $supr->execute();
+
+    }catch (PDOException $e) {
+        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        die(); // On arrête tout.
+    }
+}
 ?>

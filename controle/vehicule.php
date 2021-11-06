@@ -16,7 +16,15 @@ function louerVoitureNAbon(){
     
     require('./vue/site/vehicule/louerVoitureNAbon.tpl');
 }
-
+/*            */
+function revenirVoituire(){
+    if(isset($_GET['id'])){
+        $id=$_GET['id'];
+        require('./modele/voitureBD.php');
+        revenir($id);
+        header("Location: index.php?controle=clients&action=touteVoitureAdmin");
+    }
+}
 
 function louerVoitureAbon(){  // le client choisi la date ici
     require('./modele/voitureBD.php');
