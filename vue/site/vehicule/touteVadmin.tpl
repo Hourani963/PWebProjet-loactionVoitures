@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>S'inscrire</title>
     <link href="./vue/styleCSS/vehicule/louerVoiture.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/fa3cb2061d.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -120,6 +120,6 @@
         </a>
     </div>
 </section>
-
+<script src="https://kit.fontawesome.com/fa3cb2061d.js" crossorigin="anonymous"></script>
 </body>
 </html>
