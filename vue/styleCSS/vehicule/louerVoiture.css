@@ -51,7 +51,8 @@ body{
 }
 .allVoitures ul .booking-card {
     position: relative;
-    width: 300px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex: 0 0 300px;
     flex-direction: column;
@@ -115,7 +116,7 @@ body{
 }
 .allVoitures ul .booking-card .informations-container {
     flex: 1 0 auto;
-    padding: 20px;
+    padding: 10px;
     background: #f0f0f0;
     transform: translateY(206px);
     transition: 0.3s;
@@ -159,7 +160,8 @@ body{
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container {
     display: flex;
-    z-index: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box {
     flex: 1 0;
@@ -171,7 +173,7 @@ body{
     background: white;
     font-weight: bold;
     font-size: 0.9em;
-    z-index: auto;
+    margin: auto;
 }
 .allVoitures ul .booking-card .informations-container .more-information .info-and-date-container .box .icon {
     margin-bottom: 5px;
@@ -228,6 +230,19 @@ body{
     z-index: auto;
 }
 
+.sub-titleNAbon{
+    margin-bottom: 5px;
+}
+.sub-titleAdminVoirV{
+    margin-bottom: 5px;
+}
+.informations-containerVoitureLouerAdmin{
+    transform: translateY(340px) !important;
+
+}
+.allVoitures ul .booking-card:hover .informations-containerVoitureLouerAdmin {
+    transform: translateY(150px) !important;
+}
 
 .page{
     display: grid;
@@ -237,13 +252,14 @@ body{
                         "allV" ;
 }
 .voitures{
-    margin-top: 50px;
-    margin-left: 75px;
-    
+    padding-top: 50px;
+    margin-left: 50px;
+    justify-content: center;
+
     grid-area: allV;
     display: grid;
-    z-index: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap:  40px;
 }
 .menu{
     top: 0px;
@@ -254,28 +270,40 @@ body{
 .allVoitures{
     z-index: auto;
     position: relative;
-    
+
 }
 
-@media screen and (max-width: 1300px) {
+.dateF{
+    margin: auto;
+}
+.dateD{
+    margin: auto;
+}
+@media screen and (max-width: 1700px) {
     .voitures{
-        z-index: auto;
-        grid-template-columns: 1fr 1fr 1fr; 
+        column-gap: 0px ;
+        margin-left: 30px;
     }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1450px) {
     .voitures{
-        z-index: auto;
-        grid-template-columns: 1fr 1fr; 
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px ;
+        margin-left: 70px;
     }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1170px) {
     .voitures{
-        z-index: auto;
-        grid-template-columns: 1fr; 
+        column-gap: 0px ;
+        margin-left: 0px;
     }
 }
-
+@media screen and (max-width: 930px) {
+    .voitures{
+        grid-template-columns: 1fr;
+        margin-left: 50%;
+    }
+}
 @media screen and (max-width: 985px) {
     .menu{
         height: 20px !important;
@@ -293,11 +321,11 @@ body{
     bottom: 23px;
     right: 28px;
     width: 280px;
-  }
-  
-  /* The popup form - hidden by default */
-  .form-popup {
-      
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+
     display: none;
     position: fixed;
     -webkit-transform: translate(-50%,-50%);
@@ -306,22 +334,22 @@ body{
     left: 50%;
     border: 3px solid #f1f1f1;
     z-index: 9;
-  }
-  .form-popup body{
+}
+.form-popup body{
     filter: blur(8px);
     -webkit-filter: blur(8px);
-  }
-  
-  /* Add styles to the form container */
-  .form-container {
+}
+
+/* Add styles to the form container */
+.form-container {
     max-width: 300px;
     padding: 10px;
     background-color: white;
-  }
-  
+}
 
-  /* Set a style for the submit/login button */
-  .form-container .btn {
+
+/* Set a style for the submit/login button */
+.form-container .btn {
     background-color: #04AA6D;
     color: white;
     padding: 16px 20px;
@@ -330,15 +358,15 @@ body{
     width: 100%;
     margin-bottom:10px;
     opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
     background-color: red;
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
     opacity: 1;
-  }
+}
  

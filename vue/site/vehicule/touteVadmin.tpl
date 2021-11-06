@@ -48,6 +48,7 @@
         padding-right: 5%;
         padding-top: 4%;
     }
+
 </style>
 <header style="z-index: 10000;">
     <?php require("vue/site/components/menuAdmin.tpl");?>
