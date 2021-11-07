@@ -20,11 +20,7 @@
         <div class="single-footer-widget section_padding_0_130">
           <!-- Footer Logo-->
           <div class="footer-logo mb-3"></div>
-          <p>Appland is completely creative, lightweight, clean app landing page.</p>
-          <!-- Copywrite Text-->
-          <div class="copywrite-text mb-5">
-            <p class="mb-0">Made with <i class="lni-heart mr-1"></i>by<a class="ml-1" href="https://wrapbootstrap.com/user/DesigningWorld">Designing World</a></p>
-          </div>
+          <p>Loueur&Co est une entreprise de location de voiture.</p>
           <!-- Footer Social Area-->
           <div class="footer_social_area">
             <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
@@ -54,14 +50,14 @@
       <div class="col-12 col-sm-6 col-lg">
         <div class="single-footer-widget section_padding_0_130">
           <!-- Widget Title-->
-          <h5 class="widget-title">About</h5>
+          <h5 class="widget-title">À propos de nous</h5>
           <!-- Footer Menu-->
           <div class="footer_menu">
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Corporate Sale</a></li>
-              <li><a href="#">Terms &amp; Policy</a></li>
-              <li><a href="#">Community</a></li>
+              <li><a href="#">À propos de nous </a></li>
+              <li><a href="#">Vente d'entreprise</a></li>
+              <li><a href="#">Conditions &amp; Politiques</a></li>
+              <li><a href="#">Communauté</a></li>
             </ul>
           </div>
         </div>
@@ -74,11 +70,11 @@
           <!-- Footer Menu-->
           <div class="footer_menu">
             <ul>
-              <li><a href="#">Help</a></li>
+              <li><a href="#">Aide</a></li>
               <li><a href="#">Support</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Term &amp; Conditions</a></li>
-              <li><a href="#">Help &amp; Support</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+              <li><a href="#">Termes &amp; Conditions</a></li>
+              <li><a href="#">Aide &amp; Support</a></li>
             </ul>
           </div>
         </div>
@@ -91,10 +87,10 @@
           <!-- Footer Menu-->
           <div class="footer_menu">
             <ul>
-              <li><a href="#">Call Centre</a></li>
-              <li><a href="#">Email Us</a></li>
-              <li><a href="#">Term &amp; Conditions</a></li>
-              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Centre d'appel</a></li>
+              <li><a href="#">Nous contacté</a></li>
+              <li><a href="#">Termes &amp; Conditions</a></li>
+              <li><a href="#">Centre d'aide</a></li>
             </ul>
           </div>
         </div>

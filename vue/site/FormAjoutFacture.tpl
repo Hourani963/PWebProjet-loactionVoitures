@@ -19,7 +19,7 @@
     }
 </style>
     <form action="./index.php?controle=clients&action=addFacture" method="post">
-        <div class="title">Bienvenue</div>
+        <div class="title">Ajouter une facture</div>
         <div class="input-container">
             <label for="id_cli" class="placeholder">Client : </label>
             <select id="id_cli" name="id_cli" class="input" required>
