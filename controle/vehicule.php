@@ -44,7 +44,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
         if($dateDynamique < 0){
             $dateD[$id_vehi]= '';
             $dateStatic = '';
-            $msg = "il faut que la date de début soit à partir d'aujourd'hui";
+            $msg = "il faut que la date de début de location soit postérieure à aujourd'hui";
         }
         else{
             if(isset($_POST['EndDate']) &&  $_POST['EndDate'] != 'unlimited'){
@@ -54,7 +54,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
                 
                 if($dateStatic <= 0){ // ajouter la contraint dateF > dateD
                     $dateStatic = 0;
-                    $msg = "il faut choisir la date de fin de location après la date de début";
+                    $msg = "il faut que la date de fin de location soit postérieure à la date de début de location";
                 }
                 else{
                     $prixTotal = $dateStatic * $voiture['valeurParJour'];
