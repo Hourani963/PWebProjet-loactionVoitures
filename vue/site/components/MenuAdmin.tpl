@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
   <html>
     <head>
     <link href="./vue/styleCSS/components/Menu.css" rel="stylesheet">
