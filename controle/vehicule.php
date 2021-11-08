@@ -47,7 +47,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
             $msg = "il faut que la date de début soit à partir d'aujourd'hui";
         }
         else{
-            if(isset($_POST['EndDate']) &&  $_POST['EndDate'] != ''){
+            if(isset($_POST['EndDate']) &&  $_POST['EndDate'] != 'unlimited'){
             
                 $dateF[$id_vehi] = $_POST['EndDate'];
                 $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
@@ -63,7 +63,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
                 //var_dump ($voiture[0]); die;
             }
             else{
-                $dateF[$id_vehi]='';
+                $dateF[$id_vehi]='unlimited';
                 $prixTotal = 30 * $voiture['valeurParJour'];
                 $dateStatic = 30;
             }

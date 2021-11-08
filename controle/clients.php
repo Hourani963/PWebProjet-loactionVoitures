@@ -285,11 +285,12 @@ function voirPanier(){
                     $id_vec = $p['id_vehi'];
                     $start_Date = $p['dated'];
                     $end_Date = $p['datef'];
-                    if($end_Date != ''){
+                    if($end_Date != 'unlimited'){
                         $r = dateDiff(strtotime($p['dated']), strtotime($p['datef']));
                     }
                     else{ // facture sur un mois
                         $r = 30;
+                        $end_Date = date('Y-m-d', strtotime('+1 month')); // un mois à partir d'aujourd'hui
                     }
                     
                     $p['valeurParJour'] = $p['valeurParJour'] * $r['day'];

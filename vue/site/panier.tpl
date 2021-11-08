@@ -26,8 +26,8 @@
 
             foreach ($panier as $p){
                 if($p!=''){
-                    if($p['datef']==''){
-                        $p['datef']='non choisie';
+                    if($p['datef']=='unlimited'){
+                        $p['datef']='unlimited';
                         $p['valeurParJour']=$p['valeurParJour']*30;
                     }else{
                         
