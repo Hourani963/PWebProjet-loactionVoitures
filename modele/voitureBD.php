@@ -20,7 +20,7 @@ function ajoutV($marque,$modele,$caract,$path, $etatL,$valeurParJour){
         else return false;
     }
     catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select ajoutV : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 
@@ -44,7 +44,7 @@ function getVoiture($id){
         }
     }
     catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getVoitures : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
     return $resultat;
@@ -139,7 +139,7 @@ function getVoituresLeftJoinFacture(){ // utiliser pour la fonction affichier to
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select 2 : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getVoituresLeftJoinFacture : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -170,7 +170,7 @@ function insertFacture($id_cli, $id_vec, $start_Date, $end_Date, $val, $state_ve
 
     }
     catch(PDOException $e){
-        echo utf8_encode("Echec de select aa: " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select inserfacture: " . $e->getMessage() . "\n");
         
         die(); // On arrête tout.
     }
@@ -193,7 +193,7 @@ function verif_base($marque,$modele){
         }
     }
     catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select verif_base : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
     if (count($resultat) != 0) {
@@ -215,7 +215,7 @@ function getAllMarque(){
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getallmarques : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -232,7 +232,7 @@ function getAllModele(){
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getAllmodeles : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -249,7 +249,7 @@ function getAllMarqueDispo(){
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getallmarquesdispo : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -267,7 +267,7 @@ function getAllModelDispo($marque){
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select getallmodelesdispo : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -285,7 +285,7 @@ function CountAllModelDispo($marque){
         return $resultat;
         
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select countallmodeldispo : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -301,7 +301,7 @@ function countVoiture(){
 
 function etatV($ide_vehi , $etatL){
     require('./modele/connectBD.php'); //$pdo est défini dans ce fichier
-    $sql="UPDATE vehicule SET  etatL = :etatL WHERE (id_vehi = :id_vehi)";
+    $sql="UPDATE vehicule SET  etatL = :etatL WHERE id_vehi = :id_vehi";
     try {
         $Smdp = $pdo->prepare($sql);
         $Smdp->bindParam(":etatL", $etatL, PDO::PARAM_STR);
@@ -309,11 +309,12 @@ function etatV($ide_vehi , $etatL){
         
         
         $Smdp->execute();
-        $resultat = $Smdp->fetchAll(PDO::FETCH_ASSOC);
-        //var_dump($resultat);die;
+        
+
+        
     }
     catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de update etatV : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -327,7 +328,7 @@ function suprV($id){
         $supr->execute();
 
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select  surpV: " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }
@@ -340,7 +341,7 @@ function revenir($id){
         $supr->execute();
 
     }catch (PDOException $e) {
-        echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de select reveni : " . $e->getMessage() . "\n");
         die(); // On arrête tout.
     }
 }

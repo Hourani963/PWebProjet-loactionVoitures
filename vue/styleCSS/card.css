@@ -43,12 +43,15 @@ body{
     padding: 4px 0 0;
     margin-top: 70px;
 }
+.supp{
+    margin-left: 30px !important;
+}
 button{
-    margin-left: 10%;
+    
     margin-bottom: 5%;
     border: 0;
     background-color: #08d;
-    border-radius: 12px;
+    border-radius: 12px !important;
     box-sizing: border-box;
     color: #eee;
     cursor: pointer;
@@ -56,7 +59,7 @@ button{
     height: 50px;
     margin-top: 10%;
     text-align: center;
-    width: 80%;
+    width: 100%;
 }
 
 div .img{
@@ -107,21 +110,24 @@ div .descPanier{
 
 
 }
-.tout .li{
+.tout li{
     list-style: none;
     padding-left: 20px;
 }
-.li{
-    margin-left: 10%;
+
+ul{
+    list-style-type: none;
 }
 .tout ul{
     display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
 }
 .descPanier ul{
     list-style: none;
 }
 .descPanier li{
-    margin-left: 15px;
+    margin-left: 25px;
     list-style-type: none;
 }
 p{

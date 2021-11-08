@@ -7,7 +7,7 @@
     </head>
     <body>
         <form action="./index.php?controle=clients&action=switchPseudo" method="post">
-            <div class="title">Changer de mot de pseudo</div>
+            <div class="title">Changer de pseudo</div>
             <h3 style="color: red; text-align: center;"><?php echo $msg ?></h3>
             <div class="SwitchPseudo">
                 <div class="input-container">
