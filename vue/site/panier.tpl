@@ -16,8 +16,8 @@
         echo("<li>Marque :</li>");
         echo("<li>Modele :</li>");
         echo("<li>Caracteristique :</li>");
-        echo("<li>DATE DE FIN : </li>");
         echo("<li>DATE DE DEBUT : </li>");
+        echo("<li>DATE DE FIN : </li>");
         echo("<li>Prix : </li>");
         echo("</ul>");
         $vide=true;
