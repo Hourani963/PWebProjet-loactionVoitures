@@ -13,7 +13,7 @@
         <div class="input-container">
             <label for="idU" class="placeholder">Afficher Facture  : </label>
             <select id="Modele" name="idU" class="input" required>
-                <option value="All" selected="selected">Toute les factures</option>
+                <option value="All" selected="selected">Toutes les factures</option>
 
                 <?php
                          foreach($Client as $c){

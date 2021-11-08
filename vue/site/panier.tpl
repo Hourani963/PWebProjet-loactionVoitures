@@ -26,6 +26,7 @@
 
             foreach ($panier as $p){
                 if($p!=''){
+                    $r=dateDiff(strtotime($p['dated']), strtotime($p['datef']));
                     if($p['datef']=='unlimited'){
                         $p['datef']='unlimited';
                         $p['valeurParJour']=$p['valeurParJour']*30;
@@ -33,7 +34,7 @@
                         
                         $p['valeurParJour']=$p['valeurParJour']* $r['day'];
                     }
-                    $r=dateDiff(strtotime($p['dated']), strtotime($p['datef']));
+                    
                     if($r['day']>30){
                         $p['valeurParJour']=$p['valeurParJour']*0.95;
                     }

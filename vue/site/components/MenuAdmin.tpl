@@ -26,7 +26,7 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureAdmin">Voir toutes les voitures</a>
                             <a class="dropdown-item" href="./index.php?controle=clients&action=touteVoitureDispoAdmin">Voir les voitures DISPONIBLES</a>
-                            <a class="dropdown-item" href="./index.php?controle=clients&action=voirVoitureLouerAdmin">Voir les voitures loué</a>
+                            <a class="dropdown-item" href="./index.php?controle=clients&action=voirVoitureLouerAdmin">Voir les voitures en location</a>
                             <a class="dropdown-item" href="./index.php?controle=vehicule&action=ajoutvoiture">Ajouter une voiture</a>
                         </div>
                     </li>
@@ -35,7 +35,7 @@
                             Facture
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item" href="./index.php?controle=clients&action=FactureAdmin">Voir les Facture</a>
+                            <a class="dropdown-item" href="./index.php?controle=clients&action=FactureAdmin">Voir les factures</a>
                             <a class="dropdown-item" href="./index.php?controle=clients&action=addFacture">Ajouter une facture</a>
                         </div>
                     </li>
