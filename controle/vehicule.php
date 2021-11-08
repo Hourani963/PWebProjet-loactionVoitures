@@ -47,7 +47,7 @@ function louerVoitureAbon(){  // le client choisi la date ici
             $msg = "il faut que la date de début de location soit postérieure à aujourd'hui";
         }
         else{
-            if(isset($_POST['EndDate']) &&  $_POST['EndDate'] != 'unlimited'){
+            if(isset($_POST['EndDate']) &&  $_POST['EndDate'] != 'unlimited'&&  $_POST['EndDate'] != ''){
             
                 $dateF[$id_vehi] = $_POST['EndDate'];
                 $dateStatic = ((strtotime($dateF[$id_vehi]) - strtotime($dateD[$id_vehi])) / (60 * 60 * 24));// la périod de location
