@@ -287,19 +287,25 @@ function voirPanier(){
                     $end_Date = $p['datef'];
                     if($end_Date != 'unlimited'){
                         $r = dateDiff(strtotime($p['dated']), strtotime($p['datef']));
+                        $p['valeurParJour'] = $p['valeurParJour'] * $r['day'];
+                        if ($r['day'] > 30) {
+                            $p['valeurParJour'] = $p['valeurParJour'] * 0.95;
+                        }
+                        $val = $p['valeurParJour'];
+                        
                     }
                     else{ // facture sur un mois
                         $r = 30;
                         $end_Date = date('Y-m-d', strtotime('+1 month')); // un mois à partir d'aujourd'hui
-                    }
-                    
-                    $p['valeurParJour'] = $p['valeurParJour'] * $r['day'];
-                    if ($r['day'] > 30) {
+                        $p['valeurParJour'] = $p['valeurParJour'] * $r;
+                        
                         $p['valeurParJour'] = $p['valeurParJour'] * 0.95;
+                        
+                        $val = $p['valeurParJour'];
                     }
-                    $val = $p['valeurParJour'];
-                    $state = 1; //réglement fait
                     
+                    
+                    $state = 1; //réglement fait
                     insertFacture($id, $id_vec, $start_Date, $end_Date, $val, $state);
                     etatV($id_vec, "Louer");
                     $_SESSION["nbV"] = 0;
